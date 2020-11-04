@@ -1,4 +1,4 @@
-package be.technifutur.java2020.gestionstage.roles;
+package be.technifutur.java2020.gestionstage.menusroles;
 
 public class Secretaire implements Gestionnaires {
 
