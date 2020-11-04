@@ -23,7 +23,7 @@ public class StageCtrl {
             System.out.println("Création de la date de début du stage :");
             System.out.println("Insérez la date (format YYYY-MM-DDTHH:MM)");
             data = new Scanner(System.in).nextLine();
-            Pattern p = Pattern.compile("(20[2-9][0-9])-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([0-1][0-9]|2[0-3]):([0-5][0-9])");
+            Pattern p = Pattern.compile("([0-9][0-9][0-9][0-9])-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([0-1][0-9]|2[0-3]):([0-5][0-9])");
             Matcher m = p.matcher(data);
             boolean ok = m.matches();
             while(!ok){
