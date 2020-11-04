@@ -1,5 +1,7 @@
 package be.technifutur.java2020.gestionstage.roles;
 
+import be.technifutur.java2020.gestionstage.Stage;
+
 import java.util.Scanner;
 
 public class Organisateur implements Gestionnaires {
@@ -23,8 +25,9 @@ public class Organisateur implements Gestionnaires {
             if (choice < (choix.length) && choice >= 1) {
                 switch (choice) {
                     case 1:
-                        
+                        Stage stage = new Stage();
                         System.out.println("Création de stage :");
+                        stage.add();
                         break;
                     case 2:
                         System.out.println("Fonctionnalité à venir, soyez patients ;)");
