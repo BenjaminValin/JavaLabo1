@@ -2,6 +2,7 @@ package be.technifutur.java2020.gestionstage.roles;
 
 import be.technifutur.java2020.gestionstage.ListeStage;
 import be.technifutur.java2020.gestionstage.Stage;
+import be.technifutur.java2020.gestionstage.StageCtrl;
 
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ public class Organisateur implements Gestionnaires {
     public void menu() {
         String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)"};
         Scanner scan = new Scanner(System.in);
+        StageCtrl ctrl = new StageCtrl();
         ListeStage liste = new ListeStage();
         int input, number;
         menuOrganisateur(choix);
@@ -27,7 +29,7 @@ public class Organisateur implements Gestionnaires {
                 switch (choice) {
                     case 1:
                         System.out.println("***" + choix[0] + "***");
-                        liste.addStage();
+                        ctrl.addStage();
                         break;
                     case 2:
                         System.out.println("***" + choix[1] + "***");
