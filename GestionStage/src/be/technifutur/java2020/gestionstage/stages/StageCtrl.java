@@ -1,4 +1,6 @@
-package be.technifutur.java2020.gestionstage;
+package be.technifutur.java2020.gestionstage.stages;
+
+import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;

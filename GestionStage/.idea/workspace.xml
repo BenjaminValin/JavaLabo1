@@ -26,9 +26,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0c08bb5b-c993-43f4-9ccc-2817b718eca8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/ListeStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/ListeStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Stage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/roles/Organisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/roles/Organisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/ListeStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/stages/ListeStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/stages/Stage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/StageCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/stages/StageCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/StageVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/stages/StageVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusorganisateur/MenuStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusorganisateur/MenuStage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +66,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="be.technifutur.java2020.gestionstage.stages" />
       <recent name="be.technifutur.java2020.gestionstage.roles" />
     </key>
   </component>
@@ -73,7 +76,7 @@
       <module name="GestionStage" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="be.technifutur.java2020.gestionstage.roles.*" />
+          <option name="PATTERN" value="be.technifutur.java2020.gestionstage.menusroles.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,18 +113,18 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1604497048348">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1604500149687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604497048348" />
-    <state x="691" y="532" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1604481497045">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604500149687" />
+    <state x="691" y="532" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1604499154662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="691" y="532" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604481497045" />
-    <state x="739" y="647" width="469" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604481500554">
+    <state x="691" y="532" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604499154662" />
+    <state x="739" y="647" width="477" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604499156300">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="647" width="469" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1604481500554" />
+    <state x="739" y="647" width="477" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1604499156300" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604483710721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
