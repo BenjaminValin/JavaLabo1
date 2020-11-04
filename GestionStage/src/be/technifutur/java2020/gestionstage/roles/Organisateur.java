@@ -18,7 +18,6 @@ public class Organisateur implements Gestionnaires {
         String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)"};
         Scanner scan = new Scanner(System.in);
         StageCtrl ctrl = new StageCtrl();
-        ListeStage liste = new ListeStage();
         int input, number;
         menuOrganisateur(choix);
 
@@ -37,15 +36,15 @@ public class Organisateur implements Gestionnaires {
                         System.out.println("Quel stage voulez-vous consulter ?");
                         System.out.println("Insérez le numéro du stage :");
                         number = scan.nextInt();
-                        liste.consultStage(number);
+                        ctrl.consultStage(number);
                         break;
                     case 3:
                         System.out.println("***" + choix[2] + "***");
                         System.out.println("Voici les stages déjà encodés :");
-                        liste.getListeStages();
+                        ctrl.getStageList();
                         System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
                         number = scan.nextInt();
-                        liste.removeStage(number);
+                        ctrl.removeStage(number);
                         break;
                     case 4:
                         System.out.println("A venir");

@@ -3,13 +3,11 @@ package be.technifutur.java2020.gestionstage;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class ListeStage {
 
-    static Map<Integer, Stage> listeStages = new HashMap<>();
-    Stage stage = new Stage();
-    FonctionsUtiles util = new FonctionsUtiles();
+    public static Map<Integer, Stage> listeStages = new HashMap<>();
+    private Stage stage = new Stage();
 
 
     public void addStage(String data, LocalDateTime dateDebut, LocalDateTime dateFin) {
@@ -32,7 +30,7 @@ public class ListeStage {
         listeStages.remove(key);
     }
 
-    public void getListeStages(){
+    public void getStageList(){
         for(Map.Entry map : listeStages.entrySet()){
             System.out.println("Stage : " + map);
         }

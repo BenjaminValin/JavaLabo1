@@ -34,4 +34,15 @@ public class StageCtrl {
         liste.addStage(data, dateDebut, dateFin);
     }
 
+    public void consultStage(int key) {
+        liste.consultStage(key);
+    }
+
+    public void removeStage(int key) {
+        liste.removeStage(key);
+    }
+
+    public void getStageList() {
+        liste.getStageList();
+    }
 }
