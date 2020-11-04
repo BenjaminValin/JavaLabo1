@@ -1,4 +1,4 @@
-package be.technifutur.java2020.gestionstage;
+package be.technifutur.java2020.gestionstage.roles;
 
 import java.util.Scanner;
 

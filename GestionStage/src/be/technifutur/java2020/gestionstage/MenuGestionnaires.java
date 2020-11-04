@@ -1,5 +1,7 @@
 package be.technifutur.java2020.gestionstage;
 
+import be.technifutur.java2020.gestionstage.roles.*;
+
 import java.util.Scanner;
 
 public class MenuGestionnaires {
