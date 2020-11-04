@@ -8,4 +8,9 @@ public class Stagiaire implements Gestionnaires {
     public String getName() {
         return name;
     }
+
+    @Override
+    public void menu() {
+
+    }
 }

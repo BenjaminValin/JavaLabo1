@@ -5,7 +5,13 @@ import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
 
 import java.util.Scanner;
 
-public class MenuActivite {
+public class MenuActivite implements MenusOrga {
+
+    @Override
+    public String getName() {
+        String name = "Menu des activités";
+        return name;
+    }
 
     public void menu() {
         String[] choix = new String[]{"Création d'activité", "Consultation des activités", "Suppression d'une activité", "Modification d'une activité (a venir)"};
@@ -46,7 +52,7 @@ public class MenuActivite {
             menuActivite(choix);
             input = scan.nextInt();
         }
-        System.out.println("Retour au menu des gestionnaires");
+        System.out.println("Retour au menu des organisateurs");
 
     }
 

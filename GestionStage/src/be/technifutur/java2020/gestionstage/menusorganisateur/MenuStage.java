@@ -5,7 +5,14 @@ import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
 import java.util.Scanner;
 
-public class MenuStage {
+public class MenuStage implements MenusOrga {
+
+
+    @Override
+    public String getName() {
+        String name = "Menu des stages";
+        return name;
+    }
 
     public void menu() {
         String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)"};
@@ -46,18 +53,18 @@ public class MenuStage {
             menuStage(choix);
             input = scan.nextInt();
         }
-        System.out.println("Retour au menu des gestionnaires");
+        System.out.println("Retour au menu des organisateurs");
 
     }
 
-    private static void menuStage(String[] choix) {
+    private static void menuStage(String[] menu) {
         System.out.println();
         System.out.println("***Menu des stages***");
         System.out.println("Que souhaitez-vous faire ?");
         System.out.println("Entrez le nombre correspondant au choix souhaité : ");
         System.out.println();
-        for (int i = 0; i < choix.length; i++) {
-            System.out.printf(" - %d : %s%n", i + 1, choix[i]);
+        for (int i = 0; i < menu.length; i++) {
+            System.out.printf(" - %d : %s%n", i + 1, menu[i]);
         }
         System.out.printf(" - %s : %s%n", "0", "Quitter");
         System.out.println();
