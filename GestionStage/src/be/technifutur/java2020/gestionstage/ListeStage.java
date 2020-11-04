@@ -48,4 +48,13 @@ public class ListeStage {
         System.out.println(consult.toString());
     }
 
+    public void removeStage(int key){
+        listeStages.remove(key);
+    }
+
+    public void getListeStages(){
+        for(Map.Entry map : listeStages.entrySet()){
+            System.out.println("Stage : " + map);
+        }
+    }
 }

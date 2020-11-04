@@ -14,10 +14,10 @@ public class Organisateur implements Gestionnaires {
     }
 
     public void menu() {
-        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Option à implémenter"};
+        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)"};
         Scanner scan = new Scanner(System.in);
         ListeStage liste = new ListeStage();
-        int input;
+        int input, number;
         menuOrganisateur(choix);
 
         input = scan.nextInt();
@@ -34,8 +34,19 @@ public class Organisateur implements Gestionnaires {
                         System.out.println("Stages déjà encodés : " + Stage.stagesCrees);
                         System.out.println("Quel stage voulez-vous consulter ?");
                         System.out.println("Insérez le numéro du stage :");
-                        int number = scan.nextInt();
+                        number = scan.nextInt();
                         liste.consultStage(number);
+                        break;
+                    case 3:
+                        System.out.println("***" + choix[2] + "***");
+                        System.out.println("Voici les stages déjà encodés :");
+                        liste.getListeStages();
+                        System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
+                        number = scan.nextInt();
+                        liste.removeStage(number);
+                        break;
+                    case 4:
+                        System.out.println("A venir");
                         break;
                 }
             } else {
