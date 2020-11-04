@@ -27,11 +27,12 @@ public class Organisateur implements Gestionnaires {
                 switch (choice) {
                     case 1:
                         StageCtrl ctrl = new StageCtrl();
-                        System.out.println("Création de stage :");
+                        System.out.println("***" + choix[0] + "***");
                         ctrl.addStage();
+                        ctrl.toString();
                         break;
                     case 2:
-                        System.out.println("Fonctionnalité à venir, soyez patients ;)");
+                        System.out.println("***" + choix[1] + "***");
                         break;
                 }
             } else {

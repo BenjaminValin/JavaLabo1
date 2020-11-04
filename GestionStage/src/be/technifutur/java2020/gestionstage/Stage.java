@@ -1,12 +1,14 @@
 package be.technifutur.java2020.gestionstage;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Stage {
 
     private String nomStage;
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
+    public static int stagesCrees = 0;
 
     public String getNomStage() {
         return nomStage;
@@ -32,4 +34,27 @@ public class Stage {
         this.dateFin = dateFin;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stage stage = (Stage) o;
+        return Objects.equals(nomStage, stage.nomStage) &&
+                Objects.equals(dateDebut, stage.dateDebut) &&
+                Objects.equals(dateFin, stage.dateFin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomStage, dateDebut, dateFin);
+    }
+
+    @Override
+    public String toString() {
+        return "Stage{" +
+                "nomStage='" + nomStage + '\'' +
+                ", dateDebut=" + dateDebut +
+                ", dateFin=" + dateFin +
+                '}';
+    }
 }

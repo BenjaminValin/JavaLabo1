@@ -1,13 +1,17 @@
 package be.technifutur.java2020.gestionstage;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StageCtrl {
 
+    static Map<Integer, Stage> listeStages = new HashMap<>();
     Stage stage = new Stage();
+
 
     public void addStage() {
         String data;
@@ -46,10 +50,16 @@ public class StageCtrl {
             }
             dateFin = dateFin.parse(data);
             if (dateDebut.compareTo(dateFin) > 0) {
-                System.out.println("La date de fin arrive avant la date de début");
+                System.out.println("La date de fin arrive avant la date de début. Veuillez recommencer :");
+            } else if (dateDebut.compareTo(dateFin) == 0) {
+                System.out.println("Les deux dates sont exactement les mêmes. Veuillez recommencer :");
             } else {
                 datesOK = true;
             }
+            stage.setDateDebut(dateDebut);
+            stage.setDateFin(dateFin);
+            Stage.stagesCrees++;
+            listeStages.put(Stage.stagesCrees,stage);
         }
     }
 
