@@ -10,10 +10,33 @@ public class MenuGestionnaires {
                 new Organisateur()
         };
         Scanner scan = new Scanner(System.in);
-        int input = scan.nextInt();
+        int input;
         menuChoixParticipant(menu);
 
-
+        input = scan.nextInt();
+        while (input != 0) {
+            int choice = input;
+            if (choice < (menu.length) && choice >= 1) {
+                switch (choice) {
+                    case 1:
+                        System.out.println("Je suis un organisateur");
+                        break;
+                    case 2:
+                        System.out.println("Fonctionnalité à venir, soyez patients ;)");
+                        break;
+                    case 3:
+                        System.out.println("Fonctionnalité à venir, soyez patients ;)");
+                        break;
+                    case 4:
+                        System.out.println("Fonctionnalité à venir, soyez patients ;)");
+                        break;
+                }
+            } else {
+                System.out.println("Choix impossible");
+            }
+            menuChoixParticipant(menu);
+            input = scan.nextInt();
+        }
     }
 
     private static void menuChoixParticipant(Gestionnaires[] menu) {
