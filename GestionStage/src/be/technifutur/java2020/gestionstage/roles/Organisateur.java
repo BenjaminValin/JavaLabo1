@@ -23,6 +23,7 @@ public class Organisateur implements Gestionnaires {
             if (choice < (choix.length) && choice >= 1) {
                 switch (choice) {
                     case 1:
+                        
                         System.out.println("Création de stage :");
                         break;
                     case 2:
