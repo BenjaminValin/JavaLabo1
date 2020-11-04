@@ -4,7 +4,7 @@ import be.technifutur.java2020.gestionstage.menusroles.*;
 
 import java.util.Scanner;
 
-public class MenuGestionnaires {
+public class MenuPrincipal {
 
     public void start(){
 
@@ -17,13 +17,12 @@ public class MenuGestionnaires {
 
         input = scan.nextInt();
         while (input != 0) {
-            int choice = input;
-            if (choice < (menu.length) && choice >= 1) {
-                switch (choice) {
+            if (input < (menu.length) && input >= 1) {
+                int choice = input-1;
+                switch (input) {
                     case 1:
-                        Organisateur orga = new Organisateur();
                         System.out.println("Entrée dans le menu des organisateurs :");
-                        orga.menu();
+                        menu[choice].menu();
                         break;
                     case 2:
                         System.out.println("Fonctionnalité à venir, soyez patients ;)");

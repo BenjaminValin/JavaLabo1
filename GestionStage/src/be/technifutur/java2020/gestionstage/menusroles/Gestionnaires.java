@@ -4,4 +4,5 @@ public interface Gestionnaires {
 
     public String getName();
 
+    public abstract void menu();
 }
