@@ -7,7 +7,7 @@ public class MenuGestionnaires {
     public void start(){
 
         Gestionnaires[] menu = new Gestionnaires[]{
-                new Organisateur()
+                new Organisateur(), new Tresorier(), new Secretaire(), new Stagiaire()
         };
         Scanner scan = new Scanner(System.in);
         int input;
@@ -19,7 +19,7 @@ public class MenuGestionnaires {
             if (choice < (menu.length) && choice >= 1) {
                 switch (choice) {
                     case 1:
-                        System.out.println("Je suis un organisateur");
+                        System.out.println("Entrée dans le menu des organisateurs :");
                         break;
                     case 2:
                         System.out.println("Fonctionnalité à venir, soyez patients ;)");
@@ -37,6 +37,7 @@ public class MenuGestionnaires {
             menuChoixParticipant(menu);
             input = scan.nextInt();
         }
+        System.out.println("Bonne journée !");
     }
 
     private static void menuChoixParticipant(Gestionnaires[] menu) {
