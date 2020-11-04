@@ -8,7 +8,8 @@ public class Stage {
     private String nomStage;
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
-    public static int stagesCrees = 0;
+    public static int StageKey = 0;
+    public static int StagesCreated = 0;
 
     public String getNomStage() {
         return nomStage;

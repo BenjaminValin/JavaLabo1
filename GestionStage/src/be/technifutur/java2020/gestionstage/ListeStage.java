@@ -15,8 +15,9 @@ public class ListeStage {
         stage.setNomStage(data);
         stage.setDateDebut(dateDebut);
         stage.setDateFin(dateFin);
-        Stage.stagesCrees++;
-        listeStages.put(Stage.stagesCrees,stage);
+        Stage.StagesCreated++;
+        Stage.StageKey++;
+        listeStages.put(Stage.StageKey,stage);
 
     }
 
@@ -28,6 +29,7 @@ public class ListeStage {
 
     public void removeStage(int key){
         listeStages.remove(key);
+        Stage.StagesCreated--;
     }
 
     public void getStageList(){

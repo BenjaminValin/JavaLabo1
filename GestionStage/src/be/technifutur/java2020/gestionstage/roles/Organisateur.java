@@ -1,6 +1,5 @@
 package be.technifutur.java2020.gestionstage.roles;
 
-import be.technifutur.java2020.gestionstage.ListeStage;
 import be.technifutur.java2020.gestionstage.Stage;
 import be.technifutur.java2020.gestionstage.StageCtrl;
 
@@ -32,11 +31,8 @@ public class Organisateur implements Gestionnaires {
                         break;
                     case 2:
                         System.out.println("***" + choix[1] + "***");
-                        System.out.println("Stages déjà encodés : " + Stage.stagesCrees);
-                        System.out.println("Quel stage voulez-vous consulter ?");
-                        System.out.println("Insérez le numéro du stage :");
-                        number = scan.nextInt();
-                        ctrl.consultStage(number);
+                        System.out.println("Stages déjà encodés : " + Stage.StagesCreated);
+                        ctrl.getStageList();
                         break;
                     case 3:
                         System.out.println("***" + choix[2] + "***");
