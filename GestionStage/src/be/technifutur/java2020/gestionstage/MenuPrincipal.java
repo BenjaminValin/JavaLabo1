@@ -56,4 +56,5 @@ public class MenuPrincipal {
         System.out.println();
         System.out.print("Faites votre choix : ");
     }
+
 }

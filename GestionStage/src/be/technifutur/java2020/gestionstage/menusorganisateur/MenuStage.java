@@ -1,11 +1,19 @@
 package be.technifutur.java2020.gestionstage.menusorganisateur;
 
+import be.technifutur.java2020.gestionstage.activites.Activite;
+import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
 import be.technifutur.java2020.gestionstage.stages.Stage;
 import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
 import java.util.Scanner;
 
 public class MenuStage implements MenusOrga {
+
+    /*private StageCtrl ctrl;
+
+    public void setStageCtrl(StageCtrl ctrl){
+        this.ctrl = ctrl;
+    }*/
 
 
     @Override

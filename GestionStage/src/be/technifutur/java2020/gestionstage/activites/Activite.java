@@ -39,9 +39,7 @@ public class Activite {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Activite activite = (Activite) o;
-        return dureeActivite == activite.dureeActivite &&
-                Objects.equals(nomActivite, activite.nomActivite) &&
-                Objects.equals(dateDebut, activite.dateDebut);
+        return Objects.equals(nomActivite, activite.nomActivite);
     }
 
     @Override
