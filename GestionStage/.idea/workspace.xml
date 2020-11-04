@@ -24,7 +24,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c08bb5b-c993-43f4-9ccc-2817b718eca8" name="Default Changelist" comment="" />
+    <list default="true" id="0c08bb5b-c993-43f4-9ccc-2817b718eca8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionStage/be/technifutur/java2020/gestionstage/Gestionnaires.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionStage/be/technifutur/java2020/gestionstage/MenuGestionnaires.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionStage/be/technifutur/java2020/gestionstage/MenuGestionnaires.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionStage/be/technifutur/java2020/gestionstage/Organisateur.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionStage/be/technifutur/java2020/gestionstage/Secretaire.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionStage/be/technifutur/java2020/gestionstage/Stagiaire.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionStage/be/technifutur/java2020/gestionstage/Tresorier.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +64,11 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="be.technifutur.java2020.gestionstage.roles" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -100,10 +113,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1604479781462">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1604483039783">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604479781462" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604483039783" />
     <state x="691" y="532" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1604481497045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -112,22 +125,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="647" width="469" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1604481500554" />
-    <state width="1860" height="282" key="GridCell.Tab.0.bottom" timestamp="1604480607931">
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1604481933647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604480607931" />
-    <state width="1860" height="282" key="GridCell.Tab.0.center" timestamp="1604480607931">
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604481933647" />
+    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1604481933647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604480607931" />
-    <state width="1860" height="282" key="GridCell.Tab.0.left" timestamp="1604480607931">
+    <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604481933647" />
+    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1604481933647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604480607931" />
-    <state width="1860" height="282" key="GridCell.Tab.0.right" timestamp="1604480607931">
+    <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604481933647" />
+    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1604481933647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604480607931" />
+    <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604481933647" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1604480324806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
