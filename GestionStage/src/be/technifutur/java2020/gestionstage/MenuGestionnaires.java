@@ -19,7 +19,9 @@ public class MenuGestionnaires {
             if (choice < (menu.length) && choice >= 1) {
                 switch (choice) {
                     case 1:
+                        Organisateur orga = new Organisateur();
                         System.out.println("Entrée dans le menu des organisateurs :");
+                        orga.menu();
                         break;
                     case 2:
                         System.out.println("Fonctionnalité à venir, soyez patients ;)");
