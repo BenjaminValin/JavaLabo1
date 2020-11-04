@@ -1,5 +1,6 @@
 package be.technifutur.java2020.gestionstage.menusroles;
 
+import be.technifutur.java2020.gestionstage.menusorganisateur.MenuActivite;
 import be.technifutur.java2020.gestionstage.menusorganisateur.MenuStage;
 
 import java.util.Scanner;
@@ -15,7 +16,6 @@ public class Organisateur implements Gestionnaires {
     public void menu() {
         String[] choix = new String[]{"Stages", "Activités", "(a venir)"};
         Scanner scan = new Scanner(System.in);
-        MenuStage menustage = new MenuStage();
         int input;
         menuOrganisateur(choix);
 
@@ -25,11 +25,14 @@ public class Organisateur implements Gestionnaires {
             if (choice < (choix.length) && choice >= 1) {
                 switch (choice) {
                     case 1:
+                        MenuStage menustage = new MenuStage();
                         System.out.println("***" + choix[0] + "***");
                         menustage.menu();
                         break;
                     case 2:
+                        MenuActivite menuact = new MenuActivite();
                         System.out.println("***" + choix[1] + "***");
+                        menuact.menu();
                         break;
                     case 3:
                         System.out.println("***" + choix[2] + "***");

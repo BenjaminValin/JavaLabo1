@@ -48,4 +48,9 @@ public class Activite {
     public int hashCode() {
         return Objects.hash(nomActivite, dateDebut, dureeActivite);
     }
+
+    @Override
+    public String toString() {
+        return " Nom de l'activité = " + nomActivite + ", date de début = " + dateDebut + ", durée de l'activité = " + dureeActivite;
+    }
 }
