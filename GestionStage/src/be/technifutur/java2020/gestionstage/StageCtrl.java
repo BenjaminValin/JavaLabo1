@@ -67,4 +67,10 @@ public class StageCtrl {
         }
     }
 
+    public void consultStage(int key){
+        Stage consult;
+        consult = listeStages.get(key);
+        System.out.println(consult.toString());
+    }
+
 }

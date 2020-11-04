@@ -51,10 +51,10 @@ public class Stage {
 
     @Override
     public String toString() {
-        return "Stage{" +
-                "nomStage='" + nomStage + '\'' +
-                ", dateDebut=" + dateDebut +
-                ", dateFin=" + dateFin +
+        return "Stage :" +
+                "nom du stage : " + nomStage + '\'' +
+                ", date de début : " + dateDebut +
+                ", date de fin : " + dateFin +
                 '}';
     }
 }

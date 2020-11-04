@@ -15,8 +15,9 @@ public class Organisateur implements Gestionnaires {
     }
 
     public void menu() {
-        String[] choix = new String[]{"Création de stage", "Consultation de stage"};
+        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Option à implémenter"};
         Scanner scan = new Scanner(System.in);
+        StageCtrl ctrl = new StageCtrl();
         int input;
         menuOrganisateur(choix);
 
@@ -26,13 +27,15 @@ public class Organisateur implements Gestionnaires {
             if (choice < (choix.length) && choice >= 1) {
                 switch (choice) {
                     case 1:
-                        StageCtrl ctrl = new StageCtrl();
                         System.out.println("***" + choix[0] + "***");
                         ctrl.addStage();
-                        ctrl.toString();
                         break;
                     case 2:
                         System.out.println("***" + choix[1] + "***");
+                        System.out.println("Quel stage voulez-vous consulter ?");
+                        System.out.println("Insérez le numéro du stage :");
+                        int number = scan.nextInt();
+                        ctrl.consultStage(number);
                         break;
                 }
             } else {
