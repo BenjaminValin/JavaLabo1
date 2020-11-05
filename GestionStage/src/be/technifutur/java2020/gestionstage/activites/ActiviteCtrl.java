@@ -1,7 +1,6 @@
 package be.technifutur.java2020.gestionstage.activites;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.stages.ListeStage;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -36,5 +35,13 @@ public class ActiviteCtrl {
 
     public void getList() {
         liste.getList();
+    }
+
+    public void setListeActivites(ListeActivite listeActivite) {
+        this.liste = listeActivite;
+    }
+
+    public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
+        this.util = fonctionsUtiles;
     }
 }

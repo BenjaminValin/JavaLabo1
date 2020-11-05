@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class StageCtrl {
 
-    ListeStage liste = new ListeStage();
-    FonctionsUtiles util = new FonctionsUtiles();
+    private ListeStage liste;
+    private FonctionsUtiles util;
 
     public void add() {
 
@@ -64,5 +64,13 @@ public class StageCtrl {
     public void deleteLink() {
         System.out.println("Voici la liste des stages :");
         getList();
+    }
+
+    public void setListeStage(ListeStage listeStage) {
+        this.liste = listeStage;
+    }
+
+    public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
+        this.util = fonctionsUtiles;
     }
 }

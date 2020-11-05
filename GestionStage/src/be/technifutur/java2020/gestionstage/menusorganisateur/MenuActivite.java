@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class MenuActivite implements MenusOrga {
 
+    private ActiviteCtrl ctrl;
+
     @Override
     public String getName() {
         String name = "Menu des activités";
@@ -16,7 +18,6 @@ public class MenuActivite implements MenusOrga {
     public void menu() {
         String[] choix = new String[]{"Création d'activité", "Consultation des activités", "Suppression d'une activité", "Modification d'une activité (a venir)"};
         Scanner scan = new Scanner(System.in);
-        ActiviteCtrl ctrl = new ActiviteCtrl();
         int input, number;
         menuActivite(choix);
 
@@ -31,14 +32,14 @@ public class MenuActivite implements MenusOrga {
                         break;
                     case 2:
                         System.out.println("***" + choix[1] + "***");
-                        System.out.println("Stages déjà encodés : " + Activite.ActivitiesCreated);
+                        System.out.println("Activités déjà encodées : " + Activite.ActivitiesCreated);
                         ctrl.getList();
                         break;
                     case 3:
                         System.out.println("***" + choix[2] + "***");
-                        System.out.println("Voici les stages déjà encodés :");
+                        System.out.println("Voici les activités déjà encodées :");
                         ctrl.getList();
-                        System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
+                        System.out.println("Quel est le numéro de l'activité que vous voulez retirer ?");
                         number = scan.nextInt();
                         ctrl.remove(number);
                         break;
@@ -68,5 +69,9 @@ public class MenuActivite implements MenusOrga {
         System.out.printf(" - %s : %s%n", "0", "Quitter");
         System.out.println();
         System.out.print("Faites votre choix : ");
+    }
+
+    public void setActiviteCtrl(ActiviteCtrl activiteCtrl) {
+        this.ctrl = activiteCtrl;
     }
 }
