@@ -11,7 +11,7 @@ public class StageCtrl {
     ListeStage liste = new ListeStage();
     FonctionsUtiles util = new FonctionsUtiles();
 
-    public void addStage() {
+    public void add() {
 
         boolean datesOK = false;
         LocalDateTime dateDebut = null;
@@ -34,28 +34,30 @@ public class StageCtrl {
                 datesOK = true;
             }
         }
-        liste.addStage(data, dateDebut, dateFin);
+        liste.add(data, dateDebut, dateFin);
     }
 
-    public void consultStage(int key) {
-        liste.consultStage(key);
+    public void consult(int key) {
+        liste.consult(key);
     }
 
-    public void removeStage(int key) {
-        liste.removeStage(key);
+    public void remove(int key) {
+        liste.remove(key);
     }
 
-    public void getStageList() {
-        liste.getStageList();
+    public void getList() {
+        liste.getList();
     }
 
     public void addLink() {
         System.out.println("Voici la liste des stages :");
-        getStageList();
+        getList();
         System.out.println("Voici la liste des activités :");
-        ListeActivite.getActivitiesList();
+        ListeActivite.getList();
     }
 
     public void deleteLink() {
+        System.out.println("Voici la liste des stages :");
+        getList();
     }
 }

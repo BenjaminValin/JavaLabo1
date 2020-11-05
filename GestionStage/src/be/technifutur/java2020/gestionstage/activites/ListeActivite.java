@@ -8,7 +8,7 @@ public class ListeActivite {
 
     public static Map<Integer, Activite> listeActivites = new HashMap<>();
 
-    public void addActivity(String data, LocalDateTime dateDebut, int duree) {
+    public void add(String data, LocalDateTime dateDebut, int duree) {
 
         Activite activite = new Activite();
         activite.setNomActivite(data);
@@ -19,18 +19,18 @@ public class ListeActivite {
 
     }
 
-    public void consultActivity(int key){
+    public void consult(int key){
         Activite consult;
         consult = listeActivites.get(key);
         System.out.println(consult.toString());
     }
 
-    public void removeActivity(int key){
+    public void remove(int key){
         listeActivites.remove(key);
         Activite.ActivitiesCreated++;
     }
 
-    public static void getActivitiesList(){
+    public static void getList(){
         for(Map.Entry map : listeActivites.entrySet()){
             System.out.println("Activité : " + map);
         }

@@ -8,7 +8,7 @@ public class ListeStage {
 
     public static Map<Integer, Stage> listeStages = new HashMap<>();
 
-    public void addStage(String data, LocalDateTime dateDebut, LocalDateTime dateFin) {
+    public void add(String data, LocalDateTime dateDebut, LocalDateTime dateFin) {
 
         Stage stage = new Stage();
         stage.setNomStage(data);
@@ -20,18 +20,18 @@ public class ListeStage {
 
     }
 
-    public void consultStage(int key){
+    public void consult(int key){
         Stage consult;
         consult = listeStages.get(key);
         System.out.println(consult.toString());
     }
 
-    public void removeStage(int key){
+    public void remove(int key){
         listeStages.remove(key);
         Stage.StagesCreated--;
     }
 
-    public void getStageList(){
+    public void getList(){
         for(Map.Entry map : listeStages.entrySet()){
             System.out.println("Stage : " + map);
         }

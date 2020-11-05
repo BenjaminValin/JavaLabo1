@@ -11,7 +11,7 @@ public class ActiviteCtrl {
     ListeActivite liste = new ListeActivite();
     FonctionsUtiles util = new FonctionsUtiles();
 
-    public void addActivity() {
+    public void add() {
 
         boolean datesOK = false;
         LocalDateTime dateDebut = null;
@@ -23,18 +23,18 @@ public class ActiviteCtrl {
         dateDebut = util.saisieDate();
         System.out.println("Insérez la durée de l'activité (en minutes) :");
         duree = new Scanner(System.in).nextInt();
-        liste.addActivity(data, dateDebut, duree);
+        liste.add(data, dateDebut, duree);
     }
 
-    public void consultActivity(int key) {
-        liste.consultActivity(key);
+    public void consult(int key) {
+        liste.consult(key);
     }
 
-    public void removeActivity(int key) {
-        liste.removeActivity(key);
+    public void remove(int key) {
+        liste.remove(key);
     }
 
-    public void getActivitiesList() {
-        liste.getActivitiesList();
+    public void getList() {
+        liste.getList();
     }
 }
