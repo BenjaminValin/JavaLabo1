@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class MenuStage implements MenusOrga {
 
-    private StageCtrl ctrl;
-    
     @Override
     public String getName() {
         String name = "Menu des stages";
@@ -18,7 +16,7 @@ public class MenuStage implements MenusOrga {
     public void menu() {
         String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)"};
         Scanner scan = new Scanner(System.in);
-        ctrl = new StageCtrl();
+        StageCtrl ctrl = new StageCtrl();
         int input, number;
         menuStage(choix);
 

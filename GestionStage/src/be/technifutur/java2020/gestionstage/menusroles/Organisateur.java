@@ -14,7 +14,7 @@ public class Organisateur implements Gestionnaires {
 
     public void menu() {
         MenusOrga[] menu = new MenusOrga[]{
-                new MenuStage(), new MenuActivite()
+                new MenuStage(), new MenuActivite(), new MenuStage()
         };
         Scanner scan = new Scanner(System.in);
         int input;

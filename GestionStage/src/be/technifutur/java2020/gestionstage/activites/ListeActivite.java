@@ -9,10 +9,10 @@ import java.util.Map;
 public class ListeActivite {
 
     public static Map<Integer, Activite> listeActivites = new HashMap<>();
-    private Activite activite = new Activite();
 
     public void addActivity(String data, LocalDateTime dateDebut, int duree) {
 
+        Activite activite = new Activite();
         activite.setNomActivite(data);
         activite.setDateDebut(dateDebut);
         activite.setDureeActivite(duree);

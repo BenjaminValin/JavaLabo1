@@ -7,17 +7,16 @@ import java.util.Map;
 public class ListeStage {
 
     public static Map<Integer, Stage> listeStages = new HashMap<>();
-    private Stage stage = new Stage();
-
 
     public void addStage(String data, LocalDateTime dateDebut, LocalDateTime dateFin) {
 
+        Stage stage = new Stage();
         stage.setNomStage(data);
         stage.setDateDebut(dateDebut);
         stage.setDateFin(dateFin);
         Stage.StagesCreated++;
         Stage.StageKey++;
-        listeStages.put(Stage.StageKey,stage);
+        listeStages.put(Stage.StagesCreated,stage);
 
     }
 

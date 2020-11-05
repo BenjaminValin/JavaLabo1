@@ -49,6 +49,6 @@ public class Activite {
 
     @Override
     public String toString() {
-        return " Nom de l'activité = " + nomActivite + ", date de début = " + dateDebut + ", durée de l'activité = " + dureeActivite;
+        return " Nom de l'activité = " + nomActivite + ", date de début = " + dateDebut + ", durée de l'activité = " + dureeActivite + " minutes";
     }
 }
