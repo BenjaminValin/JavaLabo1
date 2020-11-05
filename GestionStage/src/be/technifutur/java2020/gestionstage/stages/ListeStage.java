@@ -37,26 +37,14 @@ public class ListeStage {
     }
 
     public void getList(){
+        int i = 1;
         for(Map.Entry map : listeStages.entrySet()){
-            System.out.println("Stage : " + map);
+            System.out.println("Stage " + i + " : " + map.getValue());
+            i++;
         }
     }
 
     public void addLink(int input1, int input2) {
-        Stage stagemodif = listeStages.get(input1);
-        Activite activite = ListeActivite.listeActivites.get(input2);
-        System.out.println(stagemodif);
-        System.out.println(activite);
-        //TODO : Ajouter activité dans stage
-        //Map<Integer,Activite> map = new HashMap<>();
-        //stagemodif.setListeActivites(map);
+        listeStages.get(input1).setActivite(ListeActivite.listeActivites.get(input2));
     }
-
-    /*public void getListWithoutActivities(){
-        for(Map.Entry map : listeStages.entrySet()){
-            if (map.getValue().getActivite() == null){
-                System.out.println("Stage : " + map);
-            }
-        }
-    }*/
 }

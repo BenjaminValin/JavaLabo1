@@ -24,12 +24,12 @@ public class Test {
         return stock;
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    /*public static void main(String[] args) throws FileNotFoundException {
         System.out.println(Texte());
         System.out.println(Texte());
         System.out.println(Texte());
         System.out.println(Texte());
         System.out.println(Texte());
         System.out.println(Texte());
-    }
+    }*/
 }

@@ -74,6 +74,6 @@ public class Stage {
 
     @Override
     public String toString() {
-        return " Nom du stage : " + nomStage + ", activité du stage : " + activite + ", date de début : " + dateDebut + ", date de fin : " + dateFin + ".";
+        return " Nom du stage : " + nomStage + ", activité du stage : " + activite + ", date de début du stage : " + dateDebut + ", date de fin du stage : " + dateFin + ".";
     }
 }

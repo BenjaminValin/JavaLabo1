@@ -2,11 +2,12 @@ package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.menusroles.*;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class MenuPrincipal {
 
-    public void start(){
+    public void start() throws FileNotFoundException {
 
         Gestionnaires[] menu = new Gestionnaires[]{
                 new Organisateur(), new Tresorier(), new Secretaire(), new Stagiaire()
@@ -16,6 +17,9 @@ public class MenuPrincipal {
         menuChoixParticipant(menu);
 
         input = scan.nextInt();
+        /*input = Integer.parseInt(Test.Texte());
+        System.out.println(input);*/
+
         while (input != 0) {
             if (input < (menu.length) && input >= 1) {
                 int choice = input-1;
@@ -38,7 +42,11 @@ public class MenuPrincipal {
                 System.out.println("Choix impossible");
             }
             menuChoixParticipant(menu);
+
             input = scan.nextInt();
+            /*input = Integer.parseInt(Test.Texte());
+            System.out.println(input);*/
+
         }
         System.out.println("Bonne journée !");
     }
