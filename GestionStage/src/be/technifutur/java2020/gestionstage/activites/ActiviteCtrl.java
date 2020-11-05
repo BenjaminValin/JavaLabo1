@@ -12,9 +12,8 @@ public class ActiviteCtrl {
 
     public void add() {
 
-        boolean datesOK = false;
-        LocalDateTime dateDebut = null;
-        int duree = 0;
+        LocalDateTime dateDebut;
+        int duree;
 
         System.out.println("Insérez le nom de l'activité :");
         String data = new Scanner(System.in).nextLine();
@@ -22,6 +21,10 @@ public class ActiviteCtrl {
         dateDebut = util.saisieDate();
         System.out.println("Insérez la durée de l'activité (en minutes) :");
         duree = new Scanner(System.in).nextInt();
+        while (duree<=0){
+            System.out.println("L'activité doit au moins durer une minute... Recommencez");
+            duree = new Scanner(System.in).nextInt();
+        }
         liste.add(data, dateDebut, duree);
     }
 

@@ -13,7 +13,7 @@ public class Stage {
     private String nomStage;
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
-    private Activite activite = null;
+    //private Activite activite = null;
     private Set<Activite> activitesDuStage = new HashSet<>();
     public static int StageKey = 0;
     public static int StagesCreated = 0;
