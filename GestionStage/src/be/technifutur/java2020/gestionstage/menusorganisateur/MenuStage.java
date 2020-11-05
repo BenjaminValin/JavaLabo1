@@ -14,7 +14,7 @@ public class MenuStage implements MenusOrga {
     }
 
     public void menu() {
-        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)"};
+        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)", "Ajout d'une activité à un stage", "Suppression d'une activité d'un stage"};
         Scanner scan = new Scanner(System.in);
         StageCtrl ctrl = new StageCtrl();
         int input, number;
@@ -44,6 +44,11 @@ public class MenuStage implements MenusOrga {
                         break;
                     case 4:
                         System.out.println("A venir");
+                        break;
+                    case 5:
+                        System.out.println("Ajout d'activité");
+                        break;
+                    case 6:
                         break;
                 }
             } else {
