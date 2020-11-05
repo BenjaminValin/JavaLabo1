@@ -1,5 +1,7 @@
 package be.technifutur.java2020.gestionstage.stages;
 
+import be.technifutur.java2020.gestionstage.activites.Activite;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -8,6 +10,7 @@ public class Stage {
     private String nomStage;
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
+    private Activite activite = null;
     public static int StageKey = 0;
     public static int StagesCreated = 0;
 
@@ -33,6 +36,10 @@ public class Stage {
 
     public void setDateFin(LocalDateTime dateFin) {
         this.dateFin = dateFin;
+    }
+
+    public void setActivite(Activite activite) {
+        this.activite = activite;
     }
 
     @Override
