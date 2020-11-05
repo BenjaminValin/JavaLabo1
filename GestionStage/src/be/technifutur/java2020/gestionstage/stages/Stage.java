@@ -3,6 +3,8 @@ package be.technifutur.java2020.gestionstage.stages;
 import be.technifutur.java2020.gestionstage.activites.Activite;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Stage {
@@ -11,6 +13,7 @@ public class Stage {
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
     private Activite activite = null;
+    public Map<Integer, Activite> listeActivites = new HashMap<>();
     public static int StageKey = 0;
     public static int StagesCreated = 0;
 
@@ -40,6 +43,18 @@ public class Stage {
 
     public void setActivite(Activite activite) {
         this.activite = activite;
+    }
+
+    public Activite getActivite() {
+        return activite;
+    }
+
+    public Map<Integer, Activite> getListeActivites() {
+        return listeActivites;
+    }
+
+    public void setListeActivites(Map<Integer, Activite> listeActivites) {
+        this.listeActivites = listeActivites;
     }
 
     @Override

@@ -52,8 +52,13 @@ public class StageCtrl {
     public void addLink() {
         System.out.println("Voici la liste des stages :");
         getList();
+        System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
+        int input1 = new Scanner(System.in).nextInt();
         System.out.println("Voici la liste des activités :");
         ListeActivite.getList();
+        System.out.println("Insérez le numéro de l'activité que vous voulez joindre au stage " + input1);
+        int input2 = new Scanner(System.in).nextInt();
+        liste.addLink(input1, input2);
     }
 
     public void deleteLink() {
