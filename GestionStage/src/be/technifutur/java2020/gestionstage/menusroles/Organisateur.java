@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 public class Organisateur implements Gestionnaires {
 
+    private MenuStage menustg;
+    private MenuActivite menuact;
+
     @Override
     public String getName() {
         String name = "Organisateur";
@@ -16,7 +19,7 @@ public class Organisateur implements Gestionnaires {
 
     public void menu() throws FileNotFoundException {
         MenusOrga[] menu = new MenusOrga[]{
-                new MenuStage(), new MenuActivite(), new MenuStage()//A supprimer plus tard
+                menustg, menuact, new MenuStage()//A supprimer plus tard
         };
         Scanner scan = new Scanner(System.in);
         int input;
@@ -65,5 +68,13 @@ public class Organisateur implements Gestionnaires {
         System.out.printf(" - %s : %s%n", "0", "Quitter");
         System.out.println();
         System.out.print("Faites votre choix : ");
+    }
+
+    public void setMenuStage(MenuStage menuStage) {
+        this.menustg = menuStage;
+    }
+
+    public void setMenuActivite(MenuActivite menuActivite) {
+        this.menuact = menuActivite;
     }
 }

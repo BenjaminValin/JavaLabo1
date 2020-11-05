@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class MenuStage implements MenusOrga {
 
+    private StageCtrl ctrls;
+
     @Override
     public String getName() {
         String name = "Menu des stages";
@@ -27,31 +29,31 @@ public class MenuStage implements MenusOrga {
                 switch (choice) {
                     case 1:
                         System.out.println("***" + choix[0] + "***");
-                        ctrl.add();
+                        ctrls.add();
                         break;
                     case 2:
                         System.out.println("***" + choix[1] + "***");
                         System.out.println("Stages déjà encodés : " + Stage.StagesCreated);
-                        ctrl.getList();
+                        ctrls.getList();
                         break;
                     case 3:
                         System.out.println("***" + choix[2] + "***");
                         System.out.println("Voici les stages déjà encodés :");
-                        ctrl.getList();
+                        ctrls.getList();
                         System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
                         number = scan.nextInt();
-                        ctrl.remove(number);
+                        ctrls.remove(number);
                         break;
                     case 4:
                         System.out.println("***" + choix[3] + "***");
                         break;
                     case 5:
                         System.out.println("***" + choix[4] + "***");
-                        ctrl.addLink();
+                        ctrls.addLink();
                         break;
                     case 6:
                         System.out.println("***" + choix[5] + "***");
-                        ctrl.deleteLink();
+                        ctrls.deleteLink();
                         break;
                 }
             } else {
@@ -76,5 +78,9 @@ public class MenuStage implements MenusOrga {
         System.out.printf(" - %s : %s%n", "0", "Quitter");
         System.out.println();
         System.out.print("Faites votre choix : ");
+    }
+
+    public void setStageCtrl(StageCtrl stageCtrl) {
+        this.ctrls = stageCtrl;
     }
 }

@@ -7,10 +7,12 @@ import java.util.Scanner;
 
 public class MenuPrincipal {
 
+    public Organisateur orga;
+
     public void start() throws FileNotFoundException {
 
         Gestionnaires[] menu = new Gestionnaires[]{
-                new Organisateur(), new Tresorier(), new Secretaire(), new Stagiaire()
+                orga, new Tresorier(), new Secretaire(), new Stagiaire()
         };
         Scanner scan = new Scanner(System.in);
         int input;
@@ -65,4 +67,8 @@ public class MenuPrincipal {
         System.out.print("Faites votre choix : ");
     }
 
+
+    public void setOrga(Organisateur orga) {
+        this.orga = orga;
+    }
 }

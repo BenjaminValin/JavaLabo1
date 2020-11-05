@@ -1,49 +1,55 @@
 package be.technifutur.java2020.gestionstage;
 
-import be.technifutur.java2020.gestionstage.activites.*;
-import be.technifutur.java2020.gestionstage.stages.*;
+import be.technifutur.java2020.gestionstage.menusorganisateur.*;
+import be.technifutur.java2020.gestionstage.menusroles.*;
+import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
 public class Factory {
 
-    private MenuPrincipal menu;
+    private Organisateur orga;
+    private MenuStage menus;
     private StageCtrl ctrls;
-    private ListeStage listes;
-    private ActiviteCtrl ctrla;
-    private ListeActivite listea;
+    private MenuActivite menua;
+
+
 
     public MenuPrincipal getMenu(){
-        if (this.menu == null){
-            this.menu = new MenuPrincipal();
-        }
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setOrga(getOrga());
         return menu;
     }
 
-    public StageCtrl getCtrls() {
+    private Organisateur getOrga() {
+        if (this.orga == null){
+            this.orga = new Organisateur();
+            this.orga.setMenuStage(getMenuStage());
+            this.orga.setMenuActivite(getMenuActivite());
+        }
+        return orga;
+    }
+
+    private MenuStage getMenuStage() {
+        if (this.menus == null){
+            this.menus = new MenuStage();
+            this.menus.setStageCtrl(getStageCtrl());
+        }
+        return menus;
+    }
+
+    private StageCtrl getStageCtrl() {
         if (this.ctrls == null){
             this.ctrls = new StageCtrl();
+            this.ctrls.setListeStage(getListeStage());
+            this.ctrls.setFonctionsUtiles(getFonctionsUtiles());
         }
         return ctrls;
     }
 
-    public ListeStage getListes() {
-        if (this.listes == null){
-            this.listes = new ListeStage();
+    private MenuActivite getMenuActivite() {
+        if (this.menua == null){
+            this.menua = new MenuActivite();
         }
-        return listes;
-    }
-
-    public ActiviteCtrl getCtrla() {
-        if (this.ctrla == null){
-            this.ctrla = new ActiviteCtrl();
-        }
-        return ctrla;
-    }
-
-    public ListeActivite getListea() {
-        if (this.listea == null){
-            this.listea = new ListeActivite();
-        }
-        return listea;
+        return menua;
     }
 
 }
