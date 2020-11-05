@@ -3,9 +3,10 @@ package be.technifutur.java2020.gestionstage.stages;
 import be.technifutur.java2020.gestionstage.activites.Activite;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.Objects;
+
 
 public class Stage {
 
@@ -13,7 +14,7 @@ public class Stage {
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
     private Activite activite = null;
-    public Map<Integer, Activite> listeActivites = new HashMap<>();
+    private Set<Activite> activitesDuStage = new HashSet<>();
     public static int StageKey = 0;
     public static int StagesCreated = 0;
 
@@ -41,20 +42,20 @@ public class Stage {
         this.dateFin = dateFin;
     }
 
-    public void setActivite(Activite activite) {
+    /*public void setActivite(Activite activite) {
         this.activite = activite;
     }
 
     public Activite getActivite() {
         return activite;
+    }*/
+
+    public Set<Activite> getActivitesDuStage() {
+        return activitesDuStage;
     }
 
-    public Map<Integer, Activite> getListeActivites() {
-        return listeActivites;
-    }
-
-    public void setListeActivites(Map<Integer, Activite> listeActivites) {
-        this.listeActivites = listeActivites;
+    public void setActivitesDuStage(Set<Activite> activitesDuStage) {
+        this.activitesDuStage = activitesDuStage;
     }
 
     @Override
@@ -74,6 +75,6 @@ public class Stage {
 
     @Override
     public String toString() {
-        return " Nom du stage : " + nomStage + ", activité du stage : " + activite + ", date de début du stage : " + dateDebut + ", date de fin du stage : " + dateFin + ".";
+        return " Nom du stage : " + nomStage + ", activité du stage : " + activitesDuStage + ", date de début du stage : " + dateDebut + ", date de fin du stage : " + dateFin + ".";
     }
 }

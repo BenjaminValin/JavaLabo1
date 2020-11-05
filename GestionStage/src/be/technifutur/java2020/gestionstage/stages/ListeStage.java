@@ -1,6 +1,5 @@
 package be.technifutur.java2020.gestionstage.stages;
 
-import be.technifutur.java2020.gestionstage.activites.Activite;
 import be.technifutur.java2020.gestionstage.activites.ListeActivite;
 
 import java.time.LocalDateTime;
@@ -45,6 +44,7 @@ public class ListeStage {
     }
 
     public void addLink(int input1, int input2) {
-        listeStages.get(input1).setActivite(ListeActivite.listeActivites.get(input2));
+        //listeStages.get(input1).setActivites(ListeActivite.listeActivites.get(input2));
+        listeStages.get(input1).getActivitesDuStage().add(ListeActivite.listeActivites.get(input2));
     }
 }
