@@ -13,7 +13,6 @@ public class Factory {
     public MenuPrincipal getMenu(){
 
         MenuPrincipal menu = new MenuPrincipal();
-        //menu.setStageCtrl(getStageCtrl());
 
         StageCtrl ctrls = new StageCtrl();
         ListeStage listes = new ListeStage();
@@ -28,6 +27,10 @@ public class Factory {
             this.ctrls = new StageCtrl();
         }
         return ctrls;
+    }
+
+    public void setStageCtrl(StageCtrl ctrls){
+        this.ctrls = ctrls;
     }
 
 

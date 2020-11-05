@@ -1,7 +1,5 @@
 package be.technifutur.java2020.gestionstage.menusorganisateur;
 
-import be.technifutur.java2020.gestionstage.activites.Activite;
-import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
 import be.technifutur.java2020.gestionstage.stages.Stage;
 import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
@@ -9,13 +7,8 @@ import java.util.Scanner;
 
 public class MenuStage implements MenusOrga {
 
-    /*private StageCtrl ctrl;
-
-    public void setStageCtrl(StageCtrl ctrl){
-        this.ctrl = ctrl;
-    }*/
-
-
+    private StageCtrl ctrl;
+    
     @Override
     public String getName() {
         String name = "Menu des stages";
@@ -25,7 +18,7 @@ public class MenuStage implements MenusOrga {
     public void menu() {
         String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)"};
         Scanner scan = new Scanner(System.in);
-        StageCtrl ctrl = new StageCtrl();
+        ctrl = new StageCtrl();
         int input, number;
         menuStage(choix);
 

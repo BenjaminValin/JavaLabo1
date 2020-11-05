@@ -27,5 +27,4 @@ public class FonctionsUtiles {
         LocalDateTime date = LocalDateTime.parse(data,format);
         return date;
     }
-
 }
