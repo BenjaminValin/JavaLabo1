@@ -43,12 +43,15 @@ public class MenuStage implements MenusOrga {
                         ctrl.removeStage(number);
                         break;
                     case 4:
-                        System.out.println("A venir");
+                        System.out.println("***" + choix[3] + "***");
                         break;
                     case 5:
-                        System.out.println("Ajout d'activité");
+                        System.out.println("***" + choix[4] + "***");
+                        ctrl.addLink();
                         break;
                     case 6:
+                        System.out.println("***" + choix[5] + "***");
+                        ctrl.deleteLink();
                         break;
                 }
             } else {

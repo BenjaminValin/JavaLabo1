@@ -1,7 +1,5 @@
 package be.technifutur.java2020.gestionstage.activites;
 
-import be.technifutur.java2020.gestionstage.stages.Stage;
-
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +30,7 @@ public class ListeActivite {
         Activite.ActivitiesCreated++;
     }
 
-    public void getActivitiesList(){
+    public static void getActivitiesList(){
         for(Map.Entry map : listeActivites.entrySet()){
             System.out.println("Activité : " + map);
         }

@@ -1,6 +1,7 @@
 package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
+import be.technifutur.java2020.gestionstage.activites.ListeActivite;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -46,5 +47,15 @@ public class StageCtrl {
 
     public void getStageList() {
         liste.getStageList();
+    }
+
+    public void addLink() {
+        System.out.println("Voici la liste des stages :");
+        getStageList();
+        System.out.println("Voici la liste des activités :");
+        ListeActivite.getActivitiesList();
+    }
+
+    public void deleteLink() {
     }
 }
