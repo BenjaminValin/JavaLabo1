@@ -10,6 +10,17 @@ public class Activite {
     private int dureeActivite;
     public static int ActivitiesCreated = 0;
 
+    public Activite add(String data, LocalDateTime dateDebut, int duree) {
+
+        Activite activite = new Activite();
+        setNomActivite(data);
+        setDateDebut(dateDebut);
+        setDureeActivite(duree);
+        ActivitiesCreated++;
+        return activite;
+
+    }
+
     public String getNomActivite() {
         return nomActivite;
     }

@@ -14,7 +14,7 @@ public class Factory {
     private ListeStage listes;
     private FonctionsUtiles util;
     private ActiviteCtrl ctrla;
-    private ListeActivite listea;
+    private Activite act;
 
 
     public MenuPrincipal getMenu(){
@@ -36,6 +36,7 @@ public class Factory {
         if (this.menus == null){
             this.menus = new MenuStage();
             this.menus.setStageCtrl(getStageCtrl());
+            this.menus.setActiviteCtrl(getActiviteCtrl());
         }
         return menus;
     }
@@ -74,17 +75,17 @@ public class Factory {
     private ActiviteCtrl getActiviteCtrl() {
         if (this.ctrla == null){
             this.ctrla = new ActiviteCtrl();
-            this.ctrla.setListeActivites(getListeActivite());
+            this.ctrla.setActivite(getActivite());
             this.ctrla.setFonctionsUtiles(getFonctionsUtiles());
         }
         return ctrla;
     }
 
-    private ListeActivite getListeActivite() {
-        if (this.listea == null){
-            this.listea = new ListeActivite();
+    private Activite getActivite() {
+        if (this.act == null){
+            this.act = new Activite();
         }
-        return listea;
+        return act;
     }
 
 }

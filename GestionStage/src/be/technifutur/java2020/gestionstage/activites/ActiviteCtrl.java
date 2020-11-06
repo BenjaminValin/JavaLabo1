@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class ActiviteCtrl {
 
-    ListeActivite liste = new ListeActivite();
-    FonctionsUtiles util = new FonctionsUtiles();
+    private FonctionsUtiles util;
 
-    public void add() {
+    public Activite add() {
 
         LocalDateTime dateDebut;
         int duree;
+        Activite act = new Activite();
 
         System.out.println("Insérez le nom de l'activité :");
         String data = new Scanner(System.in).nextLine();
@@ -25,26 +25,12 @@ public class ActiviteCtrl {
             System.out.println("L'activité doit au moins durer une minute... Recommencez");
             duree = new Scanner(System.in).nextInt();
         }
-        liste.add(data, dateDebut, duree);
-    }
-
-    public void consult(int key) {
-        liste.consult(key);
-    }
-
-    public void remove(int key) {
-        liste.remove(key);
-    }
-
-    public void getList() {
-        liste.getList();
-    }
-
-    public void setListeActivites(ListeActivite listeActivite) {
-        this.liste = listeActivite;
+        act.add(data, dateDebut, duree);
+        return act;
     }
 
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;
     }
+
 }

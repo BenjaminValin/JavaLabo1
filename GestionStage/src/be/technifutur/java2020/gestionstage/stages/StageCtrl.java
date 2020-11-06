@@ -1,7 +1,7 @@
 package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.activites.ListeActivite;
+import be.technifutur.java2020.gestionstage.activites.Activite;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -49,16 +49,15 @@ public class StageCtrl {
         liste.getList();
     }
 
-    public void addLink() {
+    public void addLink(Activite act) {
+
+        Activite actAdd = act;
+
         System.out.println("Voici la liste des stages :");
         getList();
         System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
         int input1 = new Scanner(System.in).nextInt();
-        System.out.println("Voici la liste des activités :");
-        ListeActivite.getList();
-        System.out.println("Insérez le numéro de l'activité que vous voulez joindre au stage " + input1);
-        int input2 = new Scanner(System.in).nextInt();
-        liste.addLink(input1, input2);
+        liste.addLink(input1, actAdd);
     }
 
     public void deleteLink() {

@@ -1,7 +1,6 @@
 package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.activites.Activite;
-import be.technifutur.java2020.gestionstage.activites.ListeActivite;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -43,9 +42,9 @@ public class ListeStage {
         }
     }
 
-    public void addLink(int input1, int input2) {
+    public void addLink(int input1, Activite act) {
 
-        Activite verif = ListeActivite.listeActivites.get(input2);
+        Activite verif = act;
         Stage modif = listeStages.get(input1);
         Set<Activite> test = modif.getActivitesDuStage();
         boolean add = true;
@@ -56,7 +55,7 @@ public class ListeStage {
             message = "La date de l'activité ne correspond pas aux dates du stage";
         }
 
-        //TODO : Corriger le foreach et le transformer en while
+        //TODO : Corriger le foreach et le transformer en while + calcul de vérification durée activité (voir si l'activité ne sort pas de la durée du stage)
         for(Activite a : test){
             if (a == verif){
                 add = false;

@@ -1,5 +1,6 @@
 package be.technifutur.java2020.gestionstage.menusorganisateur;
 
+import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
 import be.technifutur.java2020.gestionstage.stages.Stage;
 import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class MenuStage implements MenusOrga {
 
     private StageCtrl ctrls;
+    private ActiviteCtrl ctrla;
 
     @Override
     public String getName() {
@@ -49,7 +51,7 @@ public class MenuStage implements MenusOrga {
                         break;
                     case 5:
                         System.out.println("***" + choix[4] + "***");
-                        ctrls.addLink();
+                        ctrls.addLink(ctrla.add());
                         break;
                     case 6:
                         System.out.println("***" + choix[5] + "***");
@@ -82,5 +84,9 @@ public class MenuStage implements MenusOrga {
 
     public void setStageCtrl(StageCtrl stageCtrl) {
         this.ctrls = stageCtrl;
+    }
+
+    public void setActiviteCtrl(ActiviteCtrl activiteCtrl) {
+        this.ctrla = activiteCtrl;
     }
 }
