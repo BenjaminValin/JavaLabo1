@@ -2,13 +2,14 @@ package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.activites.Activite;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Objects;
 
 
-public class Stage {
+public class Stage implements Serializable {
 
     private String nomStage;
     private LocalDateTime dateDebut;
