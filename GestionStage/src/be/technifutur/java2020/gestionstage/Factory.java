@@ -2,7 +2,7 @@ package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.menusorganisateur.*;
 import be.technifutur.java2020.gestionstage.menusroles.*;
-import be.technifutur.java2020.gestionstage.menusstagiaires.MenuConsult;
+import be.technifutur.java2020.gestionstage.optionsstagiaires.*;
 import be.technifutur.java2020.gestionstage.stages.*;
 import be.technifutur.java2020.gestionstage.activites.*;
 
@@ -15,8 +15,7 @@ public class Factory {
     private FonctionsUtiles util;
     private ActiviteCtrl ctrla;
     private Stagiaire stagiaire;
-    private MenuConsult menucslt;
-
+    private ConsultPlanning consult;
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
@@ -76,16 +75,17 @@ public class Factory {
     private Stagiaire getStagiaire() {
         if (this.stagiaire == null){
             this.stagiaire = new Stagiaire();
-            this.stagiaire.setMenuConsult(getMenuConsult());
+            this.stagiaire.setConsultPlanning(getConsultPlanning());
         }
         return stagiaire;
     }
 
-    private MenuConsult getMenuConsult() {
-        if (this.menucslt == null){
-            this.menucslt = new MenuConsult();
+    private ConsultPlanning getConsultPlanning() {
+        if (this.consult == null){
+            this.consult = new ConsultPlanning();
+            this.consult.setListeStage(getListeStage());
         }
-        return menucslt;
+        return consult;
     }
 
 }

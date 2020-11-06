@@ -41,6 +41,11 @@ public class ListeStage implements Serializable {
         }
     }
 
+    public Stage getStage(int i){
+        Stage stage = listeStages.get(i);
+        return stage;
+    }
+
     public int getStagesCreated() {
         return StagesCreated;
     }

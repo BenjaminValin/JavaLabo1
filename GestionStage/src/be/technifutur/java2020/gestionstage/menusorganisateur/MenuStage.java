@@ -1,7 +1,6 @@
 package be.technifutur.java2020.gestionstage.menusorganisateur;
 
 import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
-import be.technifutur.java2020.gestionstage.stages.Stage;
 import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
 import java.util.Scanner;
@@ -25,20 +24,20 @@ public class MenuStage implements MenusOrga {
 
         input = scan.nextInt();
         while (input != 0) {
-            int choice = input;
-            if (choice < (choix.length) && choice >= 1) {
-                switch (choice) {
+            if (input < (choix.length) && input >= 1) {
+                int choice = input - 1;
+                switch (input) {
                     case 1:
-                        System.out.println("***" + choix[0] + "***");
+                        System.out.println("***" + choix[input] + "***");
                         ctrls.add();
                         break;
                     case 2:
-                        System.out.println("***" + choix[1] + "***");
+                        System.out.println("***" + choix[input] + "***");
                         System.out.println("Stages déjà encodés : " + ctrls.getStagesCreated());
                         ctrls.getList();
                         break;
                     case 3:
-                        System.out.println("***" + choix[2] + "***");
+                        System.out.println("***" + choix[input] + "***");
                         System.out.println("Voici les stages déjà encodés :");
                         ctrls.getList();
                         System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
@@ -46,22 +45,22 @@ public class MenuStage implements MenusOrga {
                         ctrls.remove(number);
                         break;
                     case 4:
-                        System.out.println("***" + choix[3] + "***");
+                        System.out.println("***" + choix[input] + "***");
                         break;
                     case 5:
-                        System.out.println("***" + choix[4] + "***");
+                        System.out.println("***" + choix[input] + "***");
                         ctrls.addLink(ctrla.add());
                         break;
                     case 6:
-                        System.out.println("***" + choix[5] + "***");
+                        System.out.println("***" + choix[input] + "***");
                         //ctrls.deleteLink();
                         break;
                     case 7:
-                        System.out.println("***" + choix[6] + "***");
+                        System.out.println("***" + choix[input] + "***");
                         ctrls.save();
                         break;
                     case 8:
-                        System.out.println("***" + choix[7] + "***");
+                        System.out.println("***" + choix[input] + "***");
                         ctrls.load();
                         break;
                 }

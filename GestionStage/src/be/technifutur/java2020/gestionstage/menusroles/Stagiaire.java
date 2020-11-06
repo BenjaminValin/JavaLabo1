@@ -1,12 +1,12 @@
 package be.technifutur.java2020.gestionstage.menusroles;
 
-import be.technifutur.java2020.gestionstage.menusstagiaires.*;
+import be.technifutur.java2020.gestionstage.optionsstagiaires.ConsultPlanning;
 
 import java.util.Scanner;
 
 public class Stagiaire implements Gestionnaires {
 
-    private MenuConsult menucslt;
+    private ConsultPlanning consult;
 
     @Override
     public String getName() {
@@ -16,9 +16,7 @@ public class Stagiaire implements Gestionnaires {
 
     @Override
     public void menu() {
-        MenusStagiaires[] menu = new MenusStagiaires[]{
-                menucslt, new MenuConsult()//A supprimer plus tard
-        };
+        String[] menu = new String[]{"Consultation du calendrier de votre stage", "Fonction à venir"};
         Scanner scan = new Scanner(System.in);
         int input;
         menuStagiaire(menu);
@@ -30,8 +28,8 @@ public class Stagiaire implements Gestionnaires {
                 int choice = input-1;
                 switch (input) {
                     case 1:
-                        System.out.println("Entrée dans le menu de consultation :");
-                        menu[choice].menu();
+                        System.out.println("***" + menu[choice] + "***");
+                        consult.consult();
                         break;
                 }
             } else {
@@ -47,21 +45,21 @@ public class Stagiaire implements Gestionnaires {
 
     }
 
-    private static void menuStagiaire(MenusStagiaires[] menu) {
+    private static void menuStagiaire(String[] menu) {
         System.out.println();
         System.out.println("***Menu des stagiaires***");
         System.out.println("A quel sous-menu souhaitez-vous accéder ?");
         System.out.println("Entrez le nombre correspondant au choix souhaité : ");
         System.out.println();
         for (int i = 0; i < menu.length; i++) {
-            System.out.printf(" - %d : %s%n", i + 1, menu[i].getName());
+            System.out.printf(" - %d : %s%n", i + 1, menu[i]);
         }
         System.out.printf(" - %s : %s%n", "0", "Quitter");
         System.out.println();
         System.out.print("Faites votre choix : ");
     }
 
-    public void setMenuConsult(MenuConsult menuConsult) {
-        this.menucslt = menuConsult;
+    public void setConsultPlanning(ConsultPlanning consultPlanning) {
+        this.consult = consultPlanning;
     }
 }
