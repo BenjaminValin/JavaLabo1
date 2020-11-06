@@ -2,8 +2,6 @@ package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
-
-import java.io.*;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -73,31 +71,11 @@ public class StageCtrl {
     /*public void deleteLink() {} pas encore demandé */
 
     public void save(){
-        File fichier = new File("stagesencodes.stage");
-        ListeStage liste = this.liste;
-
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))) {
-
-            oos.writeObject(liste);
-            System.out.println(fichier.exists());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        util.sauvegardeListeStage(this.liste);
     }
 
     public void load(){
-        File fichier = new File("stagesencodes.stage");
-
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier))) {
-
-            ListeStage liste = (ListeStage) ois.readObject();
-            this.liste = liste;
-            System.out.println(liste);
-
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.liste = util.chargementListeStage();
     }
 
     public void setListeStage(ListeStage listeStage) {

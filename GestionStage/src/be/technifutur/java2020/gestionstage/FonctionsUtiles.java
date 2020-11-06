@@ -1,5 +1,8 @@
 package be.technifutur.java2020.gestionstage;
 
+import be.technifutur.java2020.gestionstage.stages.ListeStage;
+
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -34,6 +37,28 @@ public class FonctionsUtiles {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         String date = dt.format(formatter);
         return date;
+    }
+
+    public void sauvegardeListeStage(ListeStage liste){
+        File fichier = new File("stagesencodes.stage");
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))) {
+            oos.writeObject(liste);
+            System.out.println(fichier.exists());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ListeStage chargementListeStage(){
+
+        File fichier = new File("stagesencodes.stage");
+        ListeStage liste = new ListeStage();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier))) {
+            liste = (ListeStage) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return liste;
     }
 
     /*public static void main(String[] args) {
