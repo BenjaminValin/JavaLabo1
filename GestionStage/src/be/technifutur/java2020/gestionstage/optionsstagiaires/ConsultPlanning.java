@@ -2,12 +2,13 @@ package be.technifutur.java2020.gestionstage.optionsstagiaires;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
-import be.technifutur.java2020.gestionstage.stages.ListeStage;
-import be.technifutur.java2020.gestionstage.stages.Stage;
+import be.technifutur.java2020.gestionstage.stages.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -32,22 +33,17 @@ public class ConsultPlanning {
         LocalDateTime dateDebutStage = stage.getDateDebut();
         LocalDateTime dateFinStage = stage.getDateFin();
         int dureeStage = dateFinStage.getDayOfYear() - dateDebutStage.getDayOfYear();
-
-        /*LocalDate dateDebutStage = stage.getDateDebut().toLocalDate();
-        LocalDate dateFinStage = stage.getDateFin().toLocalDate();
-        LocalTime heureDebutStage = stage.getDateDebut().toLocalTime();
-        LocalTime heureFinStage = stage.getDateFin().toLocalTime();*/
-
         Set<Activite> act = stage.getActivitesDuStage();
 
-        planndesordre = new Activite[act.size()];
+        planndesordre = new Activite[act.size()];   //TODO : trouver une méthode plus simple pour trier le set
         plannordre = new Activite[act.size()];
 
         System.out.println("Planning du stage " + stage.getNomStage());
         System.out.println("Le stage commence le " + util.afficheDate(dateDebutStage) + ".");
         System.out.println("Le stage finit le " + util.afficheDate(dateFinStage) + ".");
         System.out.println("Durée du stage : " + (dureeStage+1) + " jours");
-        System.out.println("Voici la liste des activités de ce stage : ");
+        System.out.println("Voici le planning détaillé de ce stage : ");
+        System.out.println();
 
         for(Activite a : act){
             planndesordre[i] = a;
@@ -65,16 +61,34 @@ public class ConsultPlanning {
             plannordre[i] = a;
         }
 
-        for (i = 0;i < act.size(); i++){
-            System.out.println(plannordre[i]);
+        for (i=0; i <= dureeStage;i++){
+            LocalDateTime date = dateDebutStage.plusDays(i);
+            LocalDate jour = date.toLocalDate();
+            boolean verif = false;
+            for (int j = 0; j < act.size(); j++){
+                LocalDate jourActiv = plannordre[j].getDateDebut().toLocalDate();
+                if (jourActiv.equals(jour)){
+                    verif = true;
+                }
+            }
+            if (verif){
+                System.out.println(jour.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRENCH) +
+                        " " + jour.getDayOfMonth() +
+                        " " + jour.getMonth().getDisplayName(TextStyle.FULL,Locale.FRENCH) +
+                        " " + jour.getYear() + " :");
+                for (int j = 0; j < act.size(); j++){
+                    LocalDate jourActiv = plannordre[j].getDateDebut().toLocalDate();
+                    if (jourActiv.equals(jour)){
+                        LocalTime heureFin = plannordre[j].getDateDebut().toLocalTime().plusMinutes(plannordre[j].getDureeActivite());
+                        System.out.println(plannordre[j].getDateDebut().toLocalTime() +
+                                " - " + heureFin +
+                                " : " + plannordre[j].getNomActivite() +
+                                " (" + plannordre[j].getDureeActivite() + " minutes)" );
+                    }
+                }
+                System.out.println();
+            }
         }
-
-        for (i=0;i <= dureeStage;i++){
-            LocalDate jour = dateDebutStage.toLocalDate().plusDays(i);
-            System.out.println("Activités du " + util.afficheDate(jour) + " :");
-        }
-
-
     }
 
     public void load(){
