@@ -27,4 +27,18 @@ public class FonctionsUtiles {
         LocalDateTime date = LocalDateTime.parse(data,format);
         return date;
     }
+
+    public String afficheDate(LocalDateTime unedate){
+        LocalDateTime dt = unedate;
+        System.out.println("date de base : " + dt);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String date = dt.format(formatter);
+        return date;
+    }
+
+    public static void main(String[] args) {
+        FonctionsUtiles fctut = new FonctionsUtiles();
+
+        System.out.println(fctut.afficheDate(fctut.saisieDate()));
+    }
 }
