@@ -52,12 +52,6 @@ public class ListeStage implements Serializable {
         Long minstage = (long) act.getDureeActivite();
         dateFinAct = dateFinAct.plusMinutes(minstage);
 
-        System.out.println("Date de début du stage : " + listeStages.get(input1).getDateDebut());
-        System.out.println("Date de fin du stage : " + listeStages.get(input1).getDateFin());
-        System.out.println("Date de début de l'activité : " + act.getDateDebut());
-        System.out.println("Durée de l'activité : " + minstage);
-        System.out.println("Date de fin de l'activité : " + dateFinAct);
-
         if (verif.getDateDebut().isBefore(modif.getDateDebut()) || verif.getDateDebut().isAfter(modif.getDateFin())){
             add = false;
             message = "La date de l'activité ne correspond pas aux dates du stage";
