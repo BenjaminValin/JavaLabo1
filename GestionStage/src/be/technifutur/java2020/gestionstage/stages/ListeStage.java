@@ -9,6 +9,8 @@ import java.util.*;
 public class ListeStage implements Serializable {
 
     private Map<Integer, Stage> listeStages = new HashMap<>();
+    public int StagesCreated = 0;
+
 
     public void add(String data, LocalDateTime dateDebut, LocalDateTime dateFin) {
 
@@ -16,9 +18,8 @@ public class ListeStage implements Serializable {
         stage.setNomStage(data);
         stage.setDateDebut(dateDebut);
         stage.setDateFin(dateFin);
-        Stage.StagesCreated++;
-        Stage.StageKey++;
-        listeStages.put(Stage.StagesCreated,stage);
+        this.StagesCreated++;
+        listeStages.put(this.StagesCreated,stage);
 
     }
 
@@ -30,7 +31,6 @@ public class ListeStage implements Serializable {
 
     public void remove(int key){
         listeStages.remove(key);
-        Stage.StagesCreated--;
     }
 
     public void getList(){
@@ -39,6 +39,10 @@ public class ListeStage implements Serializable {
             System.out.println("Stage " + i + " : " + map.getValue());
             i++;
         }
+    }
+
+    public int getStagesCreated() {
+        return StagesCreated;
     }
 
     public boolean addLink(int input1, Activite act) {

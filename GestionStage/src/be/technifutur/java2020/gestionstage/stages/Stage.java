@@ -15,8 +15,6 @@ public class Stage implements Serializable {
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
     private Set<Activite> activitesDuStage = new HashSet<>();
-    public static int StageKey = 0;
-    public static int StagesCreated = 0;
 
     public String getNomStage() {
         return nomStage;

@@ -26,7 +26,7 @@ public class StageCtrl {
             dateDebut = util.saisieDate();
             System.out.println("Création de la date de fin du stage :");
             dateFin = util.saisieDate();
-            if (dateDebut.isBefore(dateFin)) {
+            if (dateDebut.isAfter(dateFin)) {
                 System.out.println("La date de fin arrive avant la date de début. Veuillez recommencer :");
             } else if (dateDebut.isEqual(dateFin)) {
                 System.out.println("Les deux dates sont exactement les mêmes. Veuillez recommencer :");
@@ -48,6 +48,10 @@ public class StageCtrl {
 
     public void getList() {
         liste.getList();
+    }
+
+    public int getStagesCreated() {
+        return liste.getStagesCreated();
     }
 
     public void addLink(Activite act) {
