@@ -1,5 +1,7 @@
 package be.technifutur.java2020.gestionstage.activites;
 
+import be.technifutur.java2020.gestionstage.FonctionsUtiles;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -61,6 +63,7 @@ public class Activite implements Serializable {
 
     @Override
     public String toString() {
-        return " Nom de l'activité = " + nomActivite + ", date de début de l'activité = " + dateDebut + ", durée de l'activité = " + dureeActivite + " minutes";
+        FonctionsUtiles util = new FonctionsUtiles();
+        return " Nom de l'activité = " + nomActivite + ", date de début de l'activité = " + util.afficheDate(dateDebut) + ", durée de l'activité = " + dureeActivite + " minutes";
     }
 }

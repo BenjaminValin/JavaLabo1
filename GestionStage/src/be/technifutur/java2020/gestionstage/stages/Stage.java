@@ -1,5 +1,6 @@
 package be.technifutur.java2020.gestionstage.stages;
 
+import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
 
 import java.io.Serializable;
@@ -65,6 +66,7 @@ public class Stage implements Serializable {
 
     @Override
     public String toString() {
-        return " Nom du stage : " + nomStage + ", activité du stage : " + activitesDuStage + ", date de début du stage : " + dateDebut + ", date de fin du stage : " + dateFin + ".";
+        FonctionsUtiles util = new FonctionsUtiles();
+        return " Nom du stage : " + nomStage + ", activité du stage : " + activitesDuStage + ", date de début du stage : " + util.afficheDate(dateDebut) + ", date de fin du stage : " + util.afficheDate(dateFin) + ".";
     }
 }

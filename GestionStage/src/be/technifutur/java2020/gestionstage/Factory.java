@@ -84,6 +84,7 @@ public class Factory {
         if (this.consult == null){
             this.consult = new ConsultPlanning();
             this.consult.setListeStage(getListeStage());
+            this.consult.setFonctionsUtiles(getFonctionsUtiles());
         }
         return consult;
     }

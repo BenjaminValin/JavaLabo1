@@ -3,6 +3,7 @@ package be.technifutur.java2020.gestionstage;
 import be.technifutur.java2020.gestionstage.stages.ListeStage;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -33,8 +34,14 @@ public class FonctionsUtiles {
 
     public String afficheDate(LocalDateTime unedate){
         LocalDateTime dt = unedate;
-        System.out.println("date de base : " + dt);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy à HH:mm");
+        String date = dt.format(formatter);
+        return date;
+    }
+
+    public String afficheDate(LocalDate unedate){
+        LocalDate dt = unedate;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String date = dt.format(formatter);
         return date;
     }
