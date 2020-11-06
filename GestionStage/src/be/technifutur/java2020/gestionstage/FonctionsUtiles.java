@@ -36,9 +36,9 @@ public class FonctionsUtiles {
         return date;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         FonctionsUtiles fctut = new FonctionsUtiles();
 
         System.out.println(fctut.afficheDate(fctut.saisieDate()));
-    }
+    }*/
 }

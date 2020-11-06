@@ -42,20 +42,34 @@ public class ListeStage {
         }
     }
 
-    public void addLink(int input1, Activite act) {
+    public boolean addLink(int input1, Activite act) {
 
         Activite verif = act;
         Stage modif = listeStages.get(input1);
         Set<Activite> test = modif.getActivitesDuStage();
         boolean add = true;
         String message = null;
+        LocalDateTime dateFinAct = act.getDateDebut();
+        Long minstage = (long) act.getDureeActivite();
+        dateFinAct = dateFinAct.plusMinutes(minstage);
 
-        if (verif.getDateDebut().compareTo(modif.getDateDebut()) < 0 || verif.getDateDebut().compareTo(modif.getDateFin()) > 0){
+        System.out.println("Date de début du stage : " + listeStages.get(input1).getDateDebut());
+        System.out.println("Date de fin du stage : " + listeStages.get(input1).getDateFin());
+        System.out.println("Date de début de l'activité : " + act.getDateDebut());
+        System.out.println("Durée de l'activité : " + minstage);
+        System.out.println("Date de fin de l'activité : " + dateFinAct);
+
+        if (verif.getDateDebut().isBefore(modif.getDateDebut()) || verif.getDateDebut().isAfter(modif.getDateFin())){
             add = false;
             message = "La date de l'activité ne correspond pas aux dates du stage";
         }
 
-        //TODO : Corriger le foreach et le transformer en while + calcul de vérification durée activité (voir si l'activité ne sort pas de la durée du stage)
+        if (dateFinAct.isAfter(modif.getDateFin())){
+            add = false;
+            message = "L'activité prend fin après la fin du stage";
+        }
+
+        //TODO : Corriger le foreach et le transformer en while
         for(Activite a : test){
             if (a == verif){
                 add = false;
@@ -68,6 +82,8 @@ public class ListeStage {
         } else {
             modif.getActivitesDuStage().add(verif);
         }
+
+        return add;
 
         //modif.setActivites(verif);
     }

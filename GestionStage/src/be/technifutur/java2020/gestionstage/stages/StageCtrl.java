@@ -52,12 +52,17 @@ public class StageCtrl {
     public void addLink(Activite act) {
 
         Activite actAdd = act;
+        boolean verif = false;
 
-        System.out.println("Voici la liste des stages :");
-        getList();
-        System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
-        int input1 = new Scanner(System.in).nextInt();
-        liste.addLink(input1, actAdd);
+        while (!verif){
+            System.out.println("Voici la liste des stages :");
+            getList();
+            System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
+            int input1 = new Scanner(System.in).nextInt();
+            verif = liste.addLink(input1, actAdd);
+        }
+
+
     }
 
     public void deleteLink() {
