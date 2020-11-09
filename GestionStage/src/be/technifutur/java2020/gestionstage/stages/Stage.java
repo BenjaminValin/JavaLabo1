@@ -2,6 +2,7 @@ package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
+import be.technifutur.java2020.gestionstage.participants.Participant;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -16,6 +17,7 @@ public class Stage implements Serializable {
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
     private Set<Activite> activitesDuStage = new HashSet<>();
+    private Set<Participant> participantsAuStage = new HashSet<>();
 
     public String getNomStage() {
         return nomStage;
@@ -49,6 +51,14 @@ public class Stage implements Serializable {
         this.activitesDuStage = activitesDuStage;
     }
 
+    public Set<Participant> getParticipantsAuStage() {
+        return participantsAuStage;
+    }
+
+    public void setParticipantsAuStage(Set<Participant> participantsAuStage) {
+        this.participantsAuStage = participantsAuStage;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,6 +77,6 @@ public class Stage implements Serializable {
     @Override
     public String toString() {
         FonctionsUtiles util = new FonctionsUtiles();
-        return " Nom du stage : " + nomStage + ", activité du stage : " + activitesDuStage + ", date de début du stage : " + util.afficheDate(dateDebut) + ", date de fin du stage : " + util.afficheDate(dateFin) + ".";
+        return " Nom du stage : " + nomStage + ", activité du stage : " + activitesDuStage + ", participants au stage : " + participantsAuStage + ", date de début du stage : " + util.afficheDate(dateDebut) + ", date de fin du stage : " + util.afficheDate(dateFin) + ".";
     }
 }

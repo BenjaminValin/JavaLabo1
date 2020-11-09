@@ -1,9 +1,9 @@
 package be.technifutur.java2020.gestionstage.participants;
 
+import java.io.Serializable;
 import java.util.Objects;
-import java.util.Scanner;
 
-public class Participant {
+public class Participant implements Serializable {
 
     //private Nom nom;
     private String prenom;

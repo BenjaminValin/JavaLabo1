@@ -102,7 +102,7 @@ public class StageCtrl {
             getList();
             System.out.println("Insérez le numéro du stage auquel vous voulez ajouter un participant");
             int input = new Scanner(System.in).nextInt();
-            //verif = liste.addLink(input, pAdd);
+            verif = liste.addMember(input, pAdd);
         }
     }
 

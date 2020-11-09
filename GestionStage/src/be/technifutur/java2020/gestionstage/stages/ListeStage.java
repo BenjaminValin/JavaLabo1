@@ -1,6 +1,7 @@
 package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.activites.Activite;
+import be.technifutur.java2020.gestionstage.participants.Participant;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -85,6 +86,28 @@ public class ListeStage implements Serializable {
         }
 
         System.out.println(message);
+        return add;
+    }
+
+    public boolean addMember(int input, Participant part) {
+        Participant verif = part;
+        Stage modif = listeStages.get(input);
+        Set<Participant> test = modif.getParticipantsAuStage();
+        boolean add = true;
+        String message = null;
+
+        for(Participant p : test){
+            if (p == verif){
+                add = false;
+                message = "Ce participant ne peut pas être inclus dans le stage, car il s'y trouve déjà";
+            }
+        }
+
+        if (add){
+            message = "Participant ajoutée avec succès !";
+            modif.getParticipantsAuStage().add(verif);
+        }
+
         return add;
     }
 }
