@@ -36,7 +36,7 @@ public class FonctionsUtiles {
 
     public String saisieMail(){
         String data = new Scanner(System.in).nextLine();
-        Pattern p = Pattern.compile("^[A-Za-z0-9+-.-]*@[A-Za-z0-9+-.-]*$");
+        Pattern p = Pattern.compile("^([A-Za-z0-9+-.-]+)[@]([A-Za-z0-9+-.-]+)$");
         Matcher m = p.matcher(data);
         boolean ok = m.matches();
         while(!ok){
