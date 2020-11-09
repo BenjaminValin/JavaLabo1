@@ -7,8 +7,6 @@ import be.technifutur.java2020.gestionstage.stages.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.TextStyle;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -72,10 +70,7 @@ public class ConsultPlanning {
                 }
             }
             if (verif){
-                System.out.println(jour.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRENCH) +
-                        " " + jour.getDayOfMonth() +
-                        " " + jour.getMonth().getDisplayName(TextStyle.FULL,Locale.FRENCH) +
-                        " " + jour.getYear() + " :");
+                System.out.println(util.afficheDateFR(jour) + " :");
                 for (int j = 0; j < act.size(); j++){
                     LocalDate jourActiv = plannordre[j].getDateDebut().toLocalDate();
                     if (jourActiv.equals(jour)){

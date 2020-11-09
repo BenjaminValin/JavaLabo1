@@ -6,6 +6,8 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -43,6 +45,24 @@ public class FonctionsUtiles {
         LocalDate dt = unedate;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String date = dt.format(formatter);
+        return date;
+    }
+
+    public String afficheDateFR(LocalDateTime unedate){
+        LocalDateTime dt = unedate;
+        String date = dt.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRENCH) +
+                " " + dt.getDayOfMonth() +
+                " " + dt.getMonth().getDisplayName(TextStyle.FULL,Locale.FRENCH) +
+                " " + dt.getYear();
+        return date;
+    }
+
+    public String afficheDateFR(LocalDate unedate){
+        LocalDate dt = unedate;
+        String date = dt.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRENCH) +
+                " " + dt.getDayOfMonth() +
+                " " + dt.getMonth().getDisplayName(TextStyle.FULL,Locale.FRENCH) +
+                " " + dt.getYear();
         return date;
     }
 
