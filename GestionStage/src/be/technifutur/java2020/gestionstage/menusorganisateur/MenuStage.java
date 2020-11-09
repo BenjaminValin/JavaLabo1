@@ -17,7 +17,7 @@ public class MenuStage implements MenusOrga {
     }
 
     public void menu() {
-        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)", "Ajout d'une activité à un stage", "Suppression d'une activité d'un stage (a venir)", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages", "Charger une liste de stages déjà encodée", "Fonction à venir"};
+        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages", "Charger une liste de stages déjà encodée", "Afficher tous les participants aux stages", "Fonction à venir"};
         Scanner scan = new Scanner(System.in);
         int input, number;
         menuStage(choix);
@@ -46,26 +46,23 @@ public class MenuStage implements MenusOrga {
                         break;
                     case 4:
                         System.out.println("***" + choix[choice] + "***");
+                        ctrls.addActivity(ctrla.add());
                         break;
                     case 5:
                         System.out.println("***" + choix[choice] + "***");
-                        ctrls.addActivity(ctrla.add());
+                        ctrls.newMember();
                         break;
                     case 6:
                         System.out.println("***" + choix[choice] + "***");
-                        //ctrls.deleteLink();
+                        ctrls.save();
                         break;
                     case 7:
                         System.out.println("***" + choix[choice] + "***");
-                        ctrls.newMember();
+                        ctrls.load();
                         break;
                     case 8:
                         System.out.println("***" + choix[choice] + "***");
-                        ctrls.save();
-                        break;
-                    case 9:
-                        System.out.println("***" + choix[choice] + "***");
-                        ctrls.load();
+                        System.out.println(ctrls.getListeParticipants());
                         break;
                 }
             } else {

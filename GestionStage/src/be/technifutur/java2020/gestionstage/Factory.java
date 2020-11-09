@@ -3,6 +3,7 @@ package be.technifutur.java2020.gestionstage;
 import be.technifutur.java2020.gestionstage.menusorganisateur.*;
 import be.technifutur.java2020.gestionstage.menusroles.*;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.*;
+import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
 import be.technifutur.java2020.gestionstage.stages.*;
 import be.technifutur.java2020.gestionstage.activites.*;
 
@@ -16,6 +17,7 @@ public class Factory {
     private ActiviteCtrl ctrla;
     private Visiteur visiteur;
     private ConsultPlanning consult;
+    private ListeParticipants listep;
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
@@ -45,9 +47,17 @@ public class Factory {
         if (this.ctrls == null){
             this.ctrls = new StageCtrl();
             this.ctrls.setListeStage(getListeStage());
+            this.ctrls.setListeParticipants(getListeParticipants());
             this.ctrls.setFonctionsUtiles(getFonctionsUtiles());
         }
         return ctrls;
+    }
+
+    private ListeParticipants getListeParticipants() {
+        if (this.listep == null){
+            this.listep = new ListeParticipants();
+        }
+        return listep;
     }
 
     private ListeStage getListeStage() {

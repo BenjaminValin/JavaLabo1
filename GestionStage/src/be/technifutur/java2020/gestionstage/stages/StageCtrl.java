@@ -2,14 +2,17 @@ package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
+import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
 import be.technifutur.java2020.gestionstage.participants.Participant;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
+import java.util.Set;
 
 public class StageCtrl {
 
     private ListeStage liste;
+    private ListeParticipants listep;
     private FonctionsUtiles util;
 
     public void newStage() {
@@ -52,8 +55,8 @@ public class StageCtrl {
         System.out.println("Insérez le numéro du stage auquel vous voulez ajouter ce participant");
         int input = new Scanner(System.in).nextInt();
         s = liste.getStage(input);
-        boolean ok = liste.verifMember(s,p);
-        liste.addMember(ok, s, p);
+        boolean ok = listep.verifMember(s,p);
+        listep.addMember(ok, s, p);
     }
 
     public void consult(int key) {
@@ -74,6 +77,10 @@ public class StageCtrl {
 
     public Stage getStage(int i) {
         return liste.getStage(i);
+    }
+
+    public Set<Participant> getListeParticipants() {
+        return listep.getListeParticipants();
     }
 
     public void addActivity(Activite act) {
@@ -106,5 +113,9 @@ public class StageCtrl {
 
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;
+    }
+
+    public void setListeParticipants(ListeParticipants listeParticipants) {
+        this.listep = listeParticipants;
     }
 }
