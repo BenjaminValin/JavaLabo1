@@ -8,12 +8,12 @@ import java.util.Scanner;
 public class MenuPrincipal {
 
     public Organisateur orga;
-    private Stagiaire stagiaire;
+    private Visiteur visiteur;
 
     public void start() throws FileNotFoundException {
 
         Gestionnaires[] menu = new Gestionnaires[]{
-                orga, stagiaire, new Tresorier(), new Secretaire()
+                orga, visiteur, new Tresorier(), new Secretaire()
         };
         Scanner scan = new Scanner(System.in);
         int input;
@@ -32,7 +32,7 @@ public class MenuPrincipal {
                         menu[choice].menu();
                         break;
                     case 2:
-                        System.out.println("Entrée dans le menu des stagiaires :");
+                        System.out.println("Entrée dans le menu des visiteurs :");
                         menu[choice].menu();
                         break;
                     case 3:
@@ -74,7 +74,7 @@ public class MenuPrincipal {
         this.orga = orga;
     }
 
-    public void setStagiaire(Stagiaire stagiaire) {
-        this.stagiaire = stagiaire;
+    public void setVisiteur(Visiteur visiteur) {
+        this.visiteur = visiteur;
     }
 }

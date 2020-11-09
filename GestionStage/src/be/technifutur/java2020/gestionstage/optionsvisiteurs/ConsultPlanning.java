@@ -1,4 +1,4 @@
-package be.technifutur.java2020.gestionstage.optionsstagiaires;
+package be.technifutur.java2020.gestionstage.optionsvisiteurs;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
@@ -93,7 +93,6 @@ public class ConsultPlanning {
     public void setListeStage(ListeStage listeStage) {
         this.liste = listeStage;
     }
-
 
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;

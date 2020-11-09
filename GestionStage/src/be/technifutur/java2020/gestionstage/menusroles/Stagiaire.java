@@ -1,65 +1,15 @@
 package be.technifutur.java2020.gestionstage.menusroles;
 
-import be.technifutur.java2020.gestionstage.optionsstagiaires.ConsultPlanning;
-
-import java.util.Scanner;
-
 public class Stagiaire implements Gestionnaires {
 
-    private ConsultPlanning consult;
 
     @Override
     public String getName() {
-        String name = "Stagiaire";
-        return name;
+        return null;
     }
 
     @Override
     public void menu() {
-        String[] menu = new String[]{"Consultation du calendrier de votre stage", "Fonction à venir"};
-        Scanner scan = new Scanner(System.in);
-        int input;
-        menuStagiaire(menu);
 
-        input = scan.nextInt();
-
-        while (input != 0) {
-            if (input < (menu.length) && input >= 1) {
-                int choice = input-1;
-                switch (input) {
-                    case 1:
-                        System.out.println("***" + menu[choice] + "***");
-                        consult.consult();
-                        break;
-                }
-            } else {
-                System.out.println("Choix impossible");
-            }
-            menuStagiaire(menu);
-
-            input = scan.nextInt();
-
-        }
-        System.out.println("Retour au menu des gestionnaires");
-
-
-    }
-
-    private static void menuStagiaire(String[] menu) {
-        System.out.println();
-        System.out.println("***Menu des stagiaires***");
-        System.out.println("A quel sous-menu souhaitez-vous accéder ?");
-        System.out.println("Entrez le nombre correspondant au choix souhaité : ");
-        System.out.println();
-        for (int i = 0; i < menu.length; i++) {
-            System.out.printf(" - %d : %s%n", i + 1, menu[i]);
-        }
-        System.out.printf(" - %s : %s%n", "0", "Quitter");
-        System.out.println();
-        System.out.print("Faites votre choix : ");
-    }
-
-    public void setConsultPlanning(ConsultPlanning consultPlanning) {
-        this.consult = consultPlanning;
     }
 }
