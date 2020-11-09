@@ -91,7 +91,6 @@ public class FonctionsUtiles {
     }
 
     public ListeStage chargementListeStage(){
-
         File fichier = new File("stagesencodes.stage");
         ListeStage liste = new ListeStage();
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier))) {

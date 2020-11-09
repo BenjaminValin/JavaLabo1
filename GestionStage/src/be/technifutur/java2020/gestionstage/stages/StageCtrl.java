@@ -40,26 +40,20 @@ public class StageCtrl {
 
     public void newMember() {
         Participant p = new Participant();
+        Stage s;
         char r = ' ';
         System.out.println("Insérez le nom du participant :");
         p.setNom(new Scanner(System.in).nextLine());
         System.out.println("Insérez le prénom du participant :");
         p.setPrenom(new Scanner(System.in).nextLine());
-        System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-        r = new Scanner(System.in).nextLine().charAt(0);
-        if (r == 'O' || r == 'o'){
-            System.out.println("Insérez le nom du club du participant :");
-            String club = new Scanner(System.in).nextLine();
-            p.setNomClub(club);
-        }
-        System.out.println("Le participant a t'il une adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-        r = new Scanner(System.in).nextLine().charAt(0);
-        if (r == 'O' || r == 'o'){
-            System.out.println("Insérez l'adresse mail du participant :");
-            String club = new Scanner(System.in).nextLine();
-            p.setMail(club);
-        }
-        addMember(p);
+
+        System.out.println("Voici la liste des stages :");
+        getList();
+        System.out.println("Insérez le numéro du stage auquel vous voulez ajouter ce participant");
+        int input = new Scanner(System.in).nextInt();
+        s = liste.getStage(input);
+        boolean ok = liste.verifMember(s,p);
+        liste.addMember(ok, s, p);
     }
 
     public void consult(int key) {
@@ -78,6 +72,10 @@ public class StageCtrl {
         return liste.getStagesCreated();
     }
 
+    public Stage getStage(int i) {
+        return liste.getStage(i);
+    }
+
     public void addActivity(Activite act) {
 
         Activite actAdd = act;
@@ -89,20 +87,6 @@ public class StageCtrl {
             System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
             int input = new Scanner(System.in).nextInt();
             verif = liste.addLink(input, actAdd);
-        }
-    }
-
-    public void addMember(Participant p) {
-
-        Participant pAdd = p;
-        boolean verif = false;
-
-        while (!verif){
-            System.out.println("Voici la liste des stages :");
-            getList();
-            System.out.println("Insérez le numéro du stage auquel vous voulez ajouter un participant");
-            int input = new Scanner(System.in).nextInt();
-            verif = liste.addMember(input, pAdd);
         }
     }
 

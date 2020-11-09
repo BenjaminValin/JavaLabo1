@@ -90,49 +90,61 @@ public class ListeStage implements Serializable {
         return add;
     }
 
-    public boolean addMember(int input, Participant part) {
-        Participant verif = part;
-        Participant partExistant = null;
-        Stage modif = listeStages.get(input);
-        Set<Participant> test = modif.getParticipantsAuStage();
-        FonctionsUtiles util = new FonctionsUtiles();
-        boolean add = true;
+    public void addMember(Boolean add, Stage s, Participant part) {
 
-        for(Participant p : test){
-            if (p.equals(verif)){
-                partExistant = p;
-                add = false;
+        FonctionsUtiles util = new FonctionsUtiles();
+        char r = ' ';
+
+        if (add){
+            System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+            r = new Scanner(System.in).nextLine().charAt(0);
+            if (r == 'O' || r == 'o'){
+                System.out.println("Insérez le nom du club du participant :");
+                String club = new Scanner(System.in).nextLine();
+                part.setNomClub(club);
+            }
+            System.out.println("Le participant a t'il une adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+            r = new Scanner(System.in).nextLine().charAt(0);
+            if (r == 'O' || r == 'o'){
+                System.out.println("Insérez l'adresse mail du participant :");
+                String club = new Scanner(System.in).nextLine();
+                part.setMail(club);
+            }
+            System.out.println("Participant ajoutée avec succès !");
+            s.getParticipantsAuStage().add(part);
+        }
+    }
+
+    public boolean verifMember(Stage s, Participant participant) {
+        Participant part = participant;
+        Stage modif = s;
+        Set<Participant> test = modif.getParticipantsAuStage();
+        boolean verif = true;
+
+        for (Participant p : test) {
+            if (p.equals(part)) {
+                verif = false;
                 System.out.println("Ce participant ne peut pas être inclus dans le stage, car il s'y trouve déjà");
             }
         }
 
-        if (add){
-            System.out.println("Participant ajoutée avec succès !");
-            modif.getParticipantsAuStage().add(verif);
-        } else {
-            System.out.println("Voulez-vous néanmoins modifier son club/son mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            char r = new Scanner(System.in).nextLine().charAt(0);
-            if (r == 'O' || r == 'o') {
-                System.out.println("Voulez-vous modifier son club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = new Scanner(System.in).nextLine().charAt(0);
-                if (r == 'O' || r == 'o') {
-                    System.out.println("Insérez le nom du club du participant :");
-                    String club = new Scanner(System.in).nextLine();
-                    verif.setNomClub(club);
-                }
-                System.out.println("Voulez-vous modifier son adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = new Scanner(System.in).nextLine().charAt(0);
-                if (r == 'O' || r == 'o') {
-                    System.out.println("Insérez l'adresse mail du participant :");
-                    String mail = util.saisieMail();
-                    verif.setMail(mail);
-                }
-                modif.getParticipantsAuStage().remove(partExistant);
-                modif.getParticipantsAuStage().add(verif);
+        return verif;
+    }
+
+    public Participant getMember(Stage s, Participant participant) {
+        Participant part = participant;
+        Participant pDoublon = null;
+        Stage modif = s;
+        Set<Participant> test = modif.getParticipantsAuStage();
+        boolean verif = true;
+
+        for (Participant p : test) {
+            if (p.equals(part)) {
+                verif = false;
+                pDoublon = p;
             }
-            add = true;
         }
 
-        return add;
+        return pDoublon;
     }
 }
