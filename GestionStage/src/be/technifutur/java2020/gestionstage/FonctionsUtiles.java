@@ -1,5 +1,6 @@
 package be.technifutur.java2020.gestionstage;
 
+import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
 import be.technifutur.java2020.gestionstage.stages.ListeStage;
 
 import java.io.*;
@@ -95,6 +96,27 @@ public class FonctionsUtiles {
         ListeStage liste = new ListeStage();
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier))) {
             liste = (ListeStage) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return liste;
+    }
+
+    public void sauvegardeListeParticipants(ListeParticipants liste){
+        File fichier = new File("participantsencodes.stage");
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))) {
+            oos.writeObject(liste);
+            System.out.println(fichier.exists());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ListeParticipants chargementListeParticipants(){
+        File fichier = new File("participantsencodes.stage");
+        ListeParticipants liste = new ListeParticipants();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier))) {
+            liste = (ListeParticipants) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

@@ -79,6 +79,13 @@ public class ListeParticipants implements Serializable {
                 s.getParticipantsAuStage().add(part);
                 removeMember(doublon);
                 addMember(part);
+            } else {
+                System.out.println("Voulez-vous retirer cet utilisateur du stage ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+                r = new Scanner(System.in).nextLine().charAt(0);
+                if (r == 'O' || r == 'o') {
+                    s.getParticipantsAuStage().remove(doublon);
+                    removeMember(doublon);
+                }
             }
         }
     }
@@ -91,6 +98,7 @@ public class ListeParticipants implements Serializable {
             if (p.equals(participant)) {
                 verif = false;
                 System.out.println("Ce participant ne peut pas être inclus dans le stage, car il s'y trouve déjà");
+                System.out.println(p);
             }
         }
 
