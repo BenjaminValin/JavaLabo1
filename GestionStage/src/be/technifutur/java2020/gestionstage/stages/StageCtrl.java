@@ -2,6 +2,8 @@ package be.technifutur.java2020.gestionstage.stages;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
+import be.technifutur.java2020.gestionstage.participants.Participant;
+
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -10,7 +12,7 @@ public class StageCtrl {
     private ListeStage liste;
     private FonctionsUtiles util;
 
-    public void add() {
+    public void newStage() {
 
         boolean datesOK = false;
         LocalDateTime dateDebut = null;
@@ -36,6 +38,30 @@ public class StageCtrl {
         liste.add(data, dateDebut, dateFin);
     }
 
+    public void newMember() {
+        Participant p = new Participant();
+        char r = ' ';
+        System.out.println("Insérez le nom du participant :");
+        p.setNom(new Scanner(System.in).nextLine());
+        System.out.println("Insérez le prénom du participant :");
+        p.setPrenom(new Scanner(System.in).nextLine());
+        System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+        r = new Scanner(System.in).nextLine().charAt(0);
+        if (r == 'O'){
+            System.out.println("Insérez le nom du club du participant :");
+            String club = new Scanner(System.in).nextLine();
+            p.setNomClub(club);
+        }
+        System.out.println("Le participant a t'il une adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+        r = new Scanner(System.in).nextLine().charAt(0);
+        if (r == 'O'){
+            System.out.println("Insérez l'adresse mail du participant :");
+            String club = new Scanner(System.in).nextLine();
+            p.setMail(club);
+        }
+        addMember(p);
+    }
+
     public void consult(int key) {
         liste.consult(key);
     }
@@ -52,7 +78,7 @@ public class StageCtrl {
         return liste.getStagesCreated();
     }
 
-    public void addLink(Activite act) {
+    public void addActivity(Activite act) {
 
         Activite actAdd = act;
         boolean verif = false;
@@ -61,11 +87,23 @@ public class StageCtrl {
             System.out.println("Voici la liste des stages :");
             getList();
             System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
-            int input1 = new Scanner(System.in).nextInt();
-            verif = liste.addLink(input1, actAdd);
+            int input = new Scanner(System.in).nextInt();
+            verif = liste.addLink(input, actAdd);
         }
+    }
 
+    public void addMember(Participant p) {
 
+        Participant pAdd = p;
+        boolean verif = false;
+
+        while (!verif){
+            System.out.println("Voici la liste des stages :");
+            getList();
+            System.out.println("Insérez le numéro du stage auquel vous voulez ajouter un participant");
+            int input = new Scanner(System.in).nextInt();
+            //verif = liste.addLink(input, pAdd);
+        }
     }
 
     /*public void deleteLink() {} pas encore demandé */
@@ -85,6 +123,4 @@ public class StageCtrl {
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;
     }
-
-
 }

@@ -17,7 +17,7 @@ public class MenuStage implements MenusOrga {
     }
 
     public void menu() {
-        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)", "Ajout d'une activité à un stage", "Suppression d'une activité d'un stage (a venir)", "Sauvegarder la liste des stages", "Charger une liste de stages déjà encodée", "Fonction à venir"};
+        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Modification de stage (a venir)", "Ajout d'une activité à un stage", "Suppression d'une activité d'un stage (a venir)", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages", "Charger une liste de stages déjà encodée", "Fonction à venir"};
         Scanner scan = new Scanner(System.in);
         int input, number;
         menuStage(choix);
@@ -29,7 +29,7 @@ public class MenuStage implements MenusOrga {
                 switch (input) {
                     case 1:
                         System.out.println("***" + choix[choice] + "***");
-                        ctrls.add();
+                        ctrls.newStage();
                         break;
                     case 2:
                         System.out.println("***" + choix[choice] + "***");
@@ -49,7 +49,7 @@ public class MenuStage implements MenusOrga {
                         break;
                     case 5:
                         System.out.println("***" + choix[choice] + "***");
-                        ctrls.addLink(ctrla.add());
+                        ctrls.addActivity(ctrla.add());
                         break;
                     case 6:
                         System.out.println("***" + choix[choice] + "***");
@@ -57,9 +57,13 @@ public class MenuStage implements MenusOrga {
                         break;
                     case 7:
                         System.out.println("***" + choix[choice] + "***");
-                        ctrls.save();
+                        ctrls.newMember();
                         break;
                     case 8:
+                        System.out.println("***" + choix[choice] + "***");
+                        ctrls.save();
+                        break;
+                    case 9:
                         System.out.println("***" + choix[choice] + "***");
                         ctrls.load();
                         break;
