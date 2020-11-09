@@ -47,14 +47,14 @@ public class StageCtrl {
         p.setPrenom(new Scanner(System.in).nextLine());
         System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
         r = new Scanner(System.in).nextLine().charAt(0);
-        if (r == 'O'){
+        if (r == 'O' || r == 'o'){
             System.out.println("Insérez le nom du club du participant :");
             String club = new Scanner(System.in).nextLine();
             p.setNomClub(club);
         }
         System.out.println("Le participant a t'il une adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
         r = new Scanner(System.in).nextLine().charAt(0);
-        if (r == 'O'){
+        if (r == 'O' || r == 'o'){
             System.out.println("Insérez l'adresse mail du participant :");
             String club = new Scanner(System.in).nextLine();
             p.setMail(club);

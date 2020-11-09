@@ -1,10 +1,11 @@
-package be.technifutur.java2020.gestionstage;
+package be.technifutur.java2020.gestionstage.comparaisons;
 
 import be.technifutur.java2020.gestionstage.participants.Participant;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class CompareNoms implements Comparator<Participant> {
+public class CompareNoms implements Comparator<Participant>, Serializable {
 
     @Override
     public int compare(Participant p1, Participant p2) {

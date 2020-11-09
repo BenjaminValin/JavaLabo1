@@ -1,5 +1,7 @@
 package be.technifutur.java2020.gestionstage.stages;
 
+import be.technifutur.java2020.gestionstage.comparaisons.CompareActivites;
+import be.technifutur.java2020.gestionstage.comparaisons.CompareNoms;
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
 import be.technifutur.java2020.gestionstage.participants.Participant;
@@ -7,8 +9,8 @@ import be.technifutur.java2020.gestionstage.participants.Participant;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
-import java.util.HashSet;
 import java.util.Objects;
+import java.util.TreeSet;
 
 
 public class Stage implements Serializable {
@@ -16,8 +18,8 @@ public class Stage implements Serializable {
     private String nomStage;
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
-    private Set<Activite> activitesDuStage = new HashSet<>();
-    private Set<Participant> participantsAuStage = new HashSet<>();
+    private Set<Activite> activitesDuStage = new TreeSet<>(new CompareActivites());             //set trié par date d'activités
+    private Set<Participant> participantsAuStage = new TreeSet<>(new CompareNoms());            //set trié par nom, puis prénom du participant
 
     public String getNomStage() {
         return nomStage;

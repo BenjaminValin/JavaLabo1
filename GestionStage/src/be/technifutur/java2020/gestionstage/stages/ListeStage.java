@@ -1,5 +1,6 @@
 package be.technifutur.java2020.gestionstage.stages;
 
+import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
 import be.technifutur.java2020.gestionstage.participants.Participant;
 
@@ -74,7 +75,7 @@ public class ListeStage implements Serializable {
 
         //TODO : Corriger le foreach et le transformer en while
         for(Activite a : test){
-            if (a == verif){
+            if (a.equals(verif)){
                 add = false;
                 message = "Cette activité ne peut pas être ajoutée dans le stage, car elle s'y trouve déjà";
             }
@@ -91,21 +92,45 @@ public class ListeStage implements Serializable {
 
     public boolean addMember(int input, Participant part) {
         Participant verif = part;
+        Participant partExistant = null;
         Stage modif = listeStages.get(input);
         Set<Participant> test = modif.getParticipantsAuStage();
+        FonctionsUtiles util = new FonctionsUtiles();
         boolean add = true;
-        String message = null;
 
         for(Participant p : test){
-            if (p == verif){
+            if (p.equals(verif)){
+                partExistant = p;
                 add = false;
-                message = "Ce participant ne peut pas être inclus dans le stage, car il s'y trouve déjà";
+                System.out.println("Ce participant ne peut pas être inclus dans le stage, car il s'y trouve déjà");
             }
         }
 
         if (add){
-            message = "Participant ajoutée avec succès !";
+            System.out.println("Participant ajoutée avec succès !");
             modif.getParticipantsAuStage().add(verif);
+        } else {
+            System.out.println("Voulez-vous néanmoins modifier son club/son mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+            char r = new Scanner(System.in).nextLine().charAt(0);
+            if (r == 'O' || r == 'o') {
+                System.out.println("Voulez-vous modifier son club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+                r = new Scanner(System.in).nextLine().charAt(0);
+                if (r == 'O' || r == 'o') {
+                    System.out.println("Insérez le nom du club du participant :");
+                    String club = new Scanner(System.in).nextLine();
+                    verif.setNomClub(club);
+                }
+                System.out.println("Voulez-vous modifier son adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+                r = new Scanner(System.in).nextLine().charAt(0);
+                if (r == 'O' || r == 'o') {
+                    System.out.println("Insérez l'adresse mail du participant :");
+                    String mail = util.saisieMail();
+                    verif.setMail(mail);
+                }
+                modif.getParticipantsAuStage().remove(partExistant);
+                modif.getParticipantsAuStage().add(verif);
+            }
+            add = true;
         }
 
         return add;

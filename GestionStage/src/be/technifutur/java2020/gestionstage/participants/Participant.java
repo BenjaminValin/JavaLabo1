@@ -111,4 +111,9 @@ public class Participant implements Serializable {
     public int hashCode() {
         return Objects.hash(prenom, nom);
     }
+
+    @Override
+    public String toString() {
+        return "Prénom : " + prenom + ", Nom : " + nom + ", nom du club : " + nomClub + ", mail : " + mail;
+    }
 }

@@ -7,8 +7,7 @@ import be.technifutur.java2020.gestionstage.stages.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class ConsultPlanning {
 
@@ -18,8 +17,6 @@ public class ConsultPlanning {
     public void consult(){
 
         Scanner scan = new Scanner(System.in);
-        Activite[] planndesordre, plannordre;
-        int i = 0;
 
         load();                                     //TODO : trouver une solution pour unifier les listes après chargement de la sauvegarde, load utilisé provisoirement
         System.out.println("Voici la liste des stages :");
@@ -31,10 +28,15 @@ public class ConsultPlanning {
         LocalDateTime dateDebutStage = stage.getDateDebut();
         LocalDateTime dateFinStage = stage.getDateFin();
         int dureeStage = dateFinStage.getDayOfYear() - dateDebutStage.getDayOfYear();
+        ArrayList<Activite> liste = new ArrayList<>();
         Set<Activite> act = stage.getActivitesDuStage();
 
-        planndesordre = new Activite[act.size()];   //TODO : trouver une méthode plus simple pour trier le set
-        plannordre = new Activite[act.size()];
+        Iterator<Activite> iterator = act.iterator();
+        int x = 0;
+        while(iterator.hasNext()){
+            liste.add(x, iterator.next());
+            x++;
+        }
 
         System.out.println("Planning du stage " + stage.getNomStage());
         System.out.println("Le stage commence le " + util.afficheDate(dateDebutStage) + ".");
@@ -43,42 +45,27 @@ public class ConsultPlanning {
         System.out.println("Voici le planning détaillé de ce stage : ");
         System.out.println();
 
-        for(Activite a : act){
-            planndesordre[i] = a;
-            i++;
-        }
-
-        for (int cpt = 0; cpt < act.size(); cpt++){
-            i=0;
-            Activite a = planndesordre[cpt];
-            for (int cpt2 = 0; cpt2 < act.size(); cpt2++){
-                if (a.getDateDebut().isAfter(planndesordre[cpt2].getDateDebut())){
-                    i++;
-                }
-            }
-            plannordre[i] = a;
-        }
-
-        for (i=0; i <= dureeStage;i++){
+        for (int i = 0; i <= dureeStage; i++){
             LocalDateTime date = dateDebutStage.plusDays(i);
             LocalDate jour = date.toLocalDate();
             boolean verif = false;
-            for (int j = 0; j < act.size(); j++){
-                LocalDate jourActiv = plannordre[j].getDateDebut().toLocalDate();
+            for (int j = 0; j < liste.size(); j++){
+                LocalDate jourActiv = liste.get(j).getDateDebut().toLocalDate();
                 if (jourActiv.equals(jour)){
                     verif = true;
                 }
             }
             if (verif){
                 System.out.println(util.afficheDateFR(jour) + " :");
-                for (int j = 0; j < act.size(); j++){
-                    LocalDate jourActiv = plannordre[j].getDateDebut().toLocalDate();
+                for (int j = 0; j < liste.size(); j++){
+                    Activite activ = liste.get(j);
+                    LocalDate jourActiv = activ.getDateDebut().toLocalDate();
                     if (jourActiv.equals(jour)){
-                        LocalTime heureFin = plannordre[j].getDateDebut().toLocalTime().plusMinutes(plannordre[j].getDureeActivite());
-                        System.out.println(plannordre[j].getDateDebut().toLocalTime() +
+                        LocalTime heureFin = activ.getDateDebut().toLocalTime().plusMinutes(liste.get(j).getDureeActivite());
+                        System.out.println(activ.getDateDebut().toLocalTime() +
                                 " - " + heureFin +
-                                " : " + plannordre[j].getNomActivite() +
-                                " (" + plannordre[j].getDureeActivite() + " minutes)" );
+                                " : " + activ.getNomActivite() +
+                                " (" + activ.getDureeActivite() + " minutes)" );
                     }
                 }
                 System.out.println();
