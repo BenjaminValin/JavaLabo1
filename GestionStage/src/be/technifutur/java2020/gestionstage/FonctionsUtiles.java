@@ -17,6 +17,17 @@ import java.util.regex.Pattern;
 
 public class FonctionsUtiles {
 
+    public void afficheMenu(Object[] menu) {
+        System.out.println("Entrez le nombre correspondant au choix souhaité : ");
+        System.out.println();
+        for (int i = 0; i < menu.length; i++) {
+            System.out.printf(" - %d : %s%n", i + 1, menu[i].getClass().getName());             //Régler le souci d'affichage
+        }
+        System.out.printf(" - %s : %s%n", "0", "Quitter");
+        System.out.println();
+        System.out.print("Faites votre choix : ");
+    }
+
     public LocalDateTime saisieDate(){
 
         String affichageDate = "d/MM/yyyy HH:mm";
@@ -112,6 +123,16 @@ public class FonctionsUtiles {
         }
         int input = Integer.parseInt(choix);
         return input;
+    }
+
+    public String saisieNombreViaString() {
+        Scanner scan = new Scanner(System.in);
+        String choix = scan.nextLine();
+        while (!estUnNombre(choix)){
+            System.out.println("Ceci n'est pas un nombre. Recommencez :");
+            choix = scan.nextLine();
+        }
+        return choix;
     }
 
     public boolean estUnNombre(String s) {
