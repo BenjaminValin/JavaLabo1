@@ -108,11 +108,21 @@ public class ListeParticipants implements Serializable {
     public Participant getMember(Stage s, Participant participant) {
         Participant pDoublon = null;
         Set<Participant> test = s.getParticipantsAuStage();
-        boolean verif = true;
 
         for (Participant p : test) {
             if (p.equals(participant)) {
-                verif = false;
+                pDoublon = p;
+            }
+        }
+
+        return pDoublon;
+    }
+
+    public Participant getMember(Participant participant) {
+        Participant pDoublon = null;
+
+        for (Participant p : listeParticipants) {
+            if (p.equals(participant)) {
                 pDoublon = p;
             }
         }

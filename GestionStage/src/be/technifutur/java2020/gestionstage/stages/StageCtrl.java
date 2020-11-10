@@ -45,11 +45,24 @@ public class StageCtrl {
         Participant p = new Participant();
         Stage s;
         char r = ' ';
-        System.out.println("Insérez le nom du participant :");
-        p.setNom(new Scanner(System.in).nextLine());
-        System.out.println("Insérez le prénom du participant :");
-        p.setPrenom(new Scanner(System.in).nextLine());
 
+        System.out.println("Le participant existe t'il déjà dans la liste des participants ? Tapez O pour oui, N (ou autre caractère) pour non");
+        r = new Scanner(System.in).nextLine().charAt(0);
+        if(r == 'O' || r == 'o'){
+            System.out.println("Voici la liste des participants :");
+            System.out.println(listep.getListeParticipants());
+            System.out.println("Insérez le nom du participant que vous voulez récupérer :");
+            p.setNom(new Scanner(System.in).nextLine());
+            System.out.println("Insérez le prénom du participant que vous voulez récupérer :");
+            p.setPrenom(new Scanner(System.in).nextLine());
+            p = listep.getMember(p);
+            
+        } else {
+            System.out.println("Insérez le nom du participant :");
+            p.setNom(new Scanner(System.in).nextLine());
+            System.out.println("Insérez le prénom du participant :");
+            p.setPrenom(new Scanner(System.in).nextLine());
+        }
         System.out.println("Voici la liste des stages :");
         getList();
         System.out.println("Insérez le numéro du stage auquel vous voulez ajouter ce participant");
