@@ -1,9 +1,7 @@
 package be.technifutur.java2020.gestionstage.menusroles;
 
-import be.technifutur.java2020.gestionstage.Test;
 import be.technifutur.java2020.gestionstage.menusorganisateur.*;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Organisateur implements Gestionnaires {
@@ -16,7 +14,7 @@ public class Organisateur implements Gestionnaires {
         return name;
     }
 
-    public void menu() throws FileNotFoundException {
+    public void menu() {
         MenusOrga[] menu = new MenusOrga[]{
                 menustg, new MenuStage()//A supprimer plus tard
         };
@@ -25,8 +23,7 @@ public class Organisateur implements Gestionnaires {
         menuOrganisateur(menu);
 
         input = scan.nextInt();
-        /*input = Integer.parseInt(Test.Texte());
-        System.out.println(input);*/
+
 
         while (input != 0) {
             if (input < (menu.length) && input >= 1) {
@@ -43,8 +40,6 @@ public class Organisateur implements Gestionnaires {
             menuOrganisateur(menu);
 
             input = scan.nextInt();
-            /*input = Integer.parseInt(Test.Texte());
-            System.out.println(input);*/
 
         }
         System.out.println("Retour au menu des gestionnaires");

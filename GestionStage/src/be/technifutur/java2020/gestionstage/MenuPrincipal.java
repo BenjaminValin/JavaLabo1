@@ -20,8 +20,6 @@ public class MenuPrincipal {
         menuChoixParticipant(menu);
 
         input = scan.nextInt();
-        /*input = Integer.parseInt(Test.Texte());
-        System.out.println(input);*/
 
         while (input != 0) {
             if (input < (menu.length) && input >= 1) {
@@ -48,8 +46,6 @@ public class MenuPrincipal {
             menuChoixParticipant(menu);
 
             input = scan.nextInt();
-            /*input = Integer.parseInt(Test.Texte());
-            System.out.println(input);*/
 
         }
         System.out.println("Bonne journée !");

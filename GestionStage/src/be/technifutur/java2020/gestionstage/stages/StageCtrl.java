@@ -23,6 +23,10 @@ public class StageCtrl {
 
         System.out.println("Insérez le nom du stage :");
         String data = new Scanner(System.in).nextLine();
+        while(util.vide(data)){
+            System.out.println("Il faut absolument un nom pour le stage, recommencez :");
+            data = new Scanner(System.in).nextLine();
+        }
 
         while(!datesOK){
             System.out.println("Création de la date de début du stage :");
@@ -45,31 +49,58 @@ public class StageCtrl {
         Participant p = new Participant();
         Stage s;
         char r = ' ';
+        boolean ok = true;
+        String data;
 
         System.out.println("Le participant existe t'il déjà dans la liste des participants ? Tapez O pour oui, N (ou autre caractère) pour non");
-        r = new Scanner(System.in).nextLine().charAt(0);
-        if(r == 'O' || r == 'o'){
+        r = Character.toUpperCase(new Scanner(System.in).nextLine().charAt(0));
+        if(r == 'O'){
             System.out.println("Voici la liste des participants :");
             System.out.println(listep.getListeParticipants());
             System.out.println("Insérez le nom du participant que vous voulez récupérer :");
-            p.setNom(new Scanner(System.in).nextLine());
+            data = new Scanner(System.in).nextLine();
+            while (util.vide(data)){
+                System.out.println("Le nom ne peut être vide. Recommencez :");
+                data = new Scanner(System.in).nextLine();
+            }
+            p.setNom(data);
             System.out.println("Insérez le prénom du participant que vous voulez récupérer :");
-            p.setPrenom(new Scanner(System.in).nextLine());
+            data = new Scanner(System.in).nextLine();
+            while (util.vide(data)){
+                System.out.println("Le prénom ne peut être vide. Recommencez :");
+                data = new Scanner(System.in).nextLine();
+            }
+            p.setPrenom(data);
             p = listep.getMember(p);
-            
+            if (p == null){
+                System.out.println("Le participant n'a pas été trouvé. Avez-vous fait une erreur dans le nom ou le prénom ?");
+                ok = false;
+            }
         } else {
             System.out.println("Insérez le nom du participant :");
-            p.setNom(new Scanner(System.in).nextLine());
+            data = new Scanner(System.in).nextLine();
+            while (util.vide(data)){
+                System.out.println("Le nom ne peut être vide. Recommencez :");
+                data = new Scanner(System.in).nextLine();
+            }
+            p.setNom(data);
             System.out.println("Insérez le prénom du participant :");
-            p.setPrenom(new Scanner(System.in).nextLine());
+            data = new Scanner(System.in).nextLine();
+            while (util.vide(data)){
+                System.out.println("Le prénom ne peut être vide. Recommencez :");
+                data = new Scanner(System.in).nextLine();
+            }
+            p.setPrenom(data);
         }
-        System.out.println("Voici la liste des stages :");
-        getList();
-        System.out.println("Insérez le numéro du stage auquel vous voulez ajouter ce participant");
-        int input = new Scanner(System.in).nextInt();
-        s = liste.getStage(input);
-        boolean ok = listep.verifMember(s,p);
-        listep.addMember(ok, s, p);
+        if (ok){
+            System.out.println("Voici la liste des stages :");
+            getList();
+            System.out.println("Insérez le numéro du stage auquel vous voulez ajouter ce participant");
+            int key = new Scanner(System.in).nextInt();
+            s = liste.getStage(key);
+            ok = listep.verifMember(s,p);
+            listep.addMember(ok, s, p);
+        }
     }
 
     public void consult(int key) {
@@ -109,8 +140,6 @@ public class StageCtrl {
             verif = liste.addLink(input, actAdd);
         }
     }
-
-    /*public void deleteLink() {} pas encore demandé */
 
     public void save(){
         util.sauvegardeListeStage(this.liste);

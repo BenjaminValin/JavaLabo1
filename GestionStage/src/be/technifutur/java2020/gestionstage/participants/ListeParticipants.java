@@ -33,18 +33,19 @@ public class ListeParticipants implements Serializable {
 
         FonctionsUtiles util = new FonctionsUtiles();
         char r = ' ';
+        char input = new Scanner(System.in).nextLine().charAt(0);
 
         if (add){
             System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = new Scanner(System.in).nextLine().charAt(0);
-            if (r == 'O' || r == 'o'){
+            r = Character.toUpperCase(input);
+            if (r == 'O'){
                 System.out.println("Insérez le nom du club du participant :");
                 String club = new Scanner(System.in).nextLine();
                 part.setNomClub(club);
             }
             System.out.println("Le participant a t'il une adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = new Scanner(System.in).nextLine().charAt(0);
-            if (r == 'O' || r == 'o'){
+            r = Character.toUpperCase(input);
+            if (r == 'O'){
                 System.out.println("Insérez l'adresse mail du participant :");
                 String club = new Scanner(System.in).nextLine();
                 part.setMail(club);
@@ -55,11 +56,11 @@ public class ListeParticipants implements Serializable {
         } else {
             Participant doublon = getMember(s, part);
             System.out.println("Voulez-vous néanmoins modifier son club/son mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = new Scanner(System.in).nextLine().charAt(0);
-            if (r == 'O' || r == 'o') {
+            r = Character.toUpperCase(input);
+            if (r == 'O') {
                 System.out.println("Voulez-vous modifier son club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = new Scanner(System.in).nextLine().charAt(0);
-                if (r == 'O' || r == 'o') {
+                r = Character.toUpperCase(input);
+                if (r == 'O') {
                     System.out.println("Insérez le nom du club du participant :");
                     String club = new Scanner(System.in).nextLine();
                     part.setNomClub(club);
@@ -67,8 +68,8 @@ public class ListeParticipants implements Serializable {
                     part.setNomClub(doublon.getNomClub());
                 }
                 System.out.println("Voulez-vous modifier son adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = new Scanner(System.in).nextLine().charAt(0);
-                if (r == 'O' || r == 'o') {
+                r = Character.toUpperCase(input);
+                if (r == 'O') {
                     System.out.println("Insérez l'adresse mail du participant :");
                     String mail = util.saisieMail();
                     part.setMail(mail);
@@ -81,10 +82,9 @@ public class ListeParticipants implements Serializable {
                 addMember(part);
             } else {
                 System.out.println("Voulez-vous retirer cet utilisateur du stage ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = new Scanner(System.in).nextLine().charAt(0);
-                if (r == 'O' || r == 'o') {
+                r = Character.toUpperCase(input);
+                if (r == 'O') {
                     s.getParticipantsAuStage().remove(doublon);
-                    removeMember(doublon);
                 }
             }
         }
