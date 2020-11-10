@@ -17,6 +17,10 @@ public class ActiviteCtrl {
 
         System.out.println("Insérez le nom de l'activité :");
         String data = new Scanner(System.in).nextLine();
+        while(util.vide(data)){
+            System.out.println("Il faut absolument un nom pour l'activité, recommencez :");
+            data = new Scanner(System.in).nextLine();
+        }
         System.out.println("Création de la date de début de l'activité :");
         dateDebut = util.saisieDate();
         System.out.println("Insérez la durée de l'activité (en minutes) :");

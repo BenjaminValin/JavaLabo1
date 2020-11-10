@@ -35,20 +35,6 @@ public class FonctionsUtiles {
         return date;
     }
 
-    public String saisieMail(){
-        String data = new Scanner(System.in).nextLine();
-        Pattern p = Pattern.compile("^([A-Za-z0-9+-.-]+)[@]([A-Za-z0-9+-.-]+)$");
-        Matcher m = p.matcher(data);
-        boolean ok = m.matches();
-        while(!ok){
-            System.out.println("Erreur dans le mail entré. Merci de recommencer :");
-            data = new Scanner(System.in).nextLine();
-            m = p.matcher(data);
-            ok = m.matches();
-        }
-        return data;
-    }
-
     public String afficheDate(LocalDateTime unedate){
         LocalDateTime dt = unedate;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy à HH:mm");
@@ -79,6 +65,26 @@ public class FonctionsUtiles {
                 " " + dt.getMonth().getDisplayName(TextStyle.FULL,Locale.FRENCH) +
                 " " + dt.getYear();
         return date;
+    }
+
+    public String saisieMail(){
+        String data = new Scanner(System.in).nextLine();
+        Pattern p = Pattern.compile("^([A-Za-z0-9+-.-]+)[@]([A-Za-z0-9+-.-]+)$");
+        Matcher m = p.matcher(data);
+        boolean ok = m.matches();
+        while(!ok){
+            System.out.println("Erreur dans le mail entré. Merci de recommencer :");
+            data = new Scanner(System.in).nextLine();
+            m = p.matcher(data);
+            ok = m.matches();
+        }
+        return data;
+    }
+
+    public boolean vide(String s){
+        Pattern p = Pattern.compile("[ ]*");
+        Matcher m = p.matcher(s);
+        return m.matches();
     }
 
     public void sauvegardeListeStage(ListeStage liste){
