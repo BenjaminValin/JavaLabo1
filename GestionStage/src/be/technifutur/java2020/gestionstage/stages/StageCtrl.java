@@ -21,14 +21,15 @@ public class StageCtrl {
         boolean stop;
         LocalDateTime dateDebut = null;
         LocalDateTime dateFin = null;
+        Scanner scan = new Scanner(System.in);
 
         System.out.println("Insérez le nom du stage (q/Q pour quitter et revenir au menu des stages) :");
-        String data = new Scanner(System.in).nextLine();
+        String data = scan.nextLine().trim();
         stop = util.veutQuitter(data);
         if (!stop){
             while(util.vide(data)){
                 System.out.println("Il faut absolument un nom pour le stage, recommencez :");
-                data = new Scanner(System.in).nextLine();
+                data = scan.nextLine().trim();
             }
 
             while(!datesOK){
@@ -59,10 +60,11 @@ public class StageCtrl {
         boolean ok = true;
         boolean stop;
         String data;
+        Scanner scan = new Scanner(System.in);
 
         System.out.println("Le participant existe t'il déjà dans la liste des participants ?");
         System.out.println("Tapez O pour oui, N (ou autre caractère) pour non, q/Q pour quitter et revenir au menu des stages");
-        data = new Scanner(System.in).nextLine();
+        data = scan.nextLine();
         stop = util.veutQuitter(data);
         if (!stop){
             r = Character.toUpperCase(data.charAt(0));
@@ -70,17 +72,17 @@ public class StageCtrl {
                 System.out.println("Voici la liste des participants :");
                 System.out.println(listep.getListeParticipants());
                 System.out.println("Insérez le nom du participant que vous voulez récupérer :");
-                data = new Scanner(System.in).nextLine();
+                data = scan.nextLine().trim();
                 while (util.vide(data)){
                     System.out.println("Le nom ne peut être vide. Recommencez :");
-                    data = new Scanner(System.in).nextLine();
+                    data = scan.nextLine();
                 }
                 p.setNom(data);
                 System.out.println("Insérez le prénom du participant que vous voulez récupérer :");
-                data = new Scanner(System.in).nextLine();
+                data = scan.nextLine().trim();
                 while (util.vide(data)){
                     System.out.println("Le prénom ne peut être vide. Recommencez :");
-                    data = new Scanner(System.in).nextLine();
+                    data = scan.nextLine();
                 }
                 p.setPrenom(data);
                 p = listep.getMember(p);
@@ -91,17 +93,17 @@ public class StageCtrl {
             } else {
                 System.out.println("Création d'un nouveau participant");
                 System.out.println("Insérez le nom du participant :");
-                data = new Scanner(System.in).nextLine();
+                data = scan.nextLine().trim();
                 while (util.vide(data)){
                     System.out.println("Le nom ne peut être vide. Recommencez :");
-                    data = new Scanner(System.in).nextLine();
+                    data = scan.nextLine();
                 }
                 p.setNom(data);
                 System.out.println("Insérez le prénom du participant :");
-                data = new Scanner(System.in).nextLine();
+                data = scan.nextLine().trim();
                 while (util.vide(data)){
                     System.out.println("Le prénom ne peut être vide. Recommencez :");
-                    data = new Scanner(System.in).nextLine();
+                    data = scan.nextLine();
                 }
                 p.setPrenom(data);
             }
@@ -109,7 +111,7 @@ public class StageCtrl {
                 System.out.println("Voici la liste des stages :");
                 getList();
                 System.out.println("Insérez le numéro du stage auquel vous voulez ajouter ce participant");
-                int key = new Scanner(System.in).nextInt();
+                int key = scan.nextInt();
                 s = liste.getStage(key);
                 ok = listep.verifMember(s,p);
                 listep.addMember(ok, s, p);

@@ -25,29 +25,25 @@ public class ListeParticipants implements Serializable {
         this.listeParticipants.add(p);
     }
 
-    public void removeMember(Participant p) {
-        this.listeParticipants.remove(p);
-    }
-
     public void addMember(Boolean add, Stage s, Participant part) {
 
         FonctionsUtiles util = new FonctionsUtiles();
         char r = ' ';
-        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
         if (add){
             System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = Character.toUpperCase(scanner.nextLine().charAt(0));
+            r = Character.toUpperCase(scan.nextLine().charAt(0));
             if (r == 'O'){
                 System.out.println("Insérez le nom du club du participant :");
-                String club = new Scanner(System.in).nextLine();
+                String club = scan.nextLine().trim();
                 part.setNomClub(club);
             }
             System.out.println("Le participant a t'il une adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = Character.toUpperCase(scanner.nextLine().charAt(0));
+            r = Character.toUpperCase(scan.nextLine().charAt(0));
             if (r == 'O'){
                 System.out.println("Insérez l'adresse mail du participant :");
-                String club = new Scanner(System.in).nextLine();
+                String club = scan.nextLine().trim();
                 part.setMail(club);
             }
             System.out.println("Participant ajoutée avec succès !");
@@ -56,22 +52,22 @@ public class ListeParticipants implements Serializable {
         } else {
             Participant doublon = getMember(s, part);
             System.out.println("Voulez-vous néanmoins modifier son club/son mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = Character.toUpperCase(scanner.nextLine().charAt(0));
+            r = Character.toUpperCase(scan.nextLine().charAt(0));
             if (r == 'O') {
                 System.out.println("Voulez-vous modifier son club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = Character.toUpperCase(scanner.nextLine().charAt(0));
+                r = Character.toUpperCase(scan.nextLine().charAt(0));
                 if (r == 'O') {
                     System.out.println("Insérez le nom du club du participant :");
-                    String club = new Scanner(System.in).nextLine();
+                    String club = scan.nextLine().trim();
                     part.setNomClub(club);
                 } else {
                     part.setNomClub(doublon.getNomClub());
                 }
                 System.out.println("Voulez-vous modifier son adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = Character.toUpperCase(scanner.nextLine().charAt(0));
+                r = Character.toUpperCase(scan.nextLine().charAt(0));
                 if (r == 'O') {
                     System.out.println("Insérez l'adresse mail du participant :");
-                    String mail = util.saisieMail();
+                    String mail = util.saisieMail().trim();
                     part.setMail(mail);
                 } else {
                     part.setMail(doublon.getMail());
@@ -82,12 +78,16 @@ public class ListeParticipants implements Serializable {
                 addMember(part);
             } else {
                 System.out.println("Voulez-vous retirer cet utilisateur du stage ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = Character.toUpperCase(scanner.nextLine().charAt(0));
+                r = Character.toUpperCase(scan.nextLine().charAt(0));
                 if (r == 'O') {
                     s.getParticipantsAuStage().remove(doublon);
                 }
             }
         }
+    }
+
+    public void removeMember(Participant p) {
+        this.listeParticipants.remove(p);
     }
 
     public boolean verifMember(Stage s, Participant participant) {
