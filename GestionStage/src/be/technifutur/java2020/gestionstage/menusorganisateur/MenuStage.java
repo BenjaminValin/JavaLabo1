@@ -37,7 +37,7 @@ public class MenuStage implements MenusOrga {
                         break;
                     case 2:
                         System.out.println("***" + menu[choice] + "***");
-                        System.out.println("Stages déjà encodés : " + ctrls.getStagesCreated());
+                        System.out.println("Stages déjà encodés : " + ctrls.getStagesCreated() + "\n");
                         ctrls.getList();
                         break;
                     case 3:

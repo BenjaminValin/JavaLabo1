@@ -65,7 +65,7 @@ public class StageCtrl {
         data = new Scanner(System.in).nextLine();
         stop = util.veutQuitter(data);
         if (!stop){
-            r = Character.toUpperCase(new Scanner(System.in).nextLine().charAt(0));
+            r = Character.toUpperCase(data.charAt(0));
             if(r == 'O'){
                 System.out.println("Voici la liste des participants :");
                 System.out.println(listep.getListeParticipants());

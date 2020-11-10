@@ -60,9 +60,10 @@ public class ConsultPlanning {
                 for (int j = 0; j < liste.size(); j++){
                     Activite activ = liste.get(j);
                     LocalDate jourActiv = activ.getDateDebut().toLocalDate();
+                    LocalTime heureActiv = activ.getDateDebut().toLocalTime();
                     if (jourActiv.equals(jour)){
-                        LocalTime heureFin = activ.getDateDebut().toLocalTime().plusMinutes(liste.get(j).getDureeActivite());
-                        System.out.println(activ.getDateDebut().toLocalTime() +
+                        LocalTime heureFin = heureActiv.plusMinutes(liste.get(j).getDureeActivite());
+                        System.out.println(heureActiv +
                                 " - " + heureFin +
                                 " : " + activ.getNomActivite() +
                                 " (" + activ.getDureeActivite() + " minutes)" );

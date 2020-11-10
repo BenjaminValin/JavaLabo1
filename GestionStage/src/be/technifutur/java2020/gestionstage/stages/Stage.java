@@ -79,6 +79,6 @@ public class Stage implements Serializable {
     @Override
     public String toString() {
         FonctionsUtiles util = new FonctionsUtiles();
-        return " Nom du stage : " + nomStage + ", activité du stage : " + activitesDuStage + ", participants au stage : " + participantsAuStage + ", date de début du stage : " + util.afficheDate(dateDebut) + ", date de fin du stage : " + util.afficheDate(dateFin) + ".";
+        return " Nom du stage : " + nomStage + "\nActivités du stage : " + activitesDuStage + "\nParticipants au stage : " + participantsAuStage + "\nDate de début du stage : " + util.afficheDate(dateDebut) + ", date de fin du stage : " + util.afficheDate(dateFin) + ".\n";
     }
 }

@@ -64,6 +64,6 @@ public class Activite implements Serializable {
     @Override
     public String toString() {
         FonctionsUtiles util = new FonctionsUtiles();
-        return " Nom de l'activité = " + nomActivite + ", date de début de l'activité = " + util.afficheDate(dateDebut) + ", durée de l'activité = " + dureeActivite + " minutes";
+        return nomActivite + ", date de début = " + util.afficheDate(dateDebut) + ", durée de l'activité = " + dureeActivite + " minutes";
     }
 }

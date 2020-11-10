@@ -58,6 +58,6 @@ public class Participant implements Serializable {
 
     @Override
     public String toString() {
-        return "Prénom : " + prenom + ", Nom : " + nom + ", nom du club : " + nomClub + ", mail : " + mail;
+        return prenom + " " + nom + ", nom du club : " + nomClub + ", adresse mail : " + mail;
     }
 }
