@@ -1,5 +1,6 @@
 package be.technifutur.java2020.gestionstage.menusroles;
 
+import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.menusorganisateur.*;
 
 import java.util.Scanner;
@@ -7,6 +8,7 @@ import java.util.Scanner;
 public class Organisateur implements Gestionnaires {
 
     private MenuStage menustg;
+    private FonctionsUtiles util;
 
     @Override
     public String getName() {
@@ -20,9 +22,15 @@ public class Organisateur implements Gestionnaires {
         };
         Scanner scan = new Scanner(System.in);
         int input;
+        String choix;
         menuOrganisateur(menu);
-
-        input = scan.nextInt();
+        
+        choix = scan.nextLine();
+        while (!util.estUnNombre(choix)){
+            System.out.println("Ceci n'est pas un nombre. Recommencez :");
+            choix = scan.nextLine();
+        }
+        input = Integer.parseInt(choix);
 
 
         while (input != 0) {
@@ -39,7 +47,12 @@ public class Organisateur implements Gestionnaires {
             }
             menuOrganisateur(menu);
 
-            input = scan.nextInt();
+            choix = scan.nextLine();
+            while (!util.estUnNombre(choix)){
+                System.out.println("Ceci n'est pas un nombre. Recommencez :");
+                choix = scan.nextLine();
+            }
+            input = Integer.parseInt(choix);
 
         }
         System.out.println("Retour au menu des gestionnaires");
@@ -64,4 +77,7 @@ public class Organisateur implements Gestionnaires {
         this.menustg = menuStage;
     }
 
+    public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
+        this.util = fonctionsUtiles;
+    }
 }

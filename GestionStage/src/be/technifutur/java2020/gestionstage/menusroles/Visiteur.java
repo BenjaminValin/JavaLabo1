@@ -1,5 +1,6 @@
 package be.technifutur.java2020.gestionstage.menusroles;
 
+import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.ConsultPlanning;
 
 import java.util.Scanner;
@@ -7,6 +8,7 @@ import java.util.Scanner;
 public class Visiteur implements Gestionnaires {
 
     private ConsultPlanning consult;
+    private FonctionsUtiles util;
 
     @Override
     public String getName() {
@@ -19,9 +21,15 @@ public class Visiteur implements Gestionnaires {
         String[] menu = new String[]{"Consultation du calendrier d'un stage", "Fonction à venir"};
         Scanner scan = new Scanner(System.in);
         int input;
+        String choix;
         menuVisiteur(menu);
 
-        input = scan.nextInt();
+        choix = scan.nextLine();
+        while (!util.estUnNombre(choix)){
+            System.out.println("Ceci n'est pas un nombre. Recommencez :");
+            choix = scan.nextLine();
+        }
+        input = Integer.parseInt(choix);
 
         while (input != 0) {
             if (input < (menu.length) && input >= 1) {
@@ -37,7 +45,12 @@ public class Visiteur implements Gestionnaires {
             }
             menuVisiteur(menu);
 
-            input = scan.nextInt();
+            choix = scan.nextLine();
+            while (!util.estUnNombre(choix)){
+                System.out.println("Ceci n'est pas un nombre. Recommencez :");
+                choix = scan.nextLine();
+            }
+            input = Integer.parseInt(choix);
 
         }
         System.out.println("Retour au menu des gestionnaires");
@@ -61,5 +74,9 @@ public class Visiteur implements Gestionnaires {
 
     public void setConsultPlanning(ConsultPlanning consultPlanning) {
         this.consult = consultPlanning;
+    }
+
+    public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
+        this.util = fonctionsUtiles;
     }
 }

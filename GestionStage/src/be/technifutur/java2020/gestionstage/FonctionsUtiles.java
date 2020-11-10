@@ -87,6 +87,16 @@ public class FonctionsUtiles {
         return m.matches();
     }
 
+    public boolean estUnNombre(String s) {
+        boolean test = true;
+        try {
+            int i = Integer.parseInt(s);
+        } catch (NumberFormatException | NullPointerException pasbon) {
+            test = false;
+        }
+        return test;
+    }
+    
     public void sauvegardeListeStage(ListeStage liste){
         File fichier = new File("stagesencodes.stage");
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))) {

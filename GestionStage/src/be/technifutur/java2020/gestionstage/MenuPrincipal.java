@@ -9,6 +9,7 @@ public class MenuPrincipal {
 
     public Organisateur orga;
     private Visiteur visiteur;
+    private FonctionsUtiles util;
 
     public void start() throws FileNotFoundException {
 
@@ -17,9 +18,15 @@ public class MenuPrincipal {
         };
         Scanner scan = new Scanner(System.in);
         int input;
+        String choix;
         menuChoixParticipant(menu);
 
-        input = scan.nextInt();
+        choix = scan.nextLine();
+        while (!util.estUnNombre(choix)){
+            System.out.println("Ceci n'est pas un nombre. Recommencez :");
+            choix = scan.nextLine();
+        }
+        input = Integer.parseInt(choix);
 
         while (input != 0) {
             if (input < (menu.length) && input >= 1) {
@@ -45,7 +52,12 @@ public class MenuPrincipal {
             }
             menuChoixParticipant(menu);
 
-            input = scan.nextInt();
+            choix = scan.nextLine();
+            while (!util.estUnNombre(choix)){
+                System.out.println("Ceci n'est pas un nombre. Recommencez :");
+                choix = scan.nextLine();
+            }
+            input = Integer.parseInt(choix);
 
         }
         System.out.println("Bonne journée !");
@@ -72,5 +84,9 @@ public class MenuPrincipal {
 
     public void setVisiteur(Visiteur visiteur) {
         this.visiteur = visiteur;
+    }
+
+    public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
+        this.util = fonctionsUtiles;
     }
 }

@@ -1,5 +1,6 @@
 package be.technifutur.java2020.gestionstage.menusorganisateur;
 
+import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
 import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
@@ -9,6 +10,7 @@ public class MenuStage implements MenusOrga {
 
     private StageCtrl ctrls;
     private ActiviteCtrl ctrla;
+    private FonctionsUtiles util;
 
     @Override
     public String getName() {
@@ -17,27 +19,34 @@ public class MenuStage implements MenusOrga {
     }
 
     public void menu() {
-        String[] choix = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages", "Charger une liste de stages déjà encodée", "Afficher tous les participants aux stages", "Fonction à venir"};
+        String[] menu = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages", "Charger une liste de stages déjà encodée", "Afficher tous les participants aux stages", "Fonction à venir"};
         Scanner scan = new Scanner(System.in);
         int input, number;
-        menuStage(choix);
+        String choix;
+        menuStage(menu);
 
-        input = scan.nextInt();
+        choix = scan.nextLine();
+        while (!util.estUnNombre(choix)){
+            System.out.println("Ceci n'est pas un nombre. Recommencez :");
+            choix = scan.nextLine();
+        }
+        input = Integer.parseInt(choix);
+
         while (input != 0) {
-            if (input < (choix.length) && input >= 1) {
+            if (input < (menu.length) && input >= 1) {
                 int choice = input - 1;
                 switch (input) {
                     case 1:
-                        System.out.println("***" + choix[choice] + "***");
+                        System.out.println("***" + menu[choice] + "***");
                         ctrls.newStage();
                         break;
                     case 2:
-                        System.out.println("***" + choix[choice] + "***");
+                        System.out.println("***" + menu[choice] + "***");
                         System.out.println("Stages déjà encodés : " + ctrls.getStagesCreated());
                         ctrls.getList();
                         break;
                     case 3:
-                        System.out.println("***" + choix[choice] + "***");
+                        System.out.println("***" + menu[choice] + "***");
                         System.out.println("Voici les stages déjà encodés :");
                         ctrls.getList();
                         System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
@@ -45,31 +54,36 @@ public class MenuStage implements MenusOrga {
                         ctrls.remove(number);
                         break;
                     case 4:
-                        System.out.println("***" + choix[choice] + "***");
+                        System.out.println("***" + menu[choice] + "***");
                         ctrls.addActivity(ctrla.add());
                         break;
                     case 5:
-                        System.out.println("***" + choix[choice] + "***");
+                        System.out.println("***" + menu[choice] + "***");
                         ctrls.newMember();
                         break;
                     case 6:
-                        System.out.println("***" + choix[choice] + "***");
+                        System.out.println("***" + menu[choice] + "***");
                         ctrls.save();
                         break;
                     case 7:
-                        System.out.println("***" + choix[choice] + "***");
+                        System.out.println("***" + menu[choice] + "***");
                         ctrls.load();
                         break;
                     case 8:
-                        System.out.println("***" + choix[choice] + "***");
+                        System.out.println("***" + menu[choice] + "***");
                         System.out.println(ctrls.getListeParticipants());
                         break;
                 }
             } else {
                 System.out.println("Choix impossible");
             }
-            menuStage(choix);
-            input = scan.nextInt();
+            menuStage(menu);
+            choix = scan.nextLine();
+            while (!util.estUnNombre(choix)){
+                System.out.println("Ceci n'est pas un nombre. Recommencez :");
+                choix = scan.nextLine();
+            }
+            input = Integer.parseInt(choix);
         }
         System.out.println("Retour au menu des organisateurs");
 
@@ -95,5 +109,9 @@ public class MenuStage implements MenusOrga {
 
     public void setActiviteCtrl(ActiviteCtrl activiteCtrl) {
         this.ctrla = activiteCtrl;
+    }
+
+    public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
+        this.util = fonctionsUtiles;
     }
 }
