@@ -3,8 +3,6 @@ package be.technifutur.java2020.gestionstage.menusroles;
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.ConsultPlanning;
 
-import java.util.Scanner;
-
 public class Visiteur implements Gestionnaires {
 
     private ConsultPlanning consult;
@@ -19,17 +17,10 @@ public class Visiteur implements Gestionnaires {
     @Override
     public void menu() {
         String[] menu = new String[]{"Consultation du calendrier d'un stage", "Fonction à venir"};
-        Scanner scan = new Scanner(System.in);
         int input;
-        String choix;
         menuVisiteur(menu);
 
-        choix = scan.nextLine();
-        while (!util.estUnNombre(choix)){
-            System.out.println("Ceci n'est pas un nombre. Recommencez :");
-            choix = scan.nextLine();
-        }
-        input = Integer.parseInt(choix);
+        input = util.saisieNombre();
 
         while (input != 0) {
             if (input < (menu.length) && input >= 1) {
@@ -45,12 +36,7 @@ public class Visiteur implements Gestionnaires {
             }
             menuVisiteur(menu);
 
-            choix = scan.nextLine();
-            while (!util.estUnNombre(choix)){
-                System.out.println("Ceci n'est pas un nombre. Recommencez :");
-                choix = scan.nextLine();
-            }
-            input = Integer.parseInt(choix);
+            input = util.saisieNombre();
 
         }
         System.out.println("Retour au menu des gestionnaires");

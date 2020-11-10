@@ -20,17 +20,10 @@ public class Organisateur implements Gestionnaires {
         MenusOrga[] menu = new MenusOrga[]{
                 menustg, new MenuStage()//A supprimer plus tard
         };
-        Scanner scan = new Scanner(System.in);
         int input;
-        String choix;
         menuOrganisateur(menu);
-        
-        choix = scan.nextLine();
-        while (!util.estUnNombre(choix)){
-            System.out.println("Ceci n'est pas un nombre. Recommencez :");
-            choix = scan.nextLine();
-        }
-        input = Integer.parseInt(choix);
+
+        input = util.saisieNombre();
 
 
         while (input != 0) {
@@ -47,12 +40,7 @@ public class Organisateur implements Gestionnaires {
             }
             menuOrganisateur(menu);
 
-            choix = scan.nextLine();
-            while (!util.estUnNombre(choix)){
-                System.out.println("Ceci n'est pas un nombre. Recommencez :");
-                choix = scan.nextLine();
-            }
-            input = Integer.parseInt(choix);
+            input = util.saisieNombre();
 
         }
         System.out.println("Retour au menu des gestionnaires");

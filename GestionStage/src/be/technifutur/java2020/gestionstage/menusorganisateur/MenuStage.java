@@ -23,15 +23,9 @@ public class MenuStage implements MenusOrga {
         String[] menu = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages", "Charger une liste de stages déjà encodée", "Afficher tous les participants aux stages", "Fonction à venir"};
         Scanner scan = new Scanner(System.in);
         int input, number;
-        String choix;
         menuStage(menu);
 
-        choix = scan.nextLine();
-        while (!util.estUnNombre(choix)){
-            System.out.println("Ceci n'est pas un nombre. Recommencez :");
-            choix = scan.nextLine();
-        }
-        input = Integer.parseInt(choix);
+        input = util.saisieNombre();
 
         while (input != 0) {
             if (input < (menu.length) && input >= 1) {
@@ -80,12 +74,7 @@ public class MenuStage implements MenusOrga {
                 System.out.println("Choix impossible");
             }
             menuStage(menu);
-            choix = scan.nextLine();
-            while (!util.estUnNombre(choix)){
-                System.out.println("Ceci n'est pas un nombre. Recommencez :");
-                choix = scan.nextLine();
-            }
-            input = Integer.parseInt(choix);
+            input = util.saisieNombre();
         }
         System.out.println("Retour au menu des organisateurs");
 

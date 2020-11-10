@@ -103,6 +103,17 @@ public class FonctionsUtiles {
         return m.matches();
     }
 
+    public int saisieNombre() {
+        Scanner scan = new Scanner(System.in);
+        String choix = scan.nextLine();
+        while (!estUnNombre(choix)){
+            System.out.println("Ceci n'est pas un nombre. Recommencez :");
+            choix = scan.nextLine();
+        }
+        int input = Integer.parseInt(choix);
+        return input;
+    }
+
     public boolean estUnNombre(String s) {
         boolean test = true;
         try {
@@ -168,6 +179,5 @@ public class FonctionsUtiles {
         FonctionsUtiles fctut = new FonctionsUtiles();
 
         System.out.println(fctut.afficheDate(fctut.saisieDate()));
-
     }*/
 }

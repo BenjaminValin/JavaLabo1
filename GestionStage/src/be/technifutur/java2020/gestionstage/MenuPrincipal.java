@@ -3,7 +3,6 @@ package be.technifutur.java2020.gestionstage;
 import be.technifutur.java2020.gestionstage.menusroles.*;
 
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class MenuPrincipal {
 
@@ -16,17 +15,10 @@ public class MenuPrincipal {
         Gestionnaires[] menu = new Gestionnaires[]{
                 orga, visiteur, new Tresorier(), new Secretaire()
         };
-        Scanner scan = new Scanner(System.in);
         int input;
-        String choix;
         menuChoixParticipant(menu);
 
-        choix = scan.nextLine();
-        while (!util.estUnNombre(choix)){
-            System.out.println("Ceci n'est pas un nombre. Recommencez :");
-            choix = scan.nextLine();
-        }
-        input = Integer.parseInt(choix);
+        input = util.saisieNombre();
 
         while (input != 0) {
             if (input < (menu.length) && input >= 1) {
@@ -52,12 +44,7 @@ public class MenuPrincipal {
             }
             menuChoixParticipant(menu);
 
-            choix = scan.nextLine();
-            while (!util.estUnNombre(choix)){
-                System.out.println("Ceci n'est pas un nombre. Recommencez :");
-                choix = scan.nextLine();
-            }
-            input = Integer.parseInt(choix);
+            input = util.saisieNombre();
 
         }
         System.out.println("Bonne journée !");
