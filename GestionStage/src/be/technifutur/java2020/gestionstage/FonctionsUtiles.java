@@ -27,14 +27,28 @@ public class FonctionsUtiles {
         Pattern p = Pattern.compile("(0[1-9]|[1-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/([0-9][0-9][0-9][0-9]) ([0-1][0-9]|2[0-3]):([0-5][0-9])");
         Matcher m = p.matcher(data);
         boolean ok = m.matches();
-        while(!ok){
+        boolean valide = dateValide(data);
+        while(!ok || !valide){
             System.out.println("Erreur dans la date entrée. Merci de recommencer :");
             data = new Scanner(System.in).nextLine();
             m = p.matcher(data);
             ok = m.matches();
+            valide = dateValide(data);
         }
         LocalDateTime date = LocalDateTime.parse(data,format);
         return date;
+    }
+
+    public boolean dateValide(String c) {
+        String formatString = "dd/MM/yyyy";
+        try {
+            SimpleDateFormat format = new SimpleDateFormat(formatString);
+            format.setLenient(false);
+            format.parse(c);
+        } catch (ParseException | IllegalArgumentException e) {
+            return false;
+        }
+        return true;
     }
 
     public String afficheDate(LocalDateTime unedate){
@@ -154,5 +168,6 @@ public class FonctionsUtiles {
         FonctionsUtiles fctut = new FonctionsUtiles();
 
         System.out.println(fctut.afficheDate(fctut.saisieDate()));
+
     }*/
 }
