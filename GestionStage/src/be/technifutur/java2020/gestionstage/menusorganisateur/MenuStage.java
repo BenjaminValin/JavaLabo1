@@ -1,6 +1,7 @@
 package be.technifutur.java2020.gestionstage.menusorganisateur;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
+import be.technifutur.java2020.gestionstage.activites.Activite;
 import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
 import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
@@ -55,7 +56,8 @@ public class MenuStage implements MenusOrga {
                         break;
                     case 4:
                         System.out.println("***" + menu[choice] + "***");
-                        ctrls.addActivity(ctrla.add());
+                        Activite newact = ctrla.add();
+                        ctrls.addActivity(newact);
                         break;
                     case 5:
                         System.out.println("***" + menu[choice] + "***");

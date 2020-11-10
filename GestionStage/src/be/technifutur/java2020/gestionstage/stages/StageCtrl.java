@@ -18,31 +18,38 @@ public class StageCtrl {
     public void newStage() {
 
         boolean datesOK = false;
+        boolean stop;
         LocalDateTime dateDebut = null;
         LocalDateTime dateFin = null;
 
-        System.out.println("Insérez le nom du stage :");
+        System.out.println("Insérez le nom du stage (q/Q pour quitter et revenir au menu des stages) :");
         String data = new Scanner(System.in).nextLine();
-        while(util.vide(data)){
-            System.out.println("Il faut absolument un nom pour le stage, recommencez :");
-            data = new Scanner(System.in).nextLine();
+        stop = util.veutQuitter(data);
+        if (!stop){
+            while(util.vide(data)){
+                System.out.println("Il faut absolument un nom pour le stage, recommencez :");
+                data = new Scanner(System.in).nextLine();
+            }
+
+            while(!datesOK){
+                System.out.println("Création de la date de début du stage :");
+                dateDebut = util.saisieDate();
+                System.out.println("Création de la date de fin du stage :");
+                dateFin = util.saisieDate();
+                if (dateDebut.isAfter(dateFin)) {
+                    System.out.println("La date de fin arrive avant la date de début. Veuillez recommencer :");
+                } else if (dateDebut.isEqual(dateFin)) {
+                    System.out.println("Les deux dates sont exactement les mêmes. Veuillez recommencer :");
+                } else {
+                    System.out.println("Ajout validé !");
+                    datesOK = true;
+                }
+            }
+            liste.add(data, dateDebut, dateFin);
+        } else {
+            System.out.println("Retour au menu des stages");
         }
 
-        while(!datesOK){
-            System.out.println("Création de la date de début du stage :");
-            dateDebut = util.saisieDate();
-            System.out.println("Création de la date de fin du stage :");
-            dateFin = util.saisieDate();
-            if (dateDebut.isAfter(dateFin)) {
-                System.out.println("La date de fin arrive avant la date de début. Veuillez recommencer :");
-            } else if (dateDebut.isEqual(dateFin)) {
-                System.out.println("Les deux dates sont exactement les mêmes. Veuillez recommencer :");
-            } else {
-                System.out.println("Ajout validé !");
-                datesOK = true;
-            }
-        }
-        liste.add(data, dateDebut, dateFin);
     }
 
     public void newMember() {
@@ -50,56 +57,65 @@ public class StageCtrl {
         Stage s;
         char r = ' ';
         boolean ok = true;
+        boolean stop;
         String data;
 
-        System.out.println("Le participant existe t'il déjà dans la liste des participants ? Tapez O pour oui, N (ou autre caractère) pour non");
-        r = Character.toUpperCase(new Scanner(System.in).nextLine().charAt(0));
-        if(r == 'O'){
-            System.out.println("Voici la liste des participants :");
-            System.out.println(listep.getListeParticipants());
-            System.out.println("Insérez le nom du participant que vous voulez récupérer :");
-            data = new Scanner(System.in).nextLine();
-            while (util.vide(data)){
-                System.out.println("Le nom ne peut être vide. Recommencez :");
+        System.out.println("Le participant existe t'il déjà dans la liste des participants ?");
+        System.out.println("Tapez O pour oui, N (ou autre caractère) pour non, q/Q pour quitter et revenir au menu des stages");
+        data = new Scanner(System.in).nextLine();
+        stop = util.veutQuitter(data);
+        if (!stop){
+            r = Character.toUpperCase(new Scanner(System.in).nextLine().charAt(0));
+            if(r == 'O'){
+                System.out.println("Voici la liste des participants :");
+                System.out.println(listep.getListeParticipants());
+                System.out.println("Insérez le nom du participant que vous voulez récupérer :");
                 data = new Scanner(System.in).nextLine();
-            }
-            p.setNom(data);
-            System.out.println("Insérez le prénom du participant que vous voulez récupérer :");
-            data = new Scanner(System.in).nextLine();
-            while (util.vide(data)){
-                System.out.println("Le prénom ne peut être vide. Recommencez :");
+                while (util.vide(data)){
+                    System.out.println("Le nom ne peut être vide. Recommencez :");
+                    data = new Scanner(System.in).nextLine();
+                }
+                p.setNom(data);
+                System.out.println("Insérez le prénom du participant que vous voulez récupérer :");
                 data = new Scanner(System.in).nextLine();
+                while (util.vide(data)){
+                    System.out.println("Le prénom ne peut être vide. Recommencez :");
+                    data = new Scanner(System.in).nextLine();
+                }
+                p.setPrenom(data);
+                p = listep.getMember(p);
+                if (p == null){
+                    System.out.println("Le participant n'a pas été trouvé. Avez-vous fait une erreur dans le nom ou le prénom ?");
+                    ok = false;
+                }
+            } else {
+                System.out.println("Création d'un nouveau participant");
+                System.out.println("Insérez le nom du participant :");
+                data = new Scanner(System.in).nextLine();
+                while (util.vide(data)){
+                    System.out.println("Le nom ne peut être vide. Recommencez :");
+                    data = new Scanner(System.in).nextLine();
+                }
+                p.setNom(data);
+                System.out.println("Insérez le prénom du participant :");
+                data = new Scanner(System.in).nextLine();
+                while (util.vide(data)){
+                    System.out.println("Le prénom ne peut être vide. Recommencez :");
+                    data = new Scanner(System.in).nextLine();
+                }
+                p.setPrenom(data);
             }
-            p.setPrenom(data);
-            p = listep.getMember(p);
-            if (p == null){
-                System.out.println("Le participant n'a pas été trouvé. Avez-vous fait une erreur dans le nom ou le prénom ?");
-                ok = false;
+            if (ok){
+                System.out.println("Voici la liste des stages :");
+                getList();
+                System.out.println("Insérez le numéro du stage auquel vous voulez ajouter ce participant");
+                int key = new Scanner(System.in).nextInt();
+                s = liste.getStage(key);
+                ok = listep.verifMember(s,p);
+                listep.addMember(ok, s, p);
             }
         } else {
-            System.out.println("Insérez le nom du participant :");
-            data = new Scanner(System.in).nextLine();
-            while (util.vide(data)){
-                System.out.println("Le nom ne peut être vide. Recommencez :");
-                data = new Scanner(System.in).nextLine();
-            }
-            p.setNom(data);
-            System.out.println("Insérez le prénom du participant :");
-            data = new Scanner(System.in).nextLine();
-            while (util.vide(data)){
-                System.out.println("Le prénom ne peut être vide. Recommencez :");
-                data = new Scanner(System.in).nextLine();
-            }
-            p.setPrenom(data);
-        }
-        if (ok){
-            System.out.println("Voici la liste des stages :");
-            getList();
-            System.out.println("Insérez le numéro du stage auquel vous voulez ajouter ce participant");
-            int key = new Scanner(System.in).nextInt();
-            s = liste.getStage(key);
-            ok = listep.verifMember(s,p);
-            listep.addMember(ok, s, p);
+            System.out.println("Retour au menu des stages");
         }
     }
 
@@ -132,12 +148,14 @@ public class StageCtrl {
         Activite actAdd = act;
         boolean verif = false;
 
-        while (!verif){
-            System.out.println("Voici la liste des stages :");
-            getList();
-            System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
-            int input = new Scanner(System.in).nextInt();
-            verif = liste.addLink(input, actAdd);
+        if (actAdd != null){
+            while (!verif){
+                System.out.println("Voici la liste des stages :");
+                getList();
+                System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
+                int input = new Scanner(System.in).nextInt();
+                verif = liste.addLink(input, actAdd);
+            }
         }
     }
 

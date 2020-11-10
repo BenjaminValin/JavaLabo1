@@ -4,6 +4,8 @@ import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
 import be.technifutur.java2020.gestionstage.stages.ListeStage;
 
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -96,7 +98,16 @@ public class FonctionsUtiles {
         }
         return test;
     }
-    
+
+    public boolean veutQuitter(String s) {
+        boolean test = false;
+        char c = Character.toUpperCase(s.charAt(0));
+        if (c == 'Q'){
+            test = true;
+        }
+        return test;
+    }
+
     public void sauvegardeListeStage(ListeStage liste){
         File fichier = new File("stagesencodes.stage");
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))) {

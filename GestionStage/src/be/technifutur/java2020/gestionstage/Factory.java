@@ -23,6 +23,7 @@ public class Factory {
         MenuPrincipal menu = new MenuPrincipal();
         menu.setOrga(getOrga());
         menu.setVisiteur(getVisiteur());
+        menu.setFonctionsUtiles(getFonctionsUtiles());
         return menu;
     }
 
@@ -30,6 +31,7 @@ public class Factory {
         if (this.orga == null){
             this.orga = new Organisateur();
             this.orga.setMenuStage(getMenuStage());
+            this.orga.setFonctionsUtiles(getFonctionsUtiles());
         }
         return orga;
     }
@@ -39,6 +41,7 @@ public class Factory {
             this.menus = new MenuStage();
             this.menus.setStageCtrl(getStageCtrl());
             this.menus.setActiviteCtrl(getActiviteCtrl());
+            this.menus.setFonctionsUtiles(getFonctionsUtiles());
         }
         return menus;
     }
@@ -70,6 +73,7 @@ public class Factory {
     private FonctionsUtiles getFonctionsUtiles() {
         if (this.util == null){
             this.util = new FonctionsUtiles();
+            //this.util.chargementListeStage();
         }
         return util;
     }
@@ -86,6 +90,7 @@ public class Factory {
         if (this.visiteur == null){
             this.visiteur = new Visiteur();
             this.visiteur.setConsultPlanning(getConsultPlanning());
+            this.visiteur.setFonctionsUtiles(getFonctionsUtiles());
         }
         return visiteur;
     }
