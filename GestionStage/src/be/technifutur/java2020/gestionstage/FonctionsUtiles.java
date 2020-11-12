@@ -145,6 +145,16 @@ public class FonctionsUtiles {
         return test;
     }
 
+    public String saisieDonneeNonVide() {
+        FonctionsUtiles util = new FonctionsUtiles();
+        String data = new Scanner(System.in).nextLine().trim();
+        while (util.vide(data)){
+            System.out.println("Ce champ ne peut être vide. Recommencez :");
+            data = new Scanner(System.in).nextLine();
+        }
+        return data;
+    }
+
     public boolean veutQuitter(String s) {
         boolean test = false;
         char c = Character.toUpperCase(s.charAt(0));

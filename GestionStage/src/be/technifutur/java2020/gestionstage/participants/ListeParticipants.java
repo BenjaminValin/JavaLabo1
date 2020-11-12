@@ -134,4 +134,5 @@ public class ListeParticipants implements Serializable {
     public String toString() {
         return "Liste des participants = " + listeParticipants;
     }
+
 }

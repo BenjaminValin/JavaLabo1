@@ -60,7 +60,7 @@ public class Stage implements Serializable {
     public void setParticipantsAuStage(Set<Participant> participantsAuStage) {
         this.participantsAuStage = participantsAuStage;
     }
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

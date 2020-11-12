@@ -120,6 +120,9 @@ public class Factory {
     private InscriptionActivite getInscriptionActivite() {
         if (this.inscractiv == null){
             this.inscractiv = new InscriptionActivite();
+            this.inscractiv.setListeStage(getListeStage());
+            this.inscractiv.setListeParticipants(getListeParticipants());
+            this.inscractiv.setFonctionsUtiles(getFonctionsUtiles());
         }
         return inscractiv;
     }
