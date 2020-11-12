@@ -2,10 +2,9 @@ package be.technifutur.java2020.gestionstage.menusroles;
 
 public class Secretaire implements Gestionnaires {
 
-    private String name = "Secrétaire";
-
     @Override
     public String getName() {
+        String name = "Secrétaire";
         return name;
     }
 

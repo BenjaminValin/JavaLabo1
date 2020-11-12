@@ -2,10 +2,9 @@ package be.technifutur.java2020.gestionstage.menusroles;
 
 public class Tresorier implements Gestionnaires {
 
-    private String name = "Trésorier";
-
     @Override
     public String getName() {
+        String name = "Trésorier";
         return name;
     }
 

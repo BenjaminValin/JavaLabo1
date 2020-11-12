@@ -7,7 +7,7 @@ import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
 import java.util.Scanner;
 
-public class MenuStage implements MenusOrga {
+public class MenuStage implements OptionsOrga {
 
     private StageCtrl ctrls;
     private ActiviteCtrl ctrla;

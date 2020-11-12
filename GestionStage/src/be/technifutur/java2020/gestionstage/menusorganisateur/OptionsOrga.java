@@ -1,6 +1,6 @@
 package be.technifutur.java2020.gestionstage.menusorganisateur;
 
-public interface MenusOrga {
+public interface OptionsOrga {
 
     public String getName();
 

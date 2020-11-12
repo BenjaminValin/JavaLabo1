@@ -11,7 +11,8 @@ public class Stagiaire implements Gestionnaires {
 
     @Override
     public String getName() {
-        return null;
+        String name = "Stagiaire/participant";
+        return name;
     }
 
     @Override
@@ -44,7 +45,7 @@ public class Stagiaire implements Gestionnaires {
 
     private static void menuStage(String[] menu) {
         System.out.println();
-        System.out.println("***Menu des stagiaires***");
+        System.out.println("***Menu des stagiaires/participants***");
         System.out.println("Que souhaitez-vous faire ?");
         System.out.println("Entrez le nombre correspondant au choix souhaité : ");
         System.out.println();

@@ -61,8 +61,8 @@ public class Stage implements Serializable {
         this.participantsAuStage = participantsAuStage;
     }
 
-    public boolean verifMember(Stage s, Participant participant) {
-        Set<Participant> test = s.getParticipantsAuStage();
+    public boolean verifMember(Participant participant) {
+        Set<Participant> test = getParticipantsAuStage();
         boolean verif = false;
 
         for (Participant p : test) {
@@ -73,16 +73,40 @@ public class Stage implements Serializable {
         return verif;
     }
 
-    public boolean verifActivity(Stage s, String name) {
-        Set<Activite> test = s.getActivitesDuStage();
+    public Participant getMember(Participant participant) {
+        Set<Participant> test = getParticipantsAuStage();
+        Participant p = null;
+
+        for (Participant pr : test) {
+            if (pr.equals(participant)) {
+                p = pr;
+            }
+        }
+        return p;
+    }
+
+    public boolean verifActivity(Activite activite) {
+        Set<Activite> test = getActivitesDuStage();
         boolean verif = false;
 
         for (Activite a : test) {
-            if (a.getNomActivite().equals(name)) {
+            if (a.getNomActivite().equals(activite.getNomActivite())) {
                 verif = true;
             }
         }
         return verif;
+    }
+
+    public Activite getActivity(Activite activite) {
+        Set<Activite> test = getActivitesDuStage();
+        Activite act = activite;
+
+        for (Activite a : test) {
+            if (a.getNomActivite().equals(act.getNomActivite())) {
+                act = a;
+            }
+        }
+        return act;
     }
 
     @Override

@@ -7,9 +7,6 @@ import be.technifutur.java2020.gestionstage.participants.Participant;
 import be.technifutur.java2020.gestionstage.stages.ListeStage;
 import be.technifutur.java2020.gestionstage.stages.Stage;
 
-import java.util.Scanner;
-import java.util.Set;
-
 public class InscriptionActivite {
 
     private ListeStage listes;
@@ -18,9 +15,11 @@ public class InscriptionActivite {
 
     public void associate() {
         Stage stage;
-        Participant p = null;
+        Participant p = new Participant();
+        Activite a = new Activite();
         int number;
 
+        load();                                     //TODO : trouver une solution pour unifier les listes après chargement de la sauvegarde, load utilisé provisoirement
         System.out.println("Insérez votre nom :");
         p.setNom(util.saisieDonneeNonVide());
         System.out.println("Insérez votre prénom :");
@@ -32,21 +31,31 @@ public class InscriptionActivite {
         number = util.saisieNombre();
         stage = listes.getStage(number);
 
-        if(!stage.verifMember(stage, p)){
+        if(!stage.verifMember(p)){
             System.out.println("Vous n'êtes pas inscrit dans ce stage.");
         } else {
-            //Set<Participant> partstage = stage.getParticipantsAuStage();
-            //Set<Activite> actstage = stage.getActivitesDuStage();
+            p = stage.getMember(p);
             System.out.println("Entrez le nom de l'activité à laquelle vous voulez vous inscrire :");
             String data = util.saisieDonneeNonVide();
-            if(!stage.verifActivity(stage, data)){
+            a.setNomActivite(data);
+            if(!stage.verifActivity(a)){
                 System.out.println("Cette activité n'est pas présente dans le stage choisi");
-            } else if () {
-                //TODO Vérifier si le stagiaire n'est pas déjà inscrit dans l'activité choisie
             } else {
-                System.out.println("Inscription à l'activité validée");
+                a = stage.getActivity(a);
+                if (a.verifMember(p)) {
+                    System.out.println("Vous êtes déjà inscrit à cette activité");
+                } else {
+                    a.getInscritsActivite().add(p);
+                    p.getActivitesSuivies().add(a);                   // problème ClassCastException dans cette opération
+                    System.out.println("Inscription à l'activité " + a.getNomActivite() + " validée !");
+                    util.sauvegardeListeStage(this.listes);
+                }
             }
         }
+    }
+
+    public void load(){
+        this.listes = util.chargementListeStage();
     }
 
     public void setListeStage(ListeStage listeStage) {

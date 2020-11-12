@@ -1,7 +1,11 @@
 package be.technifutur.java2020.gestionstage.participants;
 
+import be.technifutur.java2020.gestionstage.activites.Activite;
+
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Participant implements Serializable {
 
@@ -9,6 +13,7 @@ public class Participant implements Serializable {
     private String nom;
     private String nomClub = "Pas de club";
     private String mail = "Pas de mail";
+    private Set<Activite> activitesSuivies = new TreeSet<>();
 
     public String getPrenom() {
         return prenom;
@@ -40,6 +45,22 @@ public class Participant implements Serializable {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public Set<Activite> getActivitesSuivies() {
+        return activitesSuivies;
+    }
+
+    public boolean verifActivity(String name) {
+        Set<Activite> test = getActivitesSuivies();
+        boolean verif = false;
+
+        for (Activite a : test) {
+            if (a.getNomActivite().equals(name)) {
+                verif = true;
+            }
+        }
+        return verif;
     }
 
     @Override

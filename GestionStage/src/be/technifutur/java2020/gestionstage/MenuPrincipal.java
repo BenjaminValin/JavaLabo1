@@ -14,7 +14,7 @@ public class MenuPrincipal {
     public void start() throws FileNotFoundException {
 
         Gestionnaires[] menu = new Gestionnaires[]{
-                orga, visiteur, stagiaire, new Secretaire()
+                orga, visiteur, stagiaire, new Secretaire(), new Tresorier()
         };
         int input;
         menuChoixParticipant(menu);

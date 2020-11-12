@@ -3,8 +3,6 @@ package be.technifutur.java2020.gestionstage.menusroles;
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.menusorganisateur.*;
 
-import java.util.Scanner;
-
 public class Organisateur implements Gestionnaires {
 
     private MenuStage menustg;
@@ -17,7 +15,7 @@ public class Organisateur implements Gestionnaires {
     }
 
     public void menu() {
-        MenusOrga[] menu = new MenusOrga[]{
+        OptionsOrga[] menu = new OptionsOrga[]{
                 menustg, new MenuStage()//A supprimer plus tard
         };
         int input;
@@ -47,7 +45,7 @@ public class Organisateur implements Gestionnaires {
 
     }
 
-    private static void menuOrganisateur(MenusOrga[] menu) {
+    private static void menuOrganisateur(OptionsOrga[] menu) {
         System.out.println();
         System.out.println("***Menu des organisateurs***");
         System.out.println("A quel sous-menu souhaitez-vous accéder ?");

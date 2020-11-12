@@ -1,10 +1,14 @@
 package be.technifutur.java2020.gestionstage.activites;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
+import be.technifutur.java2020.gestionstage.comparaisons.CompareNoms;
+import be.technifutur.java2020.gestionstage.participants.Participant;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Activite implements Serializable {
 
@@ -12,6 +16,7 @@ public class Activite implements Serializable {
     private LocalDateTime dateDebut;
     private int dureeActivite;
     public static int ActivitiesCreated = 0;
+    private Set<Participant> inscritsActivite = new TreeSet<>(new CompareNoms());
 
     public Activite add(String data, LocalDateTime dateDebut, int duree) {
 
@@ -46,6 +51,22 @@ public class Activite implements Serializable {
 
     public void setDureeActivite(int dureeActivite) {
         this.dureeActivite = dureeActivite;
+    }
+
+    public Set<Participant> getInscritsActivite() {
+        return inscritsActivite;
+    }
+
+    public boolean verifMember(Participant p){
+        Set<Participant> test = getInscritsActivite();
+        boolean verif = false;
+
+        for (Participant part : test) {
+            if (part.equals(p)) {
+                verif = true;
+            }
+        }
+        return verif;
     }
 
     @Override
