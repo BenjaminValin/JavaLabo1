@@ -1,10 +1,7 @@
 package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.menusroles.*;
-import be.technifutur.java2020.gestionstage.optionsorganisateur.AjoutActivite;
-import be.technifutur.java2020.gestionstage.optionsorganisateur.ConsulterStage;
-import be.technifutur.java2020.gestionstage.optionsorganisateur.CreerStage;
-import be.technifutur.java2020.gestionstage.optionsorganisateur.SupprimerStage;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.*;
 import be.technifutur.java2020.gestionstage.optionsstagiaires.InscriptionActivite;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.*;
 import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
@@ -28,6 +25,7 @@ public class Factory {
     private ConsulterStage consultstg;
     private SupprimerStage deletestg;
     private AjoutActivite ajact;
+    private AjoutParticipant ajpart;
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
@@ -49,6 +47,7 @@ public class Factory {
             this.orga.setConsulterStage(getConsulterStage());
             this.orga.setSupprimerStage(getSupprimerStage());
             this.orga.setAjoutActivite(getAjoutActivite());
+            this.orga.setAjoutParticipant(getAjoutParticipant());
         }
         return orga;
     }
@@ -120,6 +119,17 @@ public class Factory {
             this.ajact.setListeStage(getListeStage());
         }
         return ajact;
+    }
+
+    private AjoutParticipant getAjoutParticipant() {
+        if (this.ajpart == null){
+            this.ajpart = new AjoutParticipant();
+            this.ajpart.setFonctionsUtiles(getFonctionsUtiles());
+            this.ajpart.setConsulterStage(getConsulterStage());
+            this.ajpart.setListeStage(getListeStage());
+            this.ajpart.setListeParticipants(getListeParticipants());
+        }
+        return ajpart;
     }
 
     private ActiviteCtrl getActiviteCtrl() {
