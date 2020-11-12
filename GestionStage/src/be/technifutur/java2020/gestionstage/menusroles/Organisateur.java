@@ -3,6 +3,11 @@ package be.technifutur.java2020.gestionstage.menusroles;
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.activites.Activite;
 import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.AjoutActivite;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.ConsulterStage;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.CreerStage;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.SupprimerStage;
+import be.technifutur.java2020.gestionstage.stages.ListeStage;
 import be.technifutur.java2020.gestionstage.stages.StageCtrl;
 
 import java.util.Scanner;
@@ -12,6 +17,11 @@ public class Organisateur implements Gestionnaires {
     private StageCtrl ctrls;
     private ActiviteCtrl ctrla;
     private FonctionsUtiles util;
+    private ListeStage listes;
+    private CreerStage createstg;
+    private ConsulterStage consultstg;
+    private SupprimerStage deletestg;
+    private AjoutActivite ajact;
 
     @Override
     public String getName() {
@@ -37,12 +47,11 @@ public class Organisateur implements Gestionnaires {
                         break;
                     case 2:
                         System.out.println("***" + menu[choice] + "***");
-                        System.out.println("Stages déjà encodés : " + ctrls.getStagesCreated() + "\n");
                         ctrls.getList();
                         break;
                     case 3:
                         System.out.println("***" + menu[choice] + "***");
-                        System.out.println("Stages déjà encodés : " + ctrls.getStagesCreated() + "\n");
+                        System.out.println("Stages déjà encodés : " + listes.getStagesCreated() + "\n");
                         ctrls.getList();
                         System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
                         number = scan.nextInt();
@@ -76,7 +85,7 @@ public class Organisateur implements Gestionnaires {
             menuStage(menu);
             input = util.saisieNombre();
         }
-        System.out.println("Retour au menu des organisateurs");
+        System.out.println("Retour au menu principal");
 
     }
 
@@ -104,5 +113,25 @@ public class Organisateur implements Gestionnaires {
 
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;
+    }
+
+    public void setListeStage(ListeStage listeStage) {
+        this.listes = listeStage;
+    }
+
+    public void setCreerStage(CreerStage creerStage) {
+        this.createstg = creerStage;
+    }
+
+    public void setConsulterStage(ConsulterStage consulterStage) {
+        this.consultstg = consulterStage;
+    }
+
+    public void setSupprimerStage(SupprimerStage supprimerStage) {
+        this.deletestg = supprimerStage;
+    }
+
+    public void setAjoutActivite(AjoutActivite ajoutActivite) {
+        this.ajact = ajoutActivite;
     }
 }

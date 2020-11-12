@@ -9,8 +9,8 @@ import java.util.*;
 public class ListeStage implements Serializable {
 
     private Map<Integer, Stage> listeStages = new HashMap<>();
-    public int StagesCreated = 0;
-
+    public int StagesCreated = 0;                               //Static non nécessaire, car la Factory ne crée qu'une seule et unique liste
+                                                                //De plus, la donnée static ne passe pas la Serialization
 
     public void add(String data, LocalDateTime dateDebut, LocalDateTime dateFin) {
 

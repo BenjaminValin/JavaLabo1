@@ -54,7 +54,7 @@ public class MenuPrincipal {
 
     private static void menuChoixParticipant(Gestionnaires[] menu) {
         System.out.println();
-        System.out.println("***Menu des gestionnaires***");
+        System.out.println("***Menu principal***");
         System.out.println("Quel est votre rôle ?");
         System.out.println("Entrez le nombre correspondant au choix souhaité : ");
         System.out.println();

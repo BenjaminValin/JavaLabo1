@@ -1,6 +1,10 @@
 package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.menusroles.*;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.AjoutActivite;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.ConsulterStage;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.CreerStage;
+import be.technifutur.java2020.gestionstage.optionsorganisateur.SupprimerStage;
 import be.technifutur.java2020.gestionstage.optionsstagiaires.InscriptionActivite;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.*;
 import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
@@ -20,6 +24,10 @@ public class Factory {
     private ListeParticipants listep;
     private Stagiaire stagiaire;
     private InscriptionActivite inscractiv;
+    private CreerStage createstg;
+    private ConsulterStage consultstg;
+    private SupprimerStage deletestg;
+    private AjoutActivite ajact;
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
@@ -36,6 +44,11 @@ public class Factory {
             this.orga.setStageCtrl(getStageCtrl());
             this.orga.setActiviteCtrl(getActiviteCtrl());
             this.orga.setFonctionsUtiles(getFonctionsUtiles());
+            this.orga.setListeStage(getListeStage());
+            this.orga.setCreerStage(getCreerStage());
+            this.orga.setConsulterStage(getConsulterStage());
+            this.orga.setSupprimerStage(getSupprimerStage());
+            this.orga.setAjoutActivite(getAjoutActivite());
         }
         return orga;
     }
@@ -70,6 +83,43 @@ public class Factory {
             //this.util.chargementListeStage();
         }
         return util;
+    }
+
+    private CreerStage getCreerStage() {
+        if (this.createstg == null){
+            this.createstg = new CreerStage();
+            this.createstg.setFonctionsUtiles(getFonctionsUtiles());
+            this.createstg.setListeStage(getListeStage());
+        }
+        return createstg;
+    }
+
+    private ConsulterStage getConsulterStage() {
+        if (this.consultstg == null){
+            this.consultstg = new ConsulterStage();
+            this.consultstg.setListeStage(getListeStage());
+        }
+        return consultstg;
+    }
+
+    private SupprimerStage getSupprimerStage() {
+        if (this.deletestg == null){
+            this.deletestg = new SupprimerStage();
+            this.deletestg.setListeStage(getListeStage());
+            this.deletestg.setConsulterStage(getConsulterStage());
+            this.deletestg.setFonctionsUtiles(getFonctionsUtiles());
+        }
+        return deletestg;
+    }
+
+    private AjoutActivite getAjoutActivite() {
+        if (this.ajact == null){
+            this.ajact = new AjoutActivite();
+            this.ajact.setFonctionsUtiles(getFonctionsUtiles());
+            this.ajact.setConsulterStage(getConsulterStage());
+            this.ajact.setListeStage(getListeStage());
+        }
+        return ajact;
     }
 
     private ActiviteCtrl getActiviteCtrl() {

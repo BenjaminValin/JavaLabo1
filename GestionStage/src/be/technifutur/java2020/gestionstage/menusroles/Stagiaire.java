@@ -39,7 +39,7 @@ public class Stagiaire implements Gestionnaires {
             menuStage(menu);
             input = util.saisieNombre();
         }
-        System.out.println("Retour au menu des organisateurs");
+        System.out.println("Retour au menu principal");
 
     }
 

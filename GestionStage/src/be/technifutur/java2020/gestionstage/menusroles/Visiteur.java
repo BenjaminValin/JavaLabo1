@@ -39,7 +39,7 @@ public class Visiteur implements Gestionnaires {
             input = util.saisieNombre();
 
         }
-        System.out.println("Retour au menu des gestionnaires");
+        System.out.println("Retour au menu principal");
 
 
     }
