@@ -180,4 +180,6 @@ public class StageCtrl {
     public void setListeParticipants(ListeParticipants listeParticipants) {
         this.listep = listeParticipants;
     }
+
+
 }

@@ -42,7 +42,7 @@ public class MenuStage implements MenusOrga {
                         break;
                     case 3:
                         System.out.println("***" + menu[choice] + "***");
-                        System.out.println("Voici les stages déjà encodés :");
+                        System.out.println("Stages déjà encodés : " + ctrls.getStagesCreated() + "\n");
                         ctrls.getList();
                         System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
                         number = scan.nextInt();

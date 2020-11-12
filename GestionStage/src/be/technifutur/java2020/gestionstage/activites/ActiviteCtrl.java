@@ -17,12 +17,12 @@ public class ActiviteCtrl {
         Activite act = new Activite();
 
         System.out.println("Insérez le nom de l'activité (q/Q pour quitter et revenir au menu des stages) :");
-        String data = new Scanner(System.in).nextLine();
+        String data = new Scanner(System.in).nextLine().trim();
         stop = util.veutQuitter(data);
         if (!stop){
             while(util.vide(data)){
                 System.out.println("Il faut absolument un nom pour l'activité, recommencez (q/Q pour quitter et revenir au menu des stages) :");
-                data = new Scanner(System.in).nextLine();
+                data = new Scanner(System.in).nextLine().trim();
                 stop = util.veutQuitter(data);
             }
             if (!stop){

@@ -9,11 +9,12 @@ public class MenuPrincipal {
     public Organisateur orga;
     private Visiteur visiteur;
     private FonctionsUtiles util;
+    private Stagiaire stagiaire;
 
     public void start() throws FileNotFoundException {
 
         Gestionnaires[] menu = new Gestionnaires[]{
-                orga, visiteur, new Tresorier(), new Secretaire()
+                orga, visiteur, stagiaire, new Secretaire()
         };
         int input;
         menuChoixParticipant(menu);
@@ -33,7 +34,8 @@ public class MenuPrincipal {
                         menu[choice].menu();
                         break;
                     case 3:
-                        System.out.println("Fonctionnalité à venir, soyez patients ;)");
+                        System.out.println("Entrée dans le menu des stagiaires :)");
+                        menu[choice].menu();
                         break;
                     case 4:
                         System.out.println("Fonctionnalité à venir, soyez patients ;)");
@@ -75,5 +77,9 @@ public class MenuPrincipal {
 
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;
+    }
+
+    public void setStagiaire(Stagiaire stagiaire) {
+        this.stagiaire = stagiaire;
     }
 }
