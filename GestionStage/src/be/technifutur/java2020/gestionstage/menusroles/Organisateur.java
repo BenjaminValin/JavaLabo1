@@ -1,18 +1,11 @@
 package be.technifutur.java2020.gestionstage.menusroles;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.activites.Activite;
-import be.technifutur.java2020.gestionstage.activites.ActiviteCtrl;
 import be.technifutur.java2020.gestionstage.optionsorganisateur.*;
-import be.technifutur.java2020.gestionstage.stages.ListeStage;
-import be.technifutur.java2020.gestionstage.stages.StageCtrl;
-
-import java.util.Scanner;
+import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 
 public class Organisateur implements Gestionnaires {
 
-    private StageCtrl ctrls;
-    private ActiviteCtrl ctrla;
     private FonctionsUtiles util;
     private ListeStage listes;
     private CreerStage createstg;
@@ -86,14 +79,6 @@ public class Organisateur implements Gestionnaires {
         System.out.print("Faites votre choix : ");
     }
 
-    public void setStageCtrl(StageCtrl stageCtrl) {
-        this.ctrls = stageCtrl;
-    }
-
-    public void setActiviteCtrl(ActiviteCtrl activiteCtrl) {
-        this.ctrla = activiteCtrl;
-    }
-
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;
     }
@@ -120,69 +105,6 @@ public class Organisateur implements Gestionnaires {
 
     public void setAjoutParticipant(AjoutParticipant ajoutParticipant) {
         this.ajpart = ajoutParticipant;
-    }
-
-
-
-
-    public void oldMenu() {
-        String[] menu = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages", "Charger une liste de stages déjà encodée", "Afficher tous les participants aux stages", "Fonction à venir"};
-        Scanner scan = new Scanner(System.in);
-        int input, number;
-        menuStage(menu);
-
-        input = util.saisieNombre();
-
-        while (input != 0) {
-            if (input < (menu.length) && input >= 1) {
-                int choice = input - 1;
-                switch (input) {
-                    case 1:
-                        System.out.println("***" + menu[choice] + "***");
-                        ctrls.newStage();
-                        break;
-                    case 2:
-                        System.out.println("***" + menu[choice] + "***");
-                        ctrls.getList();
-                        break;
-                    case 3:
-                        System.out.println("***" + menu[choice] + "***");
-                        System.out.println("Stages déjà encodés : " + listes.getStagesCreated() + "\n");
-                        ctrls.getList();
-                        System.out.println("Quel est le numéro du stage que vous voulez retirer ?");
-                        number = scan.nextInt();
-                        ctrls.remove(number);
-                        break;
-                    case 4:
-                        System.out.println("***" + menu[choice] + "***");
-                        Activite newact = ctrla.add();
-                        ctrls.addActivity(newact);
-                        break;
-                    case 5:
-                        System.out.println("***" + menu[choice] + "***");
-                        ctrls.newMember();
-                        break;
-                    case 6:
-                        System.out.println("***" + menu[choice] + "***");
-                        ctrls.save();
-                        break;
-                    case 7:
-                        System.out.println("***" + menu[choice] + "***");
-                        ctrls.load();
-                        break;
-                    case 8:
-                        System.out.println("***" + menu[choice] + "***");
-                        System.out.println(ctrls.getListeParticipants());
-                        break;
-                }
-            } else {
-                System.out.println("Choix impossible");
-            }
-            menuStage(menu);
-            input = util.saisieNombre();
-        }
-        System.out.println("Retour au menu principal");
-
     }
 
 }

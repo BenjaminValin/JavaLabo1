@@ -1,10 +1,10 @@
 package be.technifutur.java2020.gestionstage.optionsorganisateur;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
-import be.technifutur.java2020.gestionstage.participants.Participant;
-import be.technifutur.java2020.gestionstage.stages.ListeStage;
-import be.technifutur.java2020.gestionstage.stages.Stage;
+import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
+import be.technifutur.java2020.gestionstage.donnees.Participant;
+import be.technifutur.java2020.gestionstage.donnees.ListeStage;
+import be.technifutur.java2020.gestionstage.donnees.Stage;
 
 import java.util.Scanner;
 

@@ -1,8 +1,7 @@
-package be.technifutur.java2020.gestionstage.participants;
+package be.technifutur.java2020.gestionstage.donnees;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.comparaisons.CompareNoms;
-import be.technifutur.java2020.gestionstage.stages.Stage;
 
 import java.io.Serializable;
 import java.util.Scanner;

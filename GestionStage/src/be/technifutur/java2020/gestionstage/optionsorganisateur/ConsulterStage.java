@@ -1,6 +1,6 @@
 package be.technifutur.java2020.gestionstage.optionsorganisateur;
 
-import be.technifutur.java2020.gestionstage.stages.ListeStage;
+import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 
 public class ConsulterStage {
 

@@ -1,6 +1,4 @@
-package be.technifutur.java2020.gestionstage.stages;
-
-import be.technifutur.java2020.gestionstage.activites.Activite;
+package be.technifutur.java2020.gestionstage.donnees;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

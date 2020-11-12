@@ -1,6 +1,6 @@
 package be.technifutur.java2020.gestionstage.comparaisons;
 
-import be.technifutur.java2020.gestionstage.activites.Activite;
+import be.technifutur.java2020.gestionstage.donnees.Activite;
 
 import java.io.Serializable;
 import java.util.Comparator;

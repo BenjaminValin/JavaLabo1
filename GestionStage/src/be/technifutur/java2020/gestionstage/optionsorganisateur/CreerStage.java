@@ -1,7 +1,7 @@
 package be.technifutur.java2020.gestionstage.optionsorganisateur;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.stages.ListeStage;
+import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;

@@ -1,11 +1,11 @@
 package be.technifutur.java2020.gestionstage.optionsstagiaires;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.activites.Activite;
-import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
-import be.technifutur.java2020.gestionstage.participants.Participant;
-import be.technifutur.java2020.gestionstage.stages.ListeStage;
-import be.technifutur.java2020.gestionstage.stages.Stage;
+import be.technifutur.java2020.gestionstage.donnees.Activite;
+import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
+import be.technifutur.java2020.gestionstage.donnees.Participant;
+import be.technifutur.java2020.gestionstage.donnees.ListeStage;
+import be.technifutur.java2020.gestionstage.donnees.Stage;
 
 public class InscriptionActivite {
 
@@ -45,7 +45,7 @@ public class InscriptionActivite {
                     System.out.println("Vous êtes déjà inscrit à cette activité");
                 } else {
                     a.getInscritsActivite().add(p);
-                    //p.getActivitesSuivies().add(a);                   //TODO Corriger problème ClassCastException dans cette opération
+                    p.getActivitesSuivies().add(a);                   //TODO Corriger problème ClassCastException dans cette opération
                     System.out.println("Inscription à l'activité " + a.getNomActivite() + " validée !");
                     util.sauvegardeListeStage(listes);
                     util.sauvegardeListeParticipants(listep);

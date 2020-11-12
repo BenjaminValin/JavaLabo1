@@ -1,22 +1,19 @@
 package be.technifutur.java2020.gestionstage;
 
+import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 import be.technifutur.java2020.gestionstage.menusroles.*;
 import be.technifutur.java2020.gestionstage.optionsorganisateur.*;
 import be.technifutur.java2020.gestionstage.optionsstagiaires.InscriptionActivite;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.*;
-import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
-import be.technifutur.java2020.gestionstage.stages.*;
-import be.technifutur.java2020.gestionstage.activites.*;
+import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
 
 import java.util.Scanner;
 
 public class Factory {
 
     private Organisateur orga;
-    private StageCtrl ctrls;
     private ListeStage listes;
     private FonctionsUtiles util;
-    private ActiviteCtrl ctrla;
     private Visiteur visiteur;
     private ConsultPlanning consult;
     private ListeParticipants listep;
@@ -43,8 +40,6 @@ public class Factory {
     private Organisateur getOrga() {
         if (this.orga == null){
             this.orga = new Organisateur();
-            this.orga.setStageCtrl(getStageCtrl());
-            this.orga.setActiviteCtrl(getActiviteCtrl());
             this.orga.setFonctionsUtiles(getFonctionsUtiles());
             this.orga.setListeStage(getListeStage());
             this.orga.setCreerStage(getCreerStage());
@@ -54,16 +49,6 @@ public class Factory {
             this.orga.setAjoutParticipant(getAjoutParticipant());
         }
         return orga;
-    }
-
-    private StageCtrl getStageCtrl() {
-        if (this.ctrls == null){
-            this.ctrls = new StageCtrl();
-            this.ctrls.setListeStage(getListeStage());
-            this.ctrls.setListeParticipants(getListeParticipants());
-            this.ctrls.setFonctionsUtiles(getFonctionsUtiles());
-        }
-        return ctrls;
     }
 
     private ListeParticipants getListeParticipants() {
@@ -133,14 +118,6 @@ public class Factory {
             this.ajpart.setListeParticipants(getListeParticipants());
         }
         return ajpart;
-    }
-
-    private ActiviteCtrl getActiviteCtrl() {
-        if (this.ctrla == null){
-            this.ctrla = new ActiviteCtrl();
-            this.ctrla.setFonctionsUtiles(getFonctionsUtiles());
-        }
-        return ctrla;
     }
 
     private Visiteur getVisiteur() {

@@ -1,8 +1,9 @@
 package be.technifutur.java2020.gestionstage.optionsvisiteurs;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.activites.Activite;
-import be.technifutur.java2020.gestionstage.stages.*;
+import be.technifutur.java2020.gestionstage.donnees.Activite;
+import be.technifutur.java2020.gestionstage.donnees.ListeStage;
+import be.technifutur.java2020.gestionstage.donnees.Stage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

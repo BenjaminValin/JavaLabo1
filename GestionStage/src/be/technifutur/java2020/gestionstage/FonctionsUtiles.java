@@ -1,7 +1,7 @@
 package be.technifutur.java2020.gestionstage;
 
-import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
-import be.technifutur.java2020.gestionstage.stages.ListeStage;
+import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
+import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 
 import java.io.*;
 import java.text.ParseException;
