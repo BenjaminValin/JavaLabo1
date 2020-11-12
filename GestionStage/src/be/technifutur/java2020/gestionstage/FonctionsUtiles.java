@@ -168,7 +168,7 @@ public class FonctionsUtiles {
         File fichier = new File("stagesencodes.stage");
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))) {
             oos.writeObject(liste);
-            System.out.println(fichier.exists());
+            //System.out.println(fichier.exists());
         } catch (IOException e) {
             e.printStackTrace();
         }

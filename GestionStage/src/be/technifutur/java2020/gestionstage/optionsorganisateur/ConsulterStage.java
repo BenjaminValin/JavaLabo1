@@ -7,7 +7,7 @@ public class ConsulterStage {
     private ListeStage listes;
 
     public void getList() {
-        System.out.println("Stages déjà encodés : " + listes.getStagesCreated() + "\n");
+        System.out.println("Stages encodés :");
         listes.getList();
     }
 
