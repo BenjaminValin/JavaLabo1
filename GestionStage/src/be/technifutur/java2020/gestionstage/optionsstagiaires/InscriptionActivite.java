@@ -46,7 +46,7 @@ public class InscriptionActivite {
                     System.out.println("Vous êtes déjà inscrit à cette activité");
                 } else {
                     a.getInscritsActivite().add(p);
-                    p.getActivitesSuivies().add(a);                   // problème ClassCastException dans cette opération
+                    //p.getActivitesSuivies().add(a);                   // problème ClassCastException dans cette opération
                     System.out.println("Inscription à l'activité " + a.getNomActivite() + " validée !");
                     util.sauvegardeListeStage(this.listes);
                 }

@@ -1,6 +1,5 @@
 package be.technifutur.java2020.gestionstage;
 
-import be.technifutur.java2020.gestionstage.menusorganisateur.*;
 import be.technifutur.java2020.gestionstage.menusroles.*;
 import be.technifutur.java2020.gestionstage.optionsstagiaires.InscriptionActivite;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.*;
@@ -11,7 +10,7 @@ import be.technifutur.java2020.gestionstage.activites.*;
 public class Factory {
 
     private Organisateur orga;
-    private MenuStage menus;
+    private Organisateur menus;
     private StageCtrl ctrls;
     private ListeStage listes;
     private FonctionsUtiles util;
@@ -34,20 +33,11 @@ public class Factory {
     private Organisateur getOrga() {
         if (this.orga == null){
             this.orga = new Organisateur();
-            this.orga.setMenuStage(getMenuStage());
+            this.orga.setStageCtrl(getStageCtrl());
+            this.orga.setActiviteCtrl(getActiviteCtrl());
             this.orga.setFonctionsUtiles(getFonctionsUtiles());
         }
         return orga;
-    }
-
-    private MenuStage getMenuStage() {
-        if (this.menus == null){
-            this.menus = new MenuStage();
-            this.menus.setStageCtrl(getStageCtrl());
-            this.menus.setActiviteCtrl(getActiviteCtrl());
-            this.menus.setFonctionsUtiles(getFonctionsUtiles());
-        }
-        return menus;
     }
 
     private StageCtrl getStageCtrl() {
