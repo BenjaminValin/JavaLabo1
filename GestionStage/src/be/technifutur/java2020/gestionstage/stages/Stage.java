@@ -60,7 +60,31 @@ public class Stage implements Serializable {
     public void setParticipantsAuStage(Set<Participant> participantsAuStage) {
         this.participantsAuStage = participantsAuStage;
     }
-    
+
+    public boolean verifMember(Stage s, Participant participant) {
+        Set<Participant> test = s.getParticipantsAuStage();
+        boolean verif = false;
+
+        for (Participant p : test) {
+            if (p.equals(participant)) {
+                verif = true;
+            }
+        }
+        return verif;
+    }
+
+    public boolean verifActivity(Stage s, String name) {
+        Set<Activite> test = s.getActivitesDuStage();
+        boolean verif = false;
+
+        for (Activite a : test) {
+            if (a.getNomActivite().equals(name)) {
+                verif = true;
+            }
+        }
+        return verif;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

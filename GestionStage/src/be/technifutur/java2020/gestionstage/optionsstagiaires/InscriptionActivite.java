@@ -32,7 +32,21 @@ public class InscriptionActivite {
         number = util.saisieNombre();
         stage = listes.getStage(number);
 
-
+        if(!stage.verifMember(stage, p)){
+            System.out.println("Vous n'êtes pas inscrit dans ce stage.");
+        } else {
+            //Set<Participant> partstage = stage.getParticipantsAuStage();
+            //Set<Activite> actstage = stage.getActivitesDuStage();
+            System.out.println("Entrez le nom de l'activité à laquelle vous voulez vous inscrire :");
+            String data = util.saisieDonneeNonVide();
+            if(!stage.verifActivity(stage, data)){
+                System.out.println("Cette activité n'est pas présente dans le stage choisi");
+            } else if () {
+                //TODO Vérifier si le stagiaire n'est pas déjà inscrit dans l'activité choisie
+            } else {
+                System.out.println("Inscription à l'activité validée");
+            }
+        }
     }
 
     public void setListeStage(ListeStage listeStage) {
