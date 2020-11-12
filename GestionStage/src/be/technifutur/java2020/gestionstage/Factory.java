@@ -8,10 +8,11 @@ import be.technifutur.java2020.gestionstage.participants.ListeParticipants;
 import be.technifutur.java2020.gestionstage.stages.*;
 import be.technifutur.java2020.gestionstage.activites.*;
 
+import java.util.Scanner;
+
 public class Factory {
 
     private Organisateur orga;
-    private Organisateur menus;
     private StageCtrl ctrls;
     private ListeStage listes;
     private FonctionsUtiles util;
@@ -29,6 +30,9 @@ public class Factory {
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
+
+        load();
+
         menu.setOrga(getOrga());
         menu.setVisiteur(getVisiteur());
         menu.setStagiaire(getStagiaire());
@@ -79,7 +83,6 @@ public class Factory {
     private FonctionsUtiles getFonctionsUtiles() {
         if (this.util == null){
             this.util = new FonctionsUtiles();
-            //this.util.chargementListeStage();
         }
         return util;
     }
@@ -175,6 +178,18 @@ public class Factory {
             this.inscractiv.setFonctionsUtiles(getFonctionsUtiles());
         }
         return inscractiv;
+    }
+
+    private void load(){
+        System.out.println("Voulez-vous charger les données précédemment enregistrées? Tapez O pour oui, tout autre caractère pour non :");
+        String data = new Scanner(System.in).nextLine();
+        char r = Character.toUpperCase(data.charAt(0));
+        if(r == 'O' && this.util == null){
+            this.util = new FonctionsUtiles();
+            this.listes = util.chargementListeStage();
+            this.listep = util.chargementListeParticipants();
+            System.out.println("Chargement de la sauvegarde réussi !");
+        }
     }
 
 }

@@ -19,7 +19,6 @@ public class InscriptionActivite {
         Activite a = new Activite();
         int number;
 
-        load();                                     //TODO : trouver une solution pour unifier les listes après chargement de la sauvegarde, load utilisé provisoirement
         System.out.println("Insérez votre nom :");
         p.setNom(util.saisieDonneeNonVide());
         System.out.println("Insérez votre prénom :");
@@ -46,16 +45,13 @@ public class InscriptionActivite {
                     System.out.println("Vous êtes déjà inscrit à cette activité");
                 } else {
                     a.getInscritsActivite().add(p);
-                    //p.getActivitesSuivies().add(a);                   // problème ClassCastException dans cette opération
+                    //p.getActivitesSuivies().add(a);                   //TODO Corriger problème ClassCastException dans cette opération
                     System.out.println("Inscription à l'activité " + a.getNomActivite() + " validée !");
-                    util.sauvegardeListeStage(this.listes);
+                    util.sauvegardeListeStage(listes);
+                    util.sauvegardeListeParticipants(listep);
                 }
             }
         }
-    }
-
-    public void load(){
-        this.listes = util.chargementListeStage();
     }
 
     public void setListeStage(ListeStage listeStage) {

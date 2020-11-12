@@ -60,6 +60,7 @@ public class AjoutActivite {
                 System.out.println("Insérez le numéro du stage auquel vous voulez ajouter une activité");
                 int input = new Scanner(System.in).nextInt();
                 verif = listes.addLink(input, actAdd);
+                util.sauvegardeListeStage(listes);
             }
         }
     }

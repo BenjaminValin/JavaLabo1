@@ -18,7 +18,6 @@ public class ConsultPlanning {
 
         Scanner scan = new Scanner(System.in);
 
-        load();                                     //TODO : trouver une solution pour unifier les listes après chargement de la sauvegarde, load utilisé provisoirement
         System.out.println("Voici la liste des stages :");
         liste.getList();
         System.out.println("De quel stage voulez-vous consulter le planning ? Insérez son numéro :");
@@ -72,10 +71,6 @@ public class ConsultPlanning {
                 System.out.println();
             }
         }
-    }
-
-    public void load(){
-        this.liste = util.chargementListeStage();
     }
 
     public void setListeStage(ListeStage listeStage) {

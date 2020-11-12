@@ -77,6 +77,8 @@ public class AjoutParticipant {
                 s = listes.getStage(key);
                 ok = listep.verifMember(s,p);
                 listep.addMember(ok, s, p);
+                util.sauvegardeListeStage(listes);
+                util.sauvegardeListeParticipants(listep);
             }
         } else {
             System.out.println("Retour au menu des stages");

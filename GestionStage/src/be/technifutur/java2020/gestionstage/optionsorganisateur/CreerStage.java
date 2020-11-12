@@ -43,6 +43,7 @@ public class CreerStage {
                 }
             }
             listes.add(data, dateDebut, dateFin);
+            util.sauvegardeListeStage(listes);
         } else {
             System.out.println("Retour au menu des organisateurs");
         }
