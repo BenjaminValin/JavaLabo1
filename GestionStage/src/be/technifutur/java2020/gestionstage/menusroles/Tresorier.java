@@ -1,10 +1,12 @@
 package be.technifutur.java2020.gestionstage.menusroles;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
+import be.technifutur.java2020.gestionstage.optionstresorier.AffecterTarif;
 
 public class Tresorier implements Gestionnaires {
 
     private FonctionsUtiles util;
+    private AffecterTarif afftarif;
 
     @Override
     public String getName() {
@@ -26,6 +28,7 @@ public class Tresorier implements Gestionnaires {
                 switch (input) {
                     case 1:
                         System.out.println("***" + menu[choice] + "***");
+                        afftarif.givePrice();
                         break;
                 }
             } else {
@@ -53,5 +56,9 @@ public class Tresorier implements Gestionnaires {
 
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;
+    }
+
+    public void setAffecterTarif(AffecterTarif affecterTarif) {
+        this.afftarif = affecterTarif;
     }
 }

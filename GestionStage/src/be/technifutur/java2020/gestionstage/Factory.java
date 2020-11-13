@@ -4,6 +4,7 @@ import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 import be.technifutur.java2020.gestionstage.menusroles.*;
 import be.technifutur.java2020.gestionstage.optionsorganisateur.*;
 import be.technifutur.java2020.gestionstage.optionsstagiaires.InscriptionActivite;
+import be.technifutur.java2020.gestionstage.optionstresorier.AffecterTarif;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.*;
 import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
 
@@ -25,6 +26,7 @@ public class Factory {
     private AjoutActivite ajact;
     private AjoutParticipant ajpart;
     private Tresorier tresorier;
+    private AffecterTarif afftarif;
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
@@ -163,8 +165,16 @@ public class Factory {
         if (this.tresorier == null) {
             this.tresorier = new Tresorier();
             this.tresorier.setFonctionsUtiles(getFonctionsUtiles());
+            this.tresorier.setAffecterTarif(getAffecterTarif());
         }
         return tresorier;
+    }
+
+    private AffecterTarif getAffecterTarif() {
+        if (this.afftarif == null) {
+            this.afftarif = new AffecterTarif();
+        }
+        return afftarif;
     }
 
     private void load(){

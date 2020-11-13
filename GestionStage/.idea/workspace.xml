@@ -26,14 +26,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0c08bb5b-c993-43f4-9ccc-2817b718eca8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/participantsencodes.stage" beforeDir="false" afterPath="$PROJECT_DIR$/participantsencodes.stage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Factory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/MenuPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/comparaisons/CompareActivites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/comparaisons/CompareActivites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/donnees/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/donnees/Participant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Gestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Gestionnaires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/FonctionsUtiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/FonctionsUtiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Tresorier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Tresorier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stagesencodes.stage" beforeDir="false" afterPath="$PROJECT_DIR$/stagesencodes.stage" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/Tarif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/Tarif.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/TarifDeBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/TarifDeBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +74,7 @@
       <recent name="E:\Programmation\Technifutur Java\Java\Java Base\java2020Labo1\GestionStage\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.TarifDeBase">
     <configuration name="FonctionsUtiles" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.technifutur.java2020.gestionstage.FonctionsUtiles" />
       <module name="GestionStage" />
@@ -104,6 +101,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TarifDeBase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="be.technifutur.java2020.gestionstage.tarifs.TarifDeBase" />
+      <module name="GestionStage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="be.technifutur.java2020.gestionstage.tarifs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.technifutur.java2020.gestionstage.Test" />
       <module name="GestionStage" />
@@ -119,6 +129,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TarifDeBase" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.FonctionsUtiles" />
         <item itemvalue="Application.Test" />
@@ -153,10 +164,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="706" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604660036970" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1605254498227">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1605255514493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605254498227" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605255514493" />
     <state x="691" y="532" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1604499154662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -177,22 +188,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604648537115" />
-    <state width="1877" height="371" key="GridCell.Tab.0.bottom" timestamp="1605253266737">
+    <state width="1877" height="371" key="GridCell.Tab.0.bottom" timestamp="1605256822794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="371" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605253266737" />
-    <state width="1877" height="371" key="GridCell.Tab.0.center" timestamp="1605253266737">
+    <state width="1877" height="371" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605256822794" />
+    <state width="1877" height="371" key="GridCell.Tab.0.center" timestamp="1605256822794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="371" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605253266737" />
-    <state width="1877" height="371" key="GridCell.Tab.0.left" timestamp="1605253266737">
+    <state width="1877" height="371" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605256822794" />
+    <state width="1877" height="371" key="GridCell.Tab.0.left" timestamp="1605256822794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="371" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605253266737" />
-    <state width="1877" height="371" key="GridCell.Tab.0.right" timestamp="1605253266737">
+    <state width="1877" height="371" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605256822794" />
+    <state width="1877" height="371" key="GridCell.Tab.0.right" timestamp="1605256822794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="371" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605253266737" />
+    <state width="1877" height="371" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605256822794" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1605197921501">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

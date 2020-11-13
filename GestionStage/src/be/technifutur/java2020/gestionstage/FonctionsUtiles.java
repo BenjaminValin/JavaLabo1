@@ -4,12 +4,15 @@ import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
 import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 
 import java.io.*;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
+import java.util.Currency;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -17,7 +20,7 @@ import java.util.regex.Pattern;
 
 public class FonctionsUtiles {
 
-    public void afficheMenu(Object[] menu) {
+    public void afficheMenu(Object[] menu){
         System.out.println("Entrez le nombre correspondant au choix souhaité : ");
         System.out.println();
         for (int i = 0; i < menu.length; i++) {
@@ -50,7 +53,7 @@ public class FonctionsUtiles {
         return date;
     }
 
-    public boolean dateValide(String c) {
+    public boolean dateValide(String c){
         String formatString = "dd/MM/yyyy";
         try {
             SimpleDateFormat format = new SimpleDateFormat(formatString);
@@ -114,7 +117,7 @@ public class FonctionsUtiles {
         return m.matches();
     }
 
-    public int saisieNombre() {
+    public int saisieNombre(){
         Scanner scan = new Scanner(System.in);
         String choix = scan.nextLine();
         while (!estUnNombre(choix)){
@@ -125,7 +128,7 @@ public class FonctionsUtiles {
         return input;
     }
 
-    public String saisieNombreViaString() {
+    public String saisieNombreViaString(){
         Scanner scan = new Scanner(System.in);
         String choix = scan.nextLine();
         while (!estUnNombre(choix)){
@@ -135,7 +138,7 @@ public class FonctionsUtiles {
         return choix;
     }
 
-    public boolean estUnNombre(String s) {
+    public boolean estUnNombre(String s){
         boolean test = true;
         try {
             int i = Integer.parseInt(s);
@@ -145,7 +148,7 @@ public class FonctionsUtiles {
         return test;
     }
 
-    public String saisieDonneeNonVide() {
+    public String saisieDonneeNonVide(){
         FonctionsUtiles util = new FonctionsUtiles();
         String data = new Scanner(System.in).nextLine().trim();
         while (util.vide(data)){
@@ -155,13 +158,18 @@ public class FonctionsUtiles {
         return data;
     }
 
-    public boolean veutQuitter(String s) {
+    public boolean veutQuitter(String s){
         boolean test = false;
         char c = Character.toUpperCase(s.charAt(0));
         if (c == 'Q'){
             test = true;
         }
         return test;
+    }
+
+    public void affichePrix(double d){
+        DecimalFormat euro = new DecimalFormat("0.00");
+        System.out.println(euro.format(d) + " €");
     }
 
     public void sauvegardeListeStage(ListeStage liste){
