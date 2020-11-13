@@ -5,7 +5,6 @@ import be.technifutur.java2020.gestionstage.comparaisons.CompareActivites;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Participant implements Serializable {
@@ -14,7 +13,7 @@ public class Participant implements Serializable {
     private String nom;
     private String nomClub = "Pas de club";
     private String mail = "Pas de mail";
-    private TreeSet<Activite> activitesSuivies = new TreeSet<>(new CompareActivites());
+    private Set<Activite> activitesSuivies = new TreeSet<>(new CompareActivites());
 
     public String getPrenom() {
         return prenom;

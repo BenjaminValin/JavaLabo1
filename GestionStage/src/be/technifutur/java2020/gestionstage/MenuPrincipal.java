@@ -10,6 +10,7 @@ public class MenuPrincipal {
     private Visiteur visiteur;
     private FonctionsUtiles util;
     private Stagiaire stagiaire;
+    private Tresorier tresorier;
 
     public void start() throws FileNotFoundException {
 
@@ -81,5 +82,9 @@ public class MenuPrincipal {
 
     public void setStagiaire(Stagiaire stagiaire) {
         this.stagiaire = stagiaire;
+    }
+
+    public void setTresorier(Tresorier tresorier) {
+        this.tresorier = tresorier;
     }
 }

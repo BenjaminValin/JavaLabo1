@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 public interface Gestionnaires {
 
-    public String getName();
+    String getName();
 
-    public abstract void menu() throws FileNotFoundException;
+    void menu() throws FileNotFoundException;
 }

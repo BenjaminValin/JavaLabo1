@@ -11,9 +11,9 @@ import java.util.Scanner;
 
 public class Factory {
 
+    private FonctionsUtiles util;
     private Organisateur orga;
     private ListeStage listes;
-    private FonctionsUtiles util;
     private Visiteur visiteur;
     private ConsultPlanning consult;
     private ListeParticipants listep;
@@ -24,6 +24,7 @@ public class Factory {
     private SupprimerStage deletestg;
     private AjoutActivite ajact;
     private AjoutParticipant ajpart;
+    private Tresorier tresorier;
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
@@ -33,6 +34,7 @@ public class Factory {
         menu.setOrga(getOrga());
         menu.setVisiteur(getVisiteur());
         menu.setStagiaire(getStagiaire());
+        menu.setTresorier(getTresorier());
         menu.setFonctionsUtiles(getFonctionsUtiles());
         return menu;
     }
@@ -155,6 +157,14 @@ public class Factory {
             this.inscractiv.setFonctionsUtiles(getFonctionsUtiles());
         }
         return inscractiv;
+    }
+
+    private Tresorier getTresorier() {
+        if (this.tresorier == null) {
+            this.tresorier = new Tresorier();
+            this.tresorier.setFonctionsUtiles(getFonctionsUtiles());
+        }
+        return tresorier;
     }
 
     private void load(){
