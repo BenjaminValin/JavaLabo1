@@ -3,9 +3,7 @@ package be.technifutur.java2020.gestionstage.donnees;
 import be.technifutur.java2020.gestionstage.comparaisons.CompareActivites;
 
 import java.io.Serializable;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Participant implements Serializable {
 
@@ -14,6 +12,7 @@ public class Participant implements Serializable {
     private String nomClub = "Pas de club";
     private String mail = "Pas de mail";
     private Set<Activite> activitesSuivies = new TreeSet<>(new CompareActivites());
+    private Map<String, Map<String,Double>> facture = new HashMap<>();
 
     public String getPrenom() {
         return prenom;
@@ -61,6 +60,10 @@ public class Participant implements Serializable {
             }
         }
         return verif;
+    }
+
+    public Map<String, Map<String, Double>> getFacture() {
+        return facture;
     }
 
     @Override

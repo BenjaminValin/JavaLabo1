@@ -4,7 +4,7 @@ import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 import be.technifutur.java2020.gestionstage.menusroles.*;
 import be.technifutur.java2020.gestionstage.optionsorganisateur.*;
 import be.technifutur.java2020.gestionstage.optionsstagiaires.InscriptionActivite;
-import be.technifutur.java2020.gestionstage.optionstresorier.AffecterTarif;
+import be.technifutur.java2020.gestionstage.optionstresorier.*;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.*;
 import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
 
@@ -27,6 +27,7 @@ public class Factory {
     private AjoutParticipant ajpart;
     private Tresorier tresorier;
     private AffecterTarif afftarif;
+    private CreerFactureParticipant creerfactpart;
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
@@ -166,6 +167,7 @@ public class Factory {
             this.tresorier = new Tresorier();
             this.tresorier.setFonctionsUtiles(getFonctionsUtiles());
             this.tresorier.setAffecterTarif(getAffecterTarif());
+            this.tresorier.setCreerFactureParticipant(getCreerFactureParticipant());
         }
         return tresorier;
     }
@@ -177,6 +179,15 @@ public class Factory {
             this.afftarif.setFonctionsUtiles(getFonctionsUtiles());
         }
         return afftarif;
+    }
+
+    private CreerFactureParticipant getCreerFactureParticipant() {
+        if (this.creerfactpart == null) {
+            this.creerfactpart = new CreerFactureParticipant();
+            this.creerfactpart.setListeStage(getListeStage());
+            this.creerfactpart.setFonctionsUtiles(getFonctionsUtiles());
+        }
+        return creerfactpart;
     }
 
     private void load(){

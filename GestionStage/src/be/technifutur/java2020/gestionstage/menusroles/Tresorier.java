@@ -2,11 +2,13 @@ package be.technifutur.java2020.gestionstage.menusroles;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.optionstresorier.AffecterTarif;
+import be.technifutur.java2020.gestionstage.optionstresorier.CreerFactureParticipant;
 
 public class Tresorier implements Gestionnaires {
 
     private FonctionsUtiles util;
     private AffecterTarif afftarif;
+    private CreerFactureParticipant creafactpart;
 
     @Override
     public String getName() {
@@ -16,7 +18,7 @@ public class Tresorier implements Gestionnaires {
 
     @Override
     public void menu() {
-        String[] menu = new String[]{"Affecter un tarif à une activité", "Fonctionnalité à venir"};
+        String[] menu = new String[]{"Affecter un tarif à une activité", "Créer une facture pour un participant", "Fonction à venir"};
         int input;
         menuTresorier(menu);
 
@@ -29,6 +31,10 @@ public class Tresorier implements Gestionnaires {
                     case 1:
                         System.out.println("***" + menu[choice] + "***");
                         afftarif.givePrice();
+                        break;
+                    case 2:
+                        System.out.println("***" + menu[choice] + "***");
+                        creafactpart.createBill();
                         break;
                 }
             } else {
@@ -60,5 +66,9 @@ public class Tresorier implements Gestionnaires {
 
     public void setAffecterTarif(AffecterTarif affecterTarif) {
         this.afftarif = affecterTarif;
+    }
+
+    public void setCreerFactureParticipant(CreerFactureParticipant creerFactureParticipant) {
+        this.creafactpart = creerFactureParticipant;
     }
 }

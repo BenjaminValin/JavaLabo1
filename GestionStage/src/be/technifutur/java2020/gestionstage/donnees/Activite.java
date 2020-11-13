@@ -67,6 +67,26 @@ public class Activite implements Serializable {
         return verif;
     }
 
+    public void putPrice(String name, double tarif) {
+        this.tarifs.put(name, tarif);
+    }
+
+    public Map<String, Double> getAllTarifs() {
+        return tarifs;
+    }
+
+    public boolean verifTarif(String data){
+        Map<String, Double> tarifs = getAllTarifs();
+        boolean verif = false;
+
+        for (Map.Entry m : tarifs.entrySet()) {
+            if (m.getKey().equals(data)) {
+                verif = true;
+            }
+        }
+        return verif;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -86,7 +106,5 @@ public class Activite implements Serializable {
         return nomActivite + ", date de début = " + util.afficheDate(dateDebut) + ", durée de l'activité = " + dureeActivite + " minutes";
     }
 
-    public void putPrice(String name, double tarif) {
-        this.tarifs.put(name, tarif);
-    }
+
 }

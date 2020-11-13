@@ -28,15 +28,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Factory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/donnees/Activite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/donnees/Activite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/donnees/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/donnees/Stage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Organisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Organisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Stagiaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Stagiaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Visiteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Visiteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/optionstresorier/AffecterTarif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/optionstresorier/AffecterTarif.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/Tarif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/Tarif.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/TarifDeBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/TarifDeBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/TarifEnfant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/TarifEnfant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/TarifSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/tarifs/TarifSocial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/donnees/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/donnees/Participant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Tresorier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/menusroles/Tresorier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,10 +163,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="706" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604660036970" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1605258497967">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1605266454764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605258497967" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605266454764" />
     <state x="691" y="532" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1604499154662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
