@@ -12,7 +12,7 @@ public class Participant implements Serializable {
     private String nomClub = "Pas de club";
     private String mail = "Pas de mail";
     private Set<Activite> activitesSuivies = new TreeSet<>(new CompareActivites());
-    private Map<String, Map<String,Double>> facture = new HashMap<>();
+    private Map<String, Double> facture = new HashMap<>();
 
     public String getPrenom() {
         return prenom;
@@ -62,7 +62,7 @@ public class Participant implements Serializable {
         return verif;
     }
 
-    public Map<String, Map<String, Double>> getFacture() {
+    public Map<String, Double> getFacture() {
         return facture;
     }
 

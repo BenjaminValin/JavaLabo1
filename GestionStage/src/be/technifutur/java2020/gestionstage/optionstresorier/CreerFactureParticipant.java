@@ -7,15 +7,16 @@ import java.util.Map;
 import java.util.Set;
 
 public class CreerFactureParticipant {
+
     private ListeStage listes;
     private FonctionsUtiles util;
-
 
     public void createBill() {
 
         Stage s;
         Participant p = new Participant();
         Set<Activite> actPart;
+        Set<Activite> actStage;
         boolean test;
 
         System.out.println("Voici la liste des stages :");
@@ -34,27 +35,33 @@ public class CreerFactureParticipant {
         } else {
             p = s.getMember(p);
             actPart = p.getActivitesSuivies();
+            actStage = s.getActivitesDuStage();
 
             for (Activite a : actPart) {
-                Map<String, Double> tarifs = a.getAllTarifs();
-                Map<String, Double> tarifaplacer = null;
-                System.out.println(a.getNomActivite());
-                System.out.println("Quel tarif appliquer au participant ?");
-                for(Map.Entry m : tarifs.entrySet()){
-                    System.out.println(m);
+                for (Activite a2 : actStage) {
+                    if(a.getNomActivite().equals(a2.getNomActivite()));{
+                        Map<String, Double> tarifs = a.getAllTarifs();
+                        System.out.println(a.getNomActivite());
+                        System.out.println("Quel tarif appliquer au participant ?");
+                        for(Map.Entry m : tarifs.entrySet()){
+                            System.out.println(m);
+                        }
+                        System.out.println("Insérez le nom exact du tarif :");
+                        String data = util.saisieDonneeNonVide();
+                        test = a.verifTarif(data);
+                        while (!test){
+                            System.out.println("Ce tarif n'a pas été trouvé.");
+                            System.out.println("Insérez le nom exact du tarif :");
+                            data = util.saisieDonneeNonVide();
+                            test = a.verifTarif(data);
+                        }
+                        double prix = tarifs.get(data);
+                        data = a.getNomActivite() + " : " + data;
+                        p.getFacture().put(data, prix);
+                    }
                 }
-                System.out.println("Insérez le nom exact du tarif :");
-                String data = util.saisieDonneeNonVide();
-                test = a.verifTarif(data);
-                while (!test){
-                    System.out.println("Ce tarif n'a pas été trouvé.");
-                    System.out.println("Insérez le nom exact du tarif :");
-                    data = util.saisieDonneeNonVide();
-                    test = a.verifTarif(data);
-                }
-                tarifaplacer.put(data,tarifs.get(data));
-                p.getFacture().put(a.getNomActivite(),tarifaplacer);
             }
+            util.sauvegardeListeStage(listes);
         }
     }
 
@@ -65,6 +72,5 @@ public class CreerFactureParticipant {
     public void setFonctionsUtiles(FonctionsUtiles fonctionsUtiles) {
         this.util = fonctionsUtiles;
     }
-
 
 }

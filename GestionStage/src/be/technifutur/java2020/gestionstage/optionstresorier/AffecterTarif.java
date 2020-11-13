@@ -43,6 +43,7 @@ public class AffecterTarif {
                 giveUniquePrice(a);
                 break;
         }
+        util.sauvegardeListeStage(listes);
     };
 
     public void giveAllPrices(Activite a) {

@@ -16,7 +16,6 @@ public class TarifDeBase implements Tarif {
         double coutActivite;
         double heuresActivite = (float)a.getDureeActivite()/60;
         coutActivite = heuresActivite*coutHoraire;
-        System.out.println(coutActivite);
         return coutActivite;
     }
 
@@ -25,7 +24,7 @@ public class TarifDeBase implements Tarif {
         TarifDeBase t = new TarifDeBase();
         Activite a = new Activite();
         a.setDureeActivite(150);
-        util.affichePrix(t.tarif(a));
+        System.out.println(util.affichePrix(t.tarif(a)));
     }*/
 
 }

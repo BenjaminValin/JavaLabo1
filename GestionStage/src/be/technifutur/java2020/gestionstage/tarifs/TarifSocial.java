@@ -15,7 +15,6 @@ public class TarifSocial implements Tarif{
         double coutActivite;
         double heuresActivite = (float)a.getDureeActivite()/60;
         coutActivite = heuresActivite*coutHoraire;
-        System.out.println(coutActivite);
         return coutActivite;
     }
 }

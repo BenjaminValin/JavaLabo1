@@ -15,7 +15,7 @@ public class MenuPrincipal {
     public void start() throws FileNotFoundException {
 
         Gestionnaires[] menu = new Gestionnaires[]{
-                orga, visiteur, stagiaire, new Secretaire(), new Tresorier()
+                orga, visiteur, stagiaire, tresorier, new Secretaire()
         };
         int input;
         menuChoixParticipant(menu);
@@ -39,7 +39,10 @@ public class MenuPrincipal {
                         menu[choice].menu();
                         break;
                     case 4:
-                        System.out.println("Fonctionnalité à venir, soyez patients ;)");
+                        System.out.println("Entrée dans le menu des trésoriers :)");
+                        menu[choice].menu();
+                        break;
+                    case 5:
                         break;
                 }
             } else {

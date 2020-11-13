@@ -167,9 +167,10 @@ public class FonctionsUtiles {
         return test;
     }
 
-    public void affichePrix(double d){
+    public String affichePrix(double d){
         DecimalFormat euro = new DecimalFormat("0.00");
-        System.out.println(euro.format(d) + " €");
+        String prix = euro.format(d) + " €";
+        return prix;
     }
 
     public void sauvegardeListeStage(ListeStage liste){
