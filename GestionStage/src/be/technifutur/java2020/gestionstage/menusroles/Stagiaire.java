@@ -18,7 +18,7 @@ public class Stagiaire implements Gestionnaires {
     @Override
     public void menu() {
 
-        String[] menu = new String[]{"S'inscrire à une activité", "Fonction à venir"};
+        String[] menu = new String[]{"S'inscrire à une activité", "Fonctionnalité à venir"};
         int input;
         menuStage(menu);
 

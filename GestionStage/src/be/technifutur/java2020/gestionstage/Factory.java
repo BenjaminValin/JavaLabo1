@@ -173,6 +173,8 @@ public class Factory {
     private AffecterTarif getAffecterTarif() {
         if (this.afftarif == null) {
             this.afftarif = new AffecterTarif();
+            this.afftarif.setListeStage(getListeStage());
+            this.afftarif.setFonctionsUtiles(getFonctionsUtiles());
         }
         return afftarif;
     }

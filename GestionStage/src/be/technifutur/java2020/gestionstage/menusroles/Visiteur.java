@@ -16,7 +16,7 @@ public class Visiteur implements Gestionnaires {
 
     @Override
     public void menu() {
-        String[] menu = new String[]{"Consultation du calendrier d'un stage", "Fonction à venir"};
+        String[] menu = new String[]{"Consultation du calendrier d'un stage", "Fonctionnalité à venir"};
         int input;
         menuVisiteur(menu);
 

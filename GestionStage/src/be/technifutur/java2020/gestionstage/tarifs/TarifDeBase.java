@@ -6,6 +6,11 @@ import be.technifutur.java2020.gestionstage.donnees.Activite;
 public class TarifDeBase implements Tarif {
 
     @Override
+    public String getName() {
+        return "Tarif de base";
+    }
+
+    @Override
     public double tarif(Activite a) {
         double coutHoraire = 50;
         double coutActivite;
@@ -15,12 +20,12 @@ public class TarifDeBase implements Tarif {
         return coutActivite;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         FonctionsUtiles util = new FonctionsUtiles();
         TarifDeBase t = new TarifDeBase();
         Activite a = new Activite();
         a.setDureeActivite(150);
         util.affichePrix(t.tarif(a));
-    }
+    }*/
 
 }

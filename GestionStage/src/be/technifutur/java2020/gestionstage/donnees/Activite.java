@@ -5,9 +5,7 @@ import be.technifutur.java2020.gestionstage.comparaisons.CompareNoms;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Activite implements Serializable {
 
@@ -16,6 +14,7 @@ public class Activite implements Serializable {
     private int dureeActivite;
     public static int ActivitiesCreated = 0;
     private Set<Participant> inscritsActivite = new TreeSet<>(new CompareNoms());
+    private Map<String, Double> tarifs = new HashMap<>();
 
     public Activite add(String data, LocalDateTime dateDebut, int duree) {
 
@@ -85,5 +84,9 @@ public class Activite implements Serializable {
     public String toString() {
         FonctionsUtiles util = new FonctionsUtiles();
         return nomActivite + ", date de début = " + util.afficheDate(dateDebut) + ", durée de l'activité = " + dureeActivite + " minutes";
+    }
+
+    public void putPrice(String name, double tarif) {
+        this.tarifs.put(name, tarif);
     }
 }

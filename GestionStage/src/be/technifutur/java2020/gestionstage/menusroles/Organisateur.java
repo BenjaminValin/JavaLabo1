@@ -21,7 +21,7 @@ public class Organisateur implements Gestionnaires {
     }
 
     public void menu() {
-        String[] menu = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages (plus utile désormais, sauvegarde auto ajoutée)", "Fonction à venir"};
+        String[] menu = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages (plus utile désormais, sauvegarde auto ajoutée)", "Fonctionnalité à venir"};
         int input;
         menuStage(menu);
 

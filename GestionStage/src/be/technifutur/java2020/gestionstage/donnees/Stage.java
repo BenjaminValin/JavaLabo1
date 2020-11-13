@@ -107,6 +107,18 @@ public class Stage implements Serializable {
         return act;
     }
 
+    public Activite getActivity(String n) {
+        Set<Activite> test = getActivitesDuStage();
+        Activite act = null;
+
+        for (Activite a : test) {
+            if (a.getNomActivite().equals(n)) {
+                act = a;
+            }
+        }
+        return act;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
