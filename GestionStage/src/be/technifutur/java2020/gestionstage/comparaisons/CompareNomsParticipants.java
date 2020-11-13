@@ -5,7 +5,7 @@ import be.technifutur.java2020.gestionstage.donnees.Participant;
 import java.io.Serializable;
 import java.util.Comparator;
 
-public class CompareNoms implements Comparator<Participant>, Serializable {
+public class CompareNomsParticipants implements Comparator<Participant>, Serializable {
 
     @Override
     public int compare(Participant p1, Participant p2) {

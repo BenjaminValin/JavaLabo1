@@ -12,7 +12,7 @@ public class CreerFactureParticipant {
     private FonctionsUtiles util;
 
     public void createBill() {
-
+/*
         Stage s;
         Participant p = new Participant();
         Set<Activite> actPart;
@@ -62,7 +62,7 @@ public class CreerFactureParticipant {
                 }
             }
             util.sauvegardeListeStage(listes);
-        }
+        }*/
     }
 
     public void setListeStage(ListeStage listeStage) {

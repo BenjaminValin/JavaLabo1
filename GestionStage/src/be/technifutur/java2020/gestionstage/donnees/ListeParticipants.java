@@ -1,5 +1,5 @@
 package be.technifutur.java2020.gestionstage.donnees;
-import be.technifutur.java2020.gestionstage.comparaisons.CompareNoms;
+import be.technifutur.java2020.gestionstage.comparaisons.CompareNomsParticipants;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -7,7 +7,7 @@ import java.util.TreeSet;
 
 public class ListeParticipants implements Serializable {
 
-    private Set<Participant> listeParticipants = new TreeSet<>(new CompareNoms());
+    private Set<Participant> listeParticipants = new TreeSet<>(new CompareNomsParticipants());
 
     public Set<Participant> getListeParticipants() {
         return listeParticipants;
@@ -22,7 +22,7 @@ public class ListeParticipants implements Serializable {
     }
 
     public boolean verifMember(Stage s, Participant participant) {
-        Set<Participant> test = s.getParticipantsAuStage();
+        Set<Participant> test = s.getParticipants();
         boolean verif = true;
 
         for (Participant p : test) {
@@ -36,9 +36,24 @@ public class ListeParticipants implements Serializable {
         return verif;
     }
 
+    public boolean verifMember(Stage s, Participation participation) {
+        Set<Participation> test = s.getParticipationsAuStage();
+        boolean verif = true;
+
+        for (Participation p : test) {
+            if (p.equals(participation)) {
+                verif = false;
+                System.out.println("Ce participant ne peut pas être inclus dans le stage, car il s'y trouve déjà");
+                System.out.println(p);
+            }
+        }
+
+        return verif;
+    }
+
     public Participant getMember(Stage s, Participant participant) {
         Participant pDoublon = null;
-        Set<Participant> test = s.getParticipantsAuStage();
+        Set<Participant> test = s.getParticipants();
 
         for (Participant p : test) {
             if (p.equals(participant)) {

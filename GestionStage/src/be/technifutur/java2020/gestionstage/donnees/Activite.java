@@ -1,7 +1,7 @@
 package be.technifutur.java2020.gestionstage.donnees;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.comparaisons.CompareNoms;
+import be.technifutur.java2020.gestionstage.comparaisons.CompareNomsParticipants;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,7 +13,7 @@ public class Activite implements Serializable {
     private LocalDateTime dateDebut;
     private int dureeActivite;
     public static int ActivitiesCreated = 0;
-    private Set<Participant> inscritsActivite = new TreeSet<>(new CompareNoms());                   //TODO A supprimer après adaptation
+    private Set<Participant> inscritsActivite = new TreeSet<>(new CompareNomsParticipants());                   //TODO A supprimer après adaptation
     private Map<String, Double> tarifs = new HashMap<>();                                           //TODO A supprimer après adaptation
 
     public Activite add(String data, LocalDateTime dateDebut, int duree) {

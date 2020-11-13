@@ -13,7 +13,7 @@ public class VoirFactureParticipant {
     private FonctionsUtiles util;
 
     public void getBill() {
-
+/*
         Stage s;
         Participant p = new Participant();
         double totalFact = 0.0;
@@ -46,7 +46,7 @@ public class VoirFactureParticipant {
             System.out.print("Le participant doit payer ");
             System.out.print(util.affichePrix(totalFact));
             System.out.print(" pour le stage");
-        }
+        }*/
     }
 
     public void setListeStage(ListeStage listeStage) {

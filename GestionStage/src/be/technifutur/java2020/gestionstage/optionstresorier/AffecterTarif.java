@@ -19,7 +19,7 @@ public class AffecterTarif {
 
         System.out.println("Voici la liste des stages :");
         listes.getList();
-        System.out.println("Dans quel stage se trouve l'activité voulue ?");
+        System.out.println("De quel stage voulez-vous fixer le prix ?");
         int choix = util.saisieNombre();
         Stage s = listes.getStage(choix);
         System.out.println("Insérez le nom de l'activité voulue :");

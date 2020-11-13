@@ -1,7 +1,7 @@
 package be.technifutur.java2020.gestionstage.donnees;
 
 import be.technifutur.java2020.gestionstage.comparaisons.CompareActivites;
-import be.technifutur.java2020.gestionstage.comparaisons.CompareNoms;
+import be.technifutur.java2020.gestionstage.comparaisons.CompareNomsParticipations;
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 
 import java.io.Serializable;
@@ -14,9 +14,8 @@ public class Stage implements Serializable {
     private String nomStage;
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
-    private Set<Activite> activitesDuStage = new TreeSet<>(new CompareActivites());             //set trié par date d'activités
-    //private Set<Participation> participantsAuStage = new TreeSet<>(new CompareNoms());        //set trié par nom, puis prénom du participant //TODO A activer après adaptation
-    private Set<Participant> participantsAuStage = new TreeSet<>(new CompareNoms());            //set trié par nom, puis prénom du participant //TODO A supprimer après adaptation
+    private Set<Activite> activitesDuStage = new TreeSet<>(new CompareActivites());                         //set trié par date d'activités
+    private Set<Participation> participationsAuStage = new TreeSet<>(new CompareNomsParticipations());      //set trié par nom, puis prénom du participant
     private Map<String, Double> tarifs = new HashMap<>();
 
     public String getNomStage() {
@@ -47,36 +46,48 @@ public class Stage implements Serializable {
         return activitesDuStage;
     }
 
-    public void setActivitesDuStage(Set<Activite> activitesDuStage) {
-        this.activitesDuStage = activitesDuStage;
+    public Set<Participation> getParticipationsAuStage() {
+        return participationsAuStage;
     }
 
-    public Set<Participant> getParticipantsAuStage() {
-        return participantsAuStage;
+    public Set<Participant> getParticipants() {
+        Set<Participant> p = new HashSet<>();
+        for (Participation pr : this.getParticipationsAuStage()) {
+            p.add(pr.getParticipant());
+        }
+        return p;
     }
 
-    public void setParticipantsAuStage(Set<Participant> participantsAuStage) {
-        this.participantsAuStage = participantsAuStage;
-    }
-
-    public boolean verifMember(Participant participant) {
-        Set<Participant> test = getParticipantsAuStage();
+    public boolean verifMember(Participation participation) {
+        Set<Participation> test = getParticipationsAuStage();
         boolean verif = false;
 
-        for (Participant p : test) {
-            if (p.equals(participant)) {
+        for (Participation pr : test) {
+            if (pr.equals(participation)) {
                 verif = true;
             }
         }
         return verif;
     }
 
-    public Participant getMember(Participant participant) {
-        Set<Participant> test = getParticipantsAuStage();
+    public Participant getMember(Participation participation) {
+        Set<Participation> test = getParticipationsAuStage();
         Participant p = null;
 
-        for (Participant pr : test) {
-            if (pr.equals(participant)) {
+        for (Participation pr : test) {
+            if (pr.equals(participation)) {
+                p = pr.getParticipant();
+            }
+        }
+        return p;
+    }
+
+    public Participation getParticipation(Participant participant) {
+        Set<Participation> test = getParticipationsAuStage();
+        Participation p = null;
+
+        for (Participation pr : test) {
+            if (pr.getParticipant().equals(participant)) {
                 p = pr;
             }
         }
@@ -137,6 +148,6 @@ public class Stage implements Serializable {
     @Override
     public String toString() {
         FonctionsUtiles util = new FonctionsUtiles();
-        return " Nom du stage : " + nomStage + "\nActivités du stage : " + activitesDuStage + "\nParticipants au stage : " + participantsAuStage + "\nDate de début du stage : " + util.afficheDate(dateDebut) + ", date de fin du stage : " + util.afficheDate(dateFin) + ".\n";
+        return " Nom du stage : " + nomStage + "\nActivités du stage : " + activitesDuStage + "\nParticipations au stage : " + participationsAuStage + "\nDate de début du stage : " + util.afficheDate(dateDebut) + ", date de fin du stage : " + util.afficheDate(dateFin) + ".\n";
     }
 }

@@ -1,10 +1,7 @@
 package be.technifutur.java2020.gestionstage.optionsorganisateur;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
-import be.technifutur.java2020.gestionstage.donnees.Participant;
-import be.technifutur.java2020.gestionstage.donnees.ListeStage;
-import be.technifutur.java2020.gestionstage.donnees.Stage;
+import be.technifutur.java2020.gestionstage.donnees.*;
 
 import java.util.Scanner;
 
@@ -17,6 +14,7 @@ public class AjoutParticipant {
 
     public void newMember() {
         Participant p = new Participant();
+        Participation part = new Participation();
         Stage s;
         char r = ' ';
         boolean ok = true;
@@ -90,6 +88,7 @@ public class AjoutParticipant {
         FonctionsUtiles util = new FonctionsUtiles();
         char r = ' ';
         Scanner scan = new Scanner(System.in);
+        Participation participation = new Participation();
 
         if (add){
             System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
@@ -107,7 +106,9 @@ public class AjoutParticipant {
                 part.setMail(club);
             }
             System.out.println("Participant ajoutée avec succès !");
-            s.getParticipantsAuStage().add(part);
+            participation.setParticipant(part);
+            participation.setStage(s);
+            s.getParticipationsAuStage().add(participation);
             listep.addMember(part);
         } else {
             Participant doublon = listep.getMember(s, part);
@@ -132,15 +133,17 @@ public class AjoutParticipant {
                 } else {
                     part.setMail(doublon.getMail());
                 }
-                s.getParticipantsAuStage().remove(doublon);
-                s.getParticipantsAuStage().add(part);
+                participation.setParticipant(part);
+                participation.setStage(s);
+                s.getParticipationsAuStage().remove(doublon);
+                s.getParticipationsAuStage().add(participation);
                 listep.removeMember(doublon);
                 listep.addMember(part);
             } else {
                 System.out.println("Voulez-vous retirer cet utilisateur du stage ? Tapez O pour oui, N (ou un autre caractère) pour non :");
                 r = Character.toUpperCase(scan.nextLine().charAt(0));
                 if (r == 'O') {
-                    s.getParticipantsAuStage().remove(doublon);
+                    s.getParticipationsAuStage().remove(doublon);
                 }
             }
         }
