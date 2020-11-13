@@ -11,8 +11,8 @@ public class Participant implements Serializable {
     private String nom;
     private String nomClub = "Pas de club";
     private String mail = "Pas de mail";
-    private Set<Activite> activitesSuivies = new TreeSet<>(new CompareActivites());
-    private Map<String, Double> facture = new HashMap<>();
+    private Set<Activite> activitesSuivies = new TreeSet<>(new CompareActivites()); //TODO A supprimer après adaptation
+    private Map<String, Double> facture = new HashMap<>();                          //TODO A supprimer après adaptation
 
     public String getPrenom() {
         return prenom;

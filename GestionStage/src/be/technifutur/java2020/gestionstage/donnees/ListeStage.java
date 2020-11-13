@@ -21,12 +21,6 @@ public class ListeStage implements Serializable {
 
     }
 
-    public void consult(int key){
-        Stage consult;
-        consult = listeStages.get(key);
-        System.out.println(consult.toString());
-    }
-
     public void remove(int key){
         listeStages.remove(key);
     }

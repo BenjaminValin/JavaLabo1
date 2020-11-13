@@ -76,12 +76,73 @@ public class AjoutParticipant {
                 int key = scan.nextInt();
                 s = listes.getStage(key);
                 ok = listep.verifMember(s,p);
-                listep.addMember(ok, s, p);
+                addMember(ok, s, p);
                 util.sauvegardeListeStage(listes);
                 util.sauvegardeListeParticipants(listep);
             }
         } else {
             System.out.println("Retour au menu des stages");
+        }
+    }
+
+    public void addMember(Boolean add, Stage s, Participant part) {
+
+        FonctionsUtiles util = new FonctionsUtiles();
+        char r = ' ';
+        Scanner scan = new Scanner(System.in);
+
+        if (add){
+            System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+            r = Character.toUpperCase(scan.nextLine().charAt(0));
+            if (r == 'O'){
+                System.out.println("Insérez le nom du club du participant :");
+                String club = scan.nextLine().trim();
+                part.setNomClub(club);
+            }
+            System.out.println("Le participant a t'il une adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+            r = Character.toUpperCase(scan.nextLine().charAt(0));
+            if (r == 'O'){
+                System.out.println("Insérez l'adresse mail du participant :");
+                String club = scan.nextLine().trim();
+                part.setMail(club);
+            }
+            System.out.println("Participant ajoutée avec succès !");
+            s.getParticipantsAuStage().add(part);
+            listep.addMember(part);
+        } else {
+            Participant doublon = listep.getMember(s, part);
+            System.out.println("Voulez-vous néanmoins modifier son club/son mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+            r = Character.toUpperCase(scan.nextLine().charAt(0));
+            if (r == 'O') {
+                System.out.println("Voulez-vous modifier son club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+                r = Character.toUpperCase(scan.nextLine().charAt(0));
+                if (r == 'O') {
+                    System.out.println("Insérez le nom du club du participant :");
+                    String club = scan.nextLine().trim();
+                    part.setNomClub(club);
+                } else {
+                    part.setNomClub(doublon.getNomClub());
+                }
+                System.out.println("Voulez-vous modifier son adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+                r = Character.toUpperCase(scan.nextLine().charAt(0));
+                if (r == 'O') {
+                    System.out.println("Insérez l'adresse mail du participant :");
+                    String mail = util.saisieMail().trim();
+                    part.setMail(mail);
+                } else {
+                    part.setMail(doublon.getMail());
+                }
+                s.getParticipantsAuStage().remove(doublon);
+                s.getParticipantsAuStage().add(part);
+                listep.removeMember(doublon);
+                listep.addMember(part);
+            } else {
+                System.out.println("Voulez-vous retirer cet utilisateur du stage ? Tapez O pour oui, N (ou un autre caractère) pour non :");
+                r = Character.toUpperCase(scan.nextLine().charAt(0));
+                if (r == 'O') {
+                    s.getParticipantsAuStage().remove(doublon);
+                }
+            }
         }
     }
 

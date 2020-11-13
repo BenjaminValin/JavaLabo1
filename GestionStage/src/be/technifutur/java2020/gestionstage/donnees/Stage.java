@@ -6,9 +6,7 @@ import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Set;
-import java.util.Objects;
-import java.util.TreeSet;
+import java.util.*;
 
 
 public class Stage implements Serializable {
@@ -17,7 +15,9 @@ public class Stage implements Serializable {
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
     private Set<Activite> activitesDuStage = new TreeSet<>(new CompareActivites());             //set trié par date d'activités
-    private Set<Participant> participantsAuStage = new TreeSet<>(new CompareNoms());            //set trié par nom, puis prénom du participant
+    //private Set<Participation> participantsAuStage = new TreeSet<>(new CompareNoms());        //set trié par nom, puis prénom du participant //TODO A activer après adaptation
+    private Set<Participant> participantsAuStage = new TreeSet<>(new CompareNoms());            //set trié par nom, puis prénom du participant //TODO A supprimer après adaptation
+    private Map<String, Double> tarifs = new HashMap<>();
 
     public String getNomStage() {
         return nomStage;

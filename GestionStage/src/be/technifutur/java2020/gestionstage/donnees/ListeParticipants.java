@@ -1,10 +1,7 @@
 package be.technifutur.java2020.gestionstage.donnees;
-
-import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.comparaisons.CompareNoms;
 
 import java.io.Serializable;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -16,73 +13,8 @@ public class ListeParticipants implements Serializable {
         return listeParticipants;
     }
 
-    public void setListeParticipants(Set<Participant> listeParticipants) {
-        this.listeParticipants = listeParticipants;
-    }
-
     public void addMember(Participant p) {
         this.listeParticipants.add(p);
-    }
-
-    public void addMember(Boolean add, Stage s, Participant part) {
-
-        FonctionsUtiles util = new FonctionsUtiles();
-        char r = ' ';
-        Scanner scan = new Scanner(System.in);
-
-        if (add){
-            System.out.println("Le participant a t'il un club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = Character.toUpperCase(scan.nextLine().charAt(0));
-            if (r == 'O'){
-                System.out.println("Insérez le nom du club du participant :");
-                String club = scan.nextLine().trim();
-                part.setNomClub(club);
-            }
-            System.out.println("Le participant a t'il une adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = Character.toUpperCase(scan.nextLine().charAt(0));
-            if (r == 'O'){
-                System.out.println("Insérez l'adresse mail du participant :");
-                String club = scan.nextLine().trim();
-                part.setMail(club);
-            }
-            System.out.println("Participant ajoutée avec succès !");
-            s.getParticipantsAuStage().add(part);
-            addMember(part);
-        } else {
-            Participant doublon = getMember(s, part);
-            System.out.println("Voulez-vous néanmoins modifier son club/son mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-            r = Character.toUpperCase(scan.nextLine().charAt(0));
-            if (r == 'O') {
-                System.out.println("Voulez-vous modifier son club ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = Character.toUpperCase(scan.nextLine().charAt(0));
-                if (r == 'O') {
-                    System.out.println("Insérez le nom du club du participant :");
-                    String club = scan.nextLine().trim();
-                    part.setNomClub(club);
-                } else {
-                    part.setNomClub(doublon.getNomClub());
-                }
-                System.out.println("Voulez-vous modifier son adresse mail ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = Character.toUpperCase(scan.nextLine().charAt(0));
-                if (r == 'O') {
-                    System.out.println("Insérez l'adresse mail du participant :");
-                    String mail = util.saisieMail().trim();
-                    part.setMail(mail);
-                } else {
-                    part.setMail(doublon.getMail());
-                }
-                s.getParticipantsAuStage().remove(doublon);
-                s.getParticipantsAuStage().add(part);
-                removeMember(doublon);
-                addMember(part);
-            } else {
-                System.out.println("Voulez-vous retirer cet utilisateur du stage ? Tapez O pour oui, N (ou un autre caractère) pour non :");
-                r = Character.toUpperCase(scan.nextLine().charAt(0));
-                if (r == 'O') {
-                    s.getParticipantsAuStage().remove(doublon);
-                }
-            }
-        }
     }
 
     public void removeMember(Participant p) {
@@ -133,5 +65,4 @@ public class ListeParticipants implements Serializable {
     public String toString() {
         return "Liste des participants = " + listeParticipants;
     }
-
 }

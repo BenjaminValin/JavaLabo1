@@ -13,8 +13,8 @@ public class Activite implements Serializable {
     private LocalDateTime dateDebut;
     private int dureeActivite;
     public static int ActivitiesCreated = 0;
-    private Set<Participant> inscritsActivite = new TreeSet<>(new CompareNoms());
-    private Map<String, Double> tarifs = new HashMap<>();
+    private Set<Participant> inscritsActivite = new TreeSet<>(new CompareNoms());                   //TODO A supprimer après adaptation
+    private Map<String, Double> tarifs = new HashMap<>();                                           //TODO A supprimer après adaptation
 
     public Activite add(String data, LocalDateTime dateDebut, int duree) {
 
