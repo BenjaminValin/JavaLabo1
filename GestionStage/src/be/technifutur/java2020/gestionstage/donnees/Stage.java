@@ -93,6 +93,18 @@ public class Stage implements Serializable {
         return p;
     }
 
+    public Participation removeParticipation(Participant participant) {
+        Set<Participation> test = getParticipationsAuStage();
+        Participation p = null;
+
+        for (Participation pr : test) {
+            if (pr.getParticipant().equals(participant)) {
+                test.remove(pr);
+            }
+        }
+        return p;
+    }
+
     public boolean verifActivity(Activite activite) {
         Set<Activite> test = getActivitesDuStage();
         boolean verif = false;
@@ -112,6 +124,18 @@ public class Stage implements Serializable {
         for (Activite a : test) {
             if (a.getNomActivite().equals(act.getNomActivite())) {
                 act = a;
+            }
+        }
+        return act;
+    }
+
+    public Activite removeActivity(Activite activite) {
+        Set<Activite> test = getActivitesDuStage();
+        Activite act = activite;
+
+        for (Activite a : test) {
+            if (a.getNomActivite().equals(act.getNomActivite())) {
+                test.remove(a);
             }
         }
         return act;

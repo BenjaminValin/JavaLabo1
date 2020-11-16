@@ -4,6 +4,7 @@ import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 import be.technifutur.java2020.gestionstage.menusroles.*;
 import be.technifutur.java2020.gestionstage.optionsorganisateur.*;
 import be.technifutur.java2020.gestionstage.optionsstagiaires.InscriptionActivite;
+import be.technifutur.java2020.gestionstage.optionsstagiaires.RetraitActivite;
 import be.technifutur.java2020.gestionstage.optionstresorier.*;
 import be.technifutur.java2020.gestionstage.optionsvisiteurs.*;
 import be.technifutur.java2020.gestionstage.donnees.ListeParticipants;
@@ -20,11 +21,14 @@ public class Factory {
     private ListeParticipants listep;
     private Stagiaire stagiaire;
     private InscriptionActivite inscractiv;
+    private RetraitActivite retractiv;
     private CreerStage createstg;
     private ConsulterStage consultstg;
     private SupprimerStage deletestg;
     private AjoutActivite ajact;
+    private SupprimerActivite suppract;
     private AjoutParticipant ajpart;
+    private SupprimerParticipant supprpart;
     private Tresorier tresorier;
     private AffecterTarif afftarif;
     private VoirFactureParticipant voirfactpart;
@@ -47,15 +51,17 @@ public class Factory {
         if (this.orga == null){
             this.orga = new Organisateur();
             this.orga.setFonctionsUtiles(getFonctionsUtiles());
-            this.orga.setListeStage(getListeStage());
             this.orga.setCreerStage(getCreerStage());
             this.orga.setConsulterStage(getConsulterStage());
             this.orga.setSupprimerStage(getSupprimerStage());
             this.orga.setAjoutActivite(getAjoutActivite());
             this.orga.setAjoutParticipant(getAjoutParticipant());
+            this.orga.setSupprimerActivite(getSupprimerActivite());
+            this.orga.setSupprimerParticipant(getSupprimerParticipant());
         }
         return orga;
     }
+
 
     private ListeParticipants getListeParticipants() {
         if (this.listep == null){
@@ -115,6 +121,15 @@ public class Factory {
         return ajact;
     }
 
+    private SupprimerActivite getSupprimerActivite() {
+        if (this.suppract == null){
+            this.suppract = new SupprimerActivite();
+            this.suppract.setFonctionsUtiles(getFonctionsUtiles());
+            this.suppract.setListeStage(getListeStage());
+        }
+        return suppract;
+    }
+
     private AjoutParticipant getAjoutParticipant() {
         if (this.ajpart == null){
             this.ajpart = new AjoutParticipant();
@@ -124,6 +139,15 @@ public class Factory {
             this.ajpart.setListeParticipants(getListeParticipants());
         }
         return ajpart;
+    }
+
+    private SupprimerParticipant getSupprimerParticipant() {
+        if (this.supprpart == null){
+            this.supprpart = new SupprimerParticipant();
+            this.supprpart.setFonctionsUtiles(getFonctionsUtiles());
+            this.supprpart.setListeStage(getListeStage());
+        }
+        return supprpart;
     }
 
     private Visiteur getVisiteur() {
@@ -149,6 +173,7 @@ public class Factory {
             this.stagiaire = new Stagiaire();
             this.stagiaire.setFonctionsUtiles(getFonctionsUtiles());
             this.stagiaire.setInscriptionActivite(getInscriptionActivite());
+            this.stagiaire.setRetraitActivite(getRetraitActivite());
         }
         return stagiaire;
     }
@@ -161,6 +186,16 @@ public class Factory {
             this.inscractiv.setFonctionsUtiles(getFonctionsUtiles());
         }
         return inscractiv;
+    }
+
+    private RetraitActivite getRetraitActivite() {
+        if (this.retractiv == null){
+            this.retractiv = new RetraitActivite();
+            this.retractiv.setListeStage(getListeStage());
+            this.retractiv.setListeParticipants(getListeParticipants());
+            this.retractiv.setFonctionsUtiles(getFonctionsUtiles());
+        }
+        return retractiv;
     }
 
     private Tresorier getTresorier() {

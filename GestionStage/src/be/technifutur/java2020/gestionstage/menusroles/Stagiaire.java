@@ -2,12 +2,14 @@ package be.technifutur.java2020.gestionstage.menusroles;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.optionsstagiaires.InscriptionActivite;
+import be.technifutur.java2020.gestionstage.optionsstagiaires.RetraitActivite;
 
 public class Stagiaire implements Gestionnaires {
 
 
     private FonctionsUtiles util;
     private InscriptionActivite inscripactiv;
+    private RetraitActivite retractiv;
 
     @Override
     public String getName() {
@@ -18,7 +20,7 @@ public class Stagiaire implements Gestionnaires {
     @Override
     public void menu() {
 
-        String[] menu = new String[]{"S'inscrire à une activité", "Fonctionnalité à venir"};
+        String[] menu = new String[]{"S'inscrire à une activité", "Se désinscrire d'une activité", "Fonctionnalité à venir"};
         int input;
         menuStage(menu);
 
@@ -31,6 +33,10 @@ public class Stagiaire implements Gestionnaires {
                     case 1:
                         System.out.println("***" + menu[choice] + "***");
                         inscripactiv.associate();
+                        break;
+                    case 2:
+                        System.out.println("***" + menu[choice] + "***");
+                        retractiv.retire();
                         break;
                 }
             } else {
@@ -63,5 +69,9 @@ public class Stagiaire implements Gestionnaires {
 
     public void setInscriptionActivite(InscriptionActivite inscriptionActivite) {
         this.inscripactiv = inscriptionActivite;
+    }
+
+    public void setRetraitActivite(RetraitActivite retraitActivite) {
+        this.retractiv = retraitActivite;
     }
 }

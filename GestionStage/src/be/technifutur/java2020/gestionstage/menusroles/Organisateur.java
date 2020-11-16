@@ -2,26 +2,25 @@ package be.technifutur.java2020.gestionstage.menusroles;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.optionsorganisateur.*;
-import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 
 public class Organisateur implements Gestionnaires {
 
     private FonctionsUtiles util;
-    private ListeStage listes;
     private CreerStage createstg;
     private ConsulterStage consultstg;
     private SupprimerStage deletestg;
     private AjoutActivite addact;
+    private SupprimerActivite suppract;
     private AjoutParticipant ajpart;
+    private SupprimerParticipant supprpart;
 
     @Override
     public String getName() {
-        String name = "Organisateur";
-        return name;
+        return "Organisateur";
     }
 
     public void menu() {
-        String[] menu = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Ajout d'un participant à un stage", "Sauvegarder la liste des stages (plus utile désormais, sauvegarde auto ajoutée)", "Fonctionnalité à venir"};
+        String[] menu = new String[]{"Création de stage", "Consultation de stage", "Suppression de stage", "Ajout d'une activité à un stage", "Supprimer une activité d'un stage", "Ajout d'un participant à un stage", "Supprimer le participant d'un stage", "Fonctionnalité à venir"};
         int input;
         menuStage(menu);
 
@@ -40,6 +39,7 @@ public class Organisateur implements Gestionnaires {
                         consultstg.getList();
                         break;
                     case 3:
+                        System.out.println("***" + menu[choice] + "***");
                         deletestg.remove();
                         break;
                     case 4:
@@ -48,11 +48,15 @@ public class Organisateur implements Gestionnaires {
                         break;
                     case 5:
                         System.out.println("***" + menu[choice] + "***");
-                        ajpart.newMember();
+                        suppract.deleteActivity();
                         break;
                     case 6:
                         System.out.println("***" + menu[choice] + "***");
-                        util.sauvegardeListeStage(this.listes);
+                        ajpart.newMember();
+                        break;
+                    case 7:
+                        System.out.println("***" + menu[choice] + "***");
+                        supprpart.deleteMember();
                         break;
                 }
             } else {
@@ -83,10 +87,6 @@ public class Organisateur implements Gestionnaires {
         this.util = fonctionsUtiles;
     }
 
-    public void setListeStage(ListeStage listeStage) {
-        this.listes = listeStage;
-    }
-
     public void setCreerStage(CreerStage creerStage) {
         this.createstg = creerStage;
     }
@@ -107,4 +107,11 @@ public class Organisateur implements Gestionnaires {
         this.ajpart = ajoutParticipant;
     }
 
+    public void setSupprimerActivite(SupprimerActivite supprimerActivite) {
+        this.suppract = supprimerActivite;
+    }
+
+    public void setSupprimerParticipant(SupprimerParticipant supprimerParticipant) {
+        this.supprpart = supprimerParticipant;
+    }
 }
