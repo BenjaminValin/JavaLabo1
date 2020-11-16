@@ -28,6 +28,7 @@ public class Factory {
     private Tresorier tresorier;
     private AffecterTarif afftarif;
     private VoirFactureParticipant voirfactpart;
+    private VoirRecettesStage voirrecettes;
 
     public MenuPrincipal getMenu(){
         MenuPrincipal menu = new MenuPrincipal();
@@ -168,6 +169,7 @@ public class Factory {
             this.tresorier.setFonctionsUtiles(getFonctionsUtiles());
             this.tresorier.setAffecterTarif(getAffecterTarif());
             this.tresorier.setVoirFactureParticipant(getVoirFactureParticipant());
+            this.tresorier.setVoirRecettesStage(getVoirRecettesStage());
         }
         return tresorier;
     }
@@ -188,6 +190,15 @@ public class Factory {
             this.voirfactpart.setFonctionsUtiles(getFonctionsUtiles());
         }
         return voirfactpart;
+    }
+
+    private VoirRecettesStage getVoirRecettesStage() {
+        if (this.voirrecettes == null) {
+            this.voirrecettes = new VoirRecettesStage();
+            this.voirrecettes.setListeStage(getListeStage());
+            this.voirrecettes.setFonctionsUtiles(getFonctionsUtiles());
+        }
+        return voirrecettes;
     }
 
     private void load(){

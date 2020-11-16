@@ -5,14 +5,12 @@ import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 
 import java.io.*;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
-import java.util.Currency;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -149,9 +147,8 @@ public class FonctionsUtiles {
     }
 
     public String saisieDonneeNonVide(){
-        FonctionsUtiles util = new FonctionsUtiles();
         String data = new Scanner(System.in).nextLine().trim();
-        while (util.vide(data)){
+        while (vide(data)){
             System.out.println("Ce champ ne peut être vide. Recommencez :");
             data = new Scanner(System.in).nextLine();
         }

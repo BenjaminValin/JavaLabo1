@@ -3,12 +3,14 @@ package be.technifutur.java2020.gestionstage.menusroles;
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.optionstresorier.AffecterTarif;
 import be.technifutur.java2020.gestionstage.optionstresorier.VoirFactureParticipant;
+import be.technifutur.java2020.gestionstage.optionstresorier.VoirRecettesStage;
 
 public class Tresorier implements Gestionnaires {
 
     private FonctionsUtiles util;
     private AffecterTarif afftarif;
     private VoirFactureParticipant voirfactpart;
+    private VoirRecettesStage recette;
 
     @Override
     public String getName() {
@@ -18,7 +20,7 @@ public class Tresorier implements Gestionnaires {
 
     @Override
     public void menu() {
-        String[] menu = new String[]{"Affecter un tarif à un participant", "Voir le coût d'un stage pour un participant", "Fonctionnalité à venir"};
+        String[] menu = new String[]{"Affecter un tarif à un participant", "Voir le coût d'un stage pour un participant", "Voir les recettes d'un stage", "Fonctionnalité à venir"};
         int input;
         menuTresorier(menu);
 
@@ -35,6 +37,10 @@ public class Tresorier implements Gestionnaires {
                     case 2:
                         System.out.println("***" + menu[choice] + "***");
                         voirfactpart.getBill();
+                        break;
+                    case 3:
+                        System.out.println("***" + menu[choice] + "***");
+                        recette.getMoney();
                         break;
                 }
             } else {
@@ -70,5 +76,9 @@ public class Tresorier implements Gestionnaires {
 
     public void setVoirFactureParticipant(VoirFactureParticipant voirFactureParticipant) {
         this.voirfactpart = voirFactureParticipant;
+    }
+
+    public void setVoirRecettesStage(VoirRecettesStage voirRecettesStage) {
+        this.recette = voirRecettesStage;
     }
 }
