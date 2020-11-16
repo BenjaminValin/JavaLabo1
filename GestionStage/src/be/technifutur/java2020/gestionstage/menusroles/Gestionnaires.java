@@ -6,5 +6,5 @@ public interface Gestionnaires {
 
     String getName();
 
-    void menu() throws FileNotFoundException;
+    void menu();
 }

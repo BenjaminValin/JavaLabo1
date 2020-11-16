@@ -1,7 +1,6 @@
 package be.technifutur.java2020.gestionstage.donnees;
 
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
-import be.technifutur.java2020.gestionstage.comparaisons.CompareNomsParticipants;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,8 +12,6 @@ public class Activite implements Serializable {
     private LocalDateTime dateDebut;
     private int dureeActivite;
     public static int ActivitiesCreated = 0;
-    private Set<Participant> inscritsActivite = new TreeSet<>(new CompareNomsParticipants());                   //TODO A supprimer après adaptation
-    private Map<String, Double> tarifs = new HashMap<>();                                           //TODO A supprimer après adaptation
 
     public Activite add(String data, LocalDateTime dateDebut, int duree) {
 
@@ -49,42 +46,6 @@ public class Activite implements Serializable {
 
     public void setDureeActivite(int dureeActivite) {
         this.dureeActivite = dureeActivite;
-    }
-
-    public Set<Participant> getInscritsActivite() {
-        return inscritsActivite;
-    }
-
-    public boolean verifMember(Participant p){
-        Set<Participant> test = getInscritsActivite();
-        boolean verif = false;
-
-        for (Participant part : test) {
-            if (part.equals(p)) {
-                verif = true;
-            }
-        }
-        return verif;
-    }
-
-    public void putPrice(String name, double tarif) {
-        this.tarifs.put(name, tarif);
-    }
-
-    public Map<String, Double> getAllTarifs() {
-        return tarifs;
-    }
-
-    public boolean verifTarif(String data){
-        Map<String, Double> tarifs = getAllTarifs();
-        boolean verif = false;
-
-        for (Map.Entry m : tarifs.entrySet()) {
-            if (m.getKey().equals(data)) {
-                verif = true;
-            }
-        }
-        return verif;
     }
 
     @Override

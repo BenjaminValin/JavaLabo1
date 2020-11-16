@@ -1,6 +1,7 @@
 package be.technifutur.java2020.gestionstage.donnees;
 
 import be.technifutur.java2020.gestionstage.comparaisons.CompareActivites;
+import be.technifutur.java2020.gestionstage.tarifs.Tarif;
 
 import java.io.Serializable;
 import java.util.*;
@@ -10,8 +11,9 @@ public class Participation implements Serializable {
     public Participant participant;
     public Stage stage;
     private Set<Activite> activitesSuivies = new TreeSet<>(new CompareActivites());
-    private Map<String, Double> tarifs = new HashMap<>();
-    private Map<String, Double> facture = new HashMap<>();
+    private Tarif tarif;
+
+    //TODO Avoir un coût total qui s'adaptera selon les activitées ajoutées ou retirées
 
     public Participant getParticipant() {
         return participant;
@@ -37,7 +39,15 @@ public class Participation implements Serializable {
         this.activitesSuivies = activitesSuivies;
     }
 
-    public Map<String, Double> getTarifs() {
+    public Tarif getTarif() {
+        return tarif;
+    }
+
+    public void setTarif(Tarif tarif) {
+        this.tarif = tarif;
+    }
+
+/*public Map<String, Double> getTarifs() {
         return tarifs;
     }
 
@@ -51,7 +61,7 @@ public class Participation implements Serializable {
 
     public void setFacture(Map<String, Double> facture) {
         this.facture = facture;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -75,7 +85,7 @@ public class Participation implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(participant, stage);
+        return Objects.hash(participant);
     }
 
     @Override

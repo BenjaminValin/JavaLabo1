@@ -1,6 +1,5 @@
 package be.technifutur.java2020.gestionstage.comparaisons;
 
-import be.technifutur.java2020.gestionstage.donnees.Participant;
 import be.technifutur.java2020.gestionstage.donnees.Participation;
 
 import java.io.Serializable;

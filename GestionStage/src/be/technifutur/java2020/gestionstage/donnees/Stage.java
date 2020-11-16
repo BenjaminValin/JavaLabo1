@@ -16,7 +16,6 @@ public class Stage implements Serializable {
     private LocalDateTime dateFin;
     private Set<Activite> activitesDuStage = new TreeSet<>(new CompareActivites());                         //set trié par date d'activités
     private Set<Participation> participationsAuStage = new TreeSet<>(new CompareNomsParticipations());      //set trié par nom, puis prénom du participant
-    private Map<String, Double> tarifs = new HashMap<>();
 
     public String getNomStage() {
         return nomStage;
@@ -112,18 +111,6 @@ public class Stage implements Serializable {
 
         for (Activite a : test) {
             if (a.getNomActivite().equals(act.getNomActivite())) {
-                act = a;
-            }
-        }
-        return act;
-    }
-
-    public Activite getActivity(String n) {
-        Set<Activite> test = getActivitesDuStage();
-        Activite act = null;
-
-        for (Activite a : test) {
-            if (a.getNomActivite().equals(n)) {
                 act = a;
             }
         }

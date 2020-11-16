@@ -3,9 +3,8 @@ package be.technifutur.java2020.gestionstage.optionstresorier;
 import be.technifutur.java2020.gestionstage.FonctionsUtiles;
 import be.technifutur.java2020.gestionstage.donnees.ListeStage;
 import be.technifutur.java2020.gestionstage.donnees.Participant;
+import be.technifutur.java2020.gestionstage.donnees.Participation;
 import be.technifutur.java2020.gestionstage.donnees.Stage;
-
-import java.util.Map;
 
 public class VoirFactureParticipant {
 
@@ -13,40 +12,33 @@ public class VoirFactureParticipant {
     private FonctionsUtiles util;
 
     public void getBill() {
-/*
+
         Stage s;
-        Participant p = new Participant();
-        double totalFact = 0.0;
+        Participant participant = new Participant();
+        Participation participation = new Participation();
+        double cout;
 
         System.out.println("Voici la liste des stages :");
         listes.getList();
-        System.out.println("Dans quel stage se trouve le participant voulu ?");
+        System.out.println("De quel stage voulez-vous extraire un participant ?");
         int choix = util.saisieNombre();
         s = listes.getStage(choix);
 
         System.out.println("Insérez le nom du participant :");
-        p.setNom(util.saisieDonneeNonVide());
+        participant.setNom(util.saisieDonneeNonVide());
         System.out.println("Insérez le prénom du participant :");
-        p.setPrenom(util.saisieDonneeNonVide());
+        participant.setPrenom(util.saisieDonneeNonVide());
+        participation.setParticipant(participant);
 
-        if(!s.verifMember(p)){
-            System.out.println("Ce participant n'a pas été trouvé dans ce stage.");
+        if (s.verifMember(participation)) {
+            participant = s.getMember(participation);
+            participation = s.getParticipation(participant);
+            cout = participation.getTarif().tarif(participation.getActivitesSuivies());
+            System.out.println("Pour " + participation.getParticipant().getPrenom() + " " + participation.getParticipant().getNom() + ", le coût du stage est à l'heure actuelle de " + util.affichePrix(cout));
         } else {
-            p = s.getMember(p);
-            Map<String, Double> facture = p.getFacture();
-
-            for (double d : facture.values()) {
-                totalFact = totalFact + d;
-            }
-
-            for(Map.Entry m : facture.entrySet()){
-                System.out.println(m);
-            }
-
-            System.out.print("Le participant doit payer ");
-            System.out.print(util.affichePrix(totalFact));
-            System.out.print(" pour le stage");
-        }*/
+            System.out.println("Ce participant n'est pas dans le stage sélectionné");
+        }
+        util.sauvegardeListeStage(listes);
     }
 
     public void setListeStage(ListeStage listeStage) {
